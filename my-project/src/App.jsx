@@ -12,7 +12,7 @@ import Header from "./component/Header";
 import { Home } from "./component/Home";
 import Login from "./component/login/Login";
 import NavBar from "./component/Navigate/Navigate";
-import Product from "./component/ProductItem/Product";
+import Product from "./component/Product/Product";
 import Register from "./component/register/Register";
 import Logout from "./component/logout/Logout";
 import CartModalItem from "./component/cartModal/cartModalItem";

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa";
 
 
-import style from "../ProductItem/ProductItem.module.css";
+import style from "./ProductItem.module.css";
 
 const productItem = ({ _id, sneacersName, price, imageUrl }) => {
   return (

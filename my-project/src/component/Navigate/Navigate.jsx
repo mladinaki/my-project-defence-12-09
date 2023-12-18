@@ -1,9 +1,10 @@
-import style from "../search/Search.module.css";
 
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 
 import Path from "../../path/path";
+import styles from "../Navigate/Navbar.module.css";
+
 
 import AuthContext from "../../contexts/authContexts";
 import { useContext } from "react";
@@ -65,7 +66,14 @@ const NavBar = () => {
         </ul>
         {/* <br style="clear: left" /> */}
       </div>
-      <div className={style["templatemo_search-item"]}>{/*   */}</div>
+      {isAuthenticated && (
+            <>
+              <div className={styles["user-name-user"]}>
+                Здравей:
+                <span style={{ color: "white",paddingLeft:5 }}>{username}</span>
+              </div>
+            </>
+          )}
     </div>
   );
 };

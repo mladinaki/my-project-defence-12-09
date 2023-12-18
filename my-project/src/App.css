@@ -369,6 +369,21 @@ img {
   padding-left: 30px;
   background: url(../public/images/templatemo_main_bg.png) repeat-y;
 }
+
+.serach-item{
+  display: absolute;
+  float: left;;
+}
+
+.search input{
+height: 25px;
+width: 200px;
+margin-bottom: 15px;
+
+
+}
+
+
 #templatemo-main-details {
   position: relative;
   float: left;

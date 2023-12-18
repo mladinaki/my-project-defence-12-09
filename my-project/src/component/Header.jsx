@@ -9,12 +9,10 @@ import { useState } from "react";
 
 import AuthContext from "../contexts/authContexts";
 
-
 const Header = () => {
   const { shoseId } = useParams();
 
   const [cart, setCart] = useState([]);
-  const { isAuthenticated, username } = useContext(AuthContext);
 
   return (
     <div id="templatemo_header" key={shoseId}>
@@ -30,16 +28,7 @@ const Header = () => {
           </div>
         </p>
         <div className={style["navLink"]}>
-          {isAuthenticated && <h3></h3> ? (
-            <>
-              <span className={styles["user-name"]}>
-                Здравей:
-                <span style={{color:'black'}}>{username}</span>
-              </span>
-            </>
-          ) : (
-            <i className="bi bi-person"></i>
-          )}
+          
         </div>
       </div>
     </div>

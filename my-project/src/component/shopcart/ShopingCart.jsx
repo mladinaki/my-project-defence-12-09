@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import style from "../shopcart/ShopCart.module.css";
-import * as userService from "../../services/componentService";
 
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
