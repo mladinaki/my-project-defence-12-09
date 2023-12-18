@@ -1646,6 +1646,7 @@
           "Hi-Tec Medin Mid е отличен избор за градски и извънградски разходки, в хладно време. Моделът предлага уникално съчетание на оригинален дизайн и надеждна, здрава конструкция.",
         _id: "ac3c87ed-e1f5-47eb-87d9-3be9b05c45f7",
       },
+
       "464892f5-8c20-4897-bc81-cbef976300a4": {
         sneacersName: "Puma",
         price: "200",
@@ -1654,6 +1655,32 @@
         manifacture: "N/A",
         imageUrl:
           "https://www.shopsector.com/uploads/productgalleryfile/images/1200x1200/zimni-obuvki-puma-desierto-v3-puretex-393928-02-2.jpg",
+        description:
+          "Подгответе се за хладното време с Puma Desierto V3 PureTex! Класически силует и щипка модерни акценти, е рецептата за перфектните зимни обувки.",
+        _id: "464892f5-8c20-4897-bc81-cbef976300a4",
+        _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+      },
+      "464892f5-8c20-4897-bc81-cbef976300a4": {
+        sneacersName: "KangoRoos",
+        price: "200",
+        availablity: "Is Stock",
+        model: "KangooRoos-12 Chine",
+        manifacture: "N/A",
+        imageUrl:
+          "https://img.eobuwie.cloud/eob_product_1800w_1800h(8/0/a/d/80ada331250cc45b39d54bcbb6c3c59ee1609943_02_0000303437794_mg.jpg,webp)/snikrsi-kangaroos-k-watch-board-81135-000-1047-buttercream-frost-pink-0000303437794.webp",
+        description:
+          "Подгответе се за хладното време с Puma Desierto V3 PureTex! Класически силует и щипка модерни акценти, е рецептата за перфектните зимни обувки.",
+        _id: "464892f5-8c20-4897-bc81-cbef976300a4",
+        _ownerId: "35c62d76-8152-4626-8712-eeb96381bea8",
+      },
+      "464892f5-8c20-4897-bc81-cbef976300a4": {
+        sneacersName: "KangoRoos-13",
+        price: "200",
+        availablity: "In Stock",
+        model: "KangooRoos-13 Chine",
+        manifacture: "N/A",
+        imageUrl:
+          "https://img.eobuwie.cloud/eob_product_1800w_1800h(0/5/4/1/05413381845ceeb858b4fddf899aeb6efebf4a72_02_4066539079593_KP.jpg,webp)/zimni-obuvki-kangaroos-kd-dose-ev-18912-000-5003-jet-black-steel-grey-0000301106821.webp",
         description:
           "Подгответе се за хладното време с Puma Desierto V3 PureTex! Класически силует и щипка модерни акценти, е рецептата за перфектните зимни обувки.",
         _id: "464892f5-8c20-4897-bc81-cbef976300a4",
