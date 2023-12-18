@@ -364,7 +364,7 @@ img {
 }
 
 .templatemo_main {
-  display: inline-block;
+  display: flex;
   margin: 0 auto;
   padding-left: 30px;
   background: url(../public/images/templatemo_main_bg.png) repeat-y;

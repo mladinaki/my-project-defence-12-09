@@ -1,16 +1,18 @@
+/* eslint-disable react/prop-types */
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 
 import styles from "./shopcart/ShopCart.module.css";
 
-import { useDispatch, useSelector } from "react-redux";
+import { DLT } from "../redux/actions/action";
+
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 
 import * as userService from "../services/componentService";
-import { DLT } from "../redux/actions/action";
 
 const style = {
   position: "absolute",
@@ -26,28 +28,21 @@ const style = {
   p: 4,
 };
 
-const DeleteUser = ({ _id, sneacersName, price, imageUrl,quantity }) => {
+const DeleteUser = ({ _id, sneacersName, price, imageUrl, quantity }) => {
   const { shoseId } = useParams();
 
   const [open, setOpen] = useState(false);
 
   const dispach = useDispatch();
 
-  const handleOpen = async () => {
-    setOpen(true);
-  };
+  const handleOpen = async () => setOpen(true);
 
-  const onCancelDel = async () => {
-    setOpen(false);
-  };
-
-  const handleClose = () => setOpen(false);
+  const onCancelDel = async () => setOpen(false);
+  // const handleClose = () => setOpen(false);
 
   useEffect(() => {
     userService.getOne(shoseId).then((result) => setOpen(result));
   }, [shoseId]);
-
-  const getData = useSelector((state) => state.cartreducer.carts);
 
   const onRemove = (_id) => {
     dispach(DLT(_id));
@@ -73,7 +68,7 @@ const DeleteUser = ({ _id, sneacersName, price, imageUrl,quantity }) => {
           className="del"
           style={{
             fontSize: 12,
-            color:'rgb(133, 133, 133)',
+            color: "rgb(133, 133, 133)",
             marginRight: 15,
             marginLeft: 10,
             fontFamily: "sans-serif",
@@ -85,14 +80,17 @@ const DeleteUser = ({ _id, sneacersName, price, imageUrl,quantity }) => {
 
       <Modal
         open={open}
-        onClose={handleClose}
+        // onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
             <i className="bi bi-trash"></i>
-            <span style={{ fontWeight: "bold", fontSize:17}}> Премахване на продуцт!</span>
+            <span style={{ fontWeight: "bold", fontSize: 17 }}>
+              {" "}
+              Премахване на продуцт!
+            </span>
             <p style={{ fontSize: 13, paddingTop: 10 }}>
               Сигурен ли си, че искаш да премахнеш този продукт от количката?{" "}
             </p>
@@ -103,7 +101,7 @@ const DeleteUser = ({ _id, sneacersName, price, imageUrl,quantity }) => {
                 <img src={imageUrl} alt="image 2" />
               </div>
               <div className={styles["name-sneaccers-del"]}>{sneacersName}</div>
-              <div className={styles["name-sneaccers-del"]}>Бройка:{quantity}x </div>
+              <div className={styles["name-sneaccers-del"]}>{quantity}x</div>
               <div className={styles["price-sneaccers-del"]}>{price} лв.</div>
             </table>
 

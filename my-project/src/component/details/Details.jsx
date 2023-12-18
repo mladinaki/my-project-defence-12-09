@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 
 import AuthContext from "../../contexts/authContexts";
 
-import { ADD } from "../../redux/actions/action";
+import { ADD, DLT } from "../../redux/actions/action";
 
 import Path from "../../path/path";
 import { Button } from "@mui/material";
@@ -18,7 +18,6 @@ const Details = () => {
   const navigate = useNavigate();
 
   const [selectShose, setShose] = useState({});
-  const [delProduct, setDelProduct] = useState(false);
 
   useEffect(() => {
     userService.getOne(shoseId).then((result) => setShose(result));
@@ -29,7 +28,6 @@ const Details = () => {
   const clickCart = async () => {
     const cart = await userService.getOne(shoseId);
     dispach(ADD(cart));
-
     // alert(`Cart was successfully added`);
     navigate(Path.Product);
   };
@@ -39,11 +37,13 @@ const Details = () => {
   };
 
   const onDelProduct = async () => {
-    await userService.removeOne(shoseId);
-    confirm("Are you sure you want to delete this product?");
-    
-    setDelProduct((state) => state.filter((user) => user.id !== delProduct));
-    navigate(Path.Product);
+    const delItem = confirm("Are you sure you want to delete this product?");
+
+    if (delItem) {
+      await userService.removeOne(shoseId);
+      navigate(Path.Product);
+    }
+    // setDelProduct((state) => state.filter((user) => user.id !== delProduct));
   };
 
   const isOwner = userId === selectShose._ownerId;

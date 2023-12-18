@@ -89,6 +89,7 @@
   background: #f4f4f4;
 
   display: flex;
+  /* float: right; */
   border-radius: 6px;
 }
 
