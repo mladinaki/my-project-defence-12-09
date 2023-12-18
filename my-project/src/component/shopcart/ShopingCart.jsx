@@ -68,7 +68,7 @@ const ShopingCart = ({ _id }) => {
                 <div
                   className="name-sneaccers"
                   style={{
-                    marginTop:47,
+                    marginTop: 47,
                     fontSize: 15,
                     color: "black",
                     borderBottom: "1px solid black",
@@ -90,14 +90,14 @@ const ShopingCart = ({ _id }) => {
                 <td align="center">
                   <DeleteUser key={data._id} {...data} />
                 </td>
-                
               </tr>
             );
           })}
-
-          <Link className={style["btn-check"]} to={`/checout/cart`}>
-            Завърши поръчка
-          </Link>
+          {getData.length === 0 ? null : (
+            <Link className={style["btn-check"]} to={`/checout/cart`}>
+              Завърши поръчка
+            </Link>
+          )}
           <tr>
             <td colSpan="3" align="right" height="50px">
               &nbsp;&nbsp;
