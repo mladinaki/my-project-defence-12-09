@@ -1,0 +1,121 @@
+.contents-modal {
+  color: rgb(116, 116, 123);
+  top: 50%;
+  display: flex;
+  margin: 25% auto;
+  width: 450px;
+}
+
+.cartItem-image {
+  border: 1px solid rgb(211, 211, 211);
+  padding: 5px;
+  border-radius: 6px;
+}
+
+.cartItem-image img {
+  max-width: 65px;
+}
+
+.name-content {
+  width: 11em;
+  margin-left: 5%;
+}
+
+.name-content p {
+  font-family: Arial, Helvetica, sans-serif;
+
+  margin-left: 3px;
+  margin-top: 4px;
+  /* font-size: 12px; */
+  color: blueviolet;
+}
+
+.contentModal {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 14px;
+  color: black;
+  border: 1px solid rgb(225, 225, 225);
+  display: flex;
+  background: #f4f4f4;
+  border-radius: 6px;
+
+  padding: 15px;
+}
+
+.price-cartcontent {
+  font-weight: bold;
+  display: flex;
+  margin-right: 20px;
+  font-size: 13px;
+  color: rgb(135, 135, 135);
+}
+
+.price-cartcontent span {
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  display: inline;
+  /* float: left; */
+  color: black;
+  text-decoration: none;
+}
+
+.price-count {
+  background-color: #ececec;
+  border: 1px solid rgb(224, 224, 224);
+  height: 25px;
+  margin-right: 7%;
+  margin-top: 2px;
+}
+
+.count-cart-modal {
+}
+.price-count span {
+  color: rgb(121, 121, 121);
+  cursor: pointer;
+  padding: 3px;
+  /* margin-right: 3PX; */
+  font-size: 15px;
+  /* width: 78px; */
+  margin-left: 5px;
+  display: inline;
+  /* padding: 35px; */
+}
+
+.btn-cartModal {
+  position: relative;
+  float: left;
+  color: black;
+  margin-left: 427px;
+  width: 20%;
+  border-radius: 6px;
+  /* margin-left: 5px; */
+  padding: 3px;
+  /* font-size: 10px; */
+  text-align: center;
+  background-color: #10bbcf;
+  /* color: #ffff; */
+  border: 2px solid rgba(82, 82, 82, 0.114);
+  box-shadow: rgb(127, 127, 127) 1px 2px 1px;
+}
+
+.total-end {
+  display: inline-block;
+
+  margin-left: 3%;
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: none;
+  color: #10bbcf;
+  font-weight: bold;
+  padding: 2px;
+  margin-top: 5px;
+}
+
+.total-end span {
+  color: black;
+  padding-left: 10px;
+  color: red;
+  font-size: 15px;
+}
+

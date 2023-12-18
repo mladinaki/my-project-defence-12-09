@@ -1,0 +1,170 @@
+.content-image {
+  color: blueviolet;
+  border-bottom: 5px solid black;
+
+  height: auto;
+  margin: 5px 0 0;
+  padding: 0;
+}
+
+.content-crat-item td {
+  font-size: 13px;
+  position: relative;
+  display: inline0-block;
+  margin: 0 auto;
+  padding: 35px;
+  border-bottom: 1px solid black;
+}
+
+.constent-cartIcon img {
+  border-bottom: 5px solid black;
+  display: block;
+  width: 7.8em;
+}
+
+.constent-cartIcon {
+  padding: 10px;
+}
+
+.cartItem-image img {
+  /* height: 30px; */
+  /* width: 120px; */
+  /* display: flex; */
+
+  
+}
+
+.itemDeleteCart {
+  border: 1px solid rgb(199, 199, 199);
+  display: flex;
+  padding: 10px;
+}
+
+.itemDeleteCart td {
+  width: 100em;
+  height: 40px;
+  margin: 2px;
+}
+
+.name-sneaccers-del {
+  text-align: center;
+  padding: 10px;
+  margin-left: 0px;
+  margin-top: 20px;
+  display: inline;
+  height: 40px;
+}
+
+.name-sneaccers{
+  font-size: 15px;
+}
+
+.price-sneaccers-del {
+  text-align: center;
+  padding: 10px;
+  margin-left: 0px;
+  margin-top: 20px;
+  display: inline;
+  height: 40px;
+}
+
+.name-sneaccers-del {
+  text-align: center;
+  color: black;
+  font-weight: bold;
+  padding: 10px;
+  margin-left: 0px;
+  margin-top: 20px;
+  height: 40px;
+}
+
+.image-sneaccers img {
+  width: 80px;
+  border: 1px solid rgb(205, 205, 205);
+  border-radius: 6px;
+  margin: 7px 0 0 8px;
+}
+
+.tableItem {
+  background: #f4f4f4;
+
+  display: flex;
+  border-radius: 6px;
+}
+
+.btn-content-del {
+  border: 1px solid rgb(236, 236, 236);
+  display: block;
+  text-align: center;
+  margin-top: 9px;
+  border-radius: 6px;
+  background-color: red;
+  text-decoration-color: black;
+  color: black;
+  padding: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+
+}
+
+.btn-content-cancel {
+  border: 1px solid rgb(222, 222, 222);
+  display: block;
+  text-align: center;
+  margin-top: 7px;
+  border-radius: 6px;
+  background-color: #11bcd0;
+  color: black;
+  padding: 7px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.total-end {
+display: flex;
+padding-left: 145%;
+padding-top: 15px;
+width: 70%;
+font-size: 14px;
+
+text-align: center;
+position: relative;
+}
+
+.total-end span {
+  padding-left: 0px;
+color: #2f2f2f;
+font-weight: bold;
+}
+
+.total-end p{
+  width: 160px;
+  font-weight: bold;
+  /* border: 1px solid black; */
+}
+
+
+.btn-check{
+  border: 1px solid rgb(205, 205, 205);
+  padding: 5px;
+  color: black;
+  /* float: right; */
+  width:585%;
+  background-color: #c9c9c9;
+  border-radius: 6px;
+  text-decoration: none;
+  text-align: center;
+  /* margin-right: 100px; */
+  /* float: right; */
+  /* width: 10em; */
+  /* width: 500%; */
+  font-size: 15px;
+  display: inline-block;
+  margin: 10% auto;
+}
+
+btn-check button:hover{
+  color: #11bcd0;
+}

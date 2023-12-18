@@ -1,0 +1,23 @@
+.price-details{
+    /* position: relative; */
+    display: inline-block;
+    font-size:13px ;
+    font-weight: 600;
+    /* float: left; */
+    width: 90%;
+    padding: 0;
+    margin: 0 auto;
+    /* text-align: left; */
+}
+
+.text-description{
+    /* border: 1px solid black; */
+    display: inline-block;
+    width: 40%;
+    padding: 0 16px 0 20px;
+
+}
+
+.btn-details-del{
+    border: 1px solid rgb(129, 129, 129);
+}

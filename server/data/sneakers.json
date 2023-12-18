@@ -1,0 +1,42 @@
+{
+    "ac3c87ed-e1f5-47eb-87d9-3be9b05c45f7": {
+        "sneacersName": "Nike",
+        "price": "155",
+        "availablity": "Is Stock",
+        "model": "Chair",
+        "manifacture": "N/A",
+        "imageUrl": "https://www.shopsector.com/uploads/productgalleryfile/images/1200x1200/zimni-obuvki-hi-tec-medin-mid-WS-AW22-HT-01-Q3-BL-2.jpg",
+        "description": "Hi-Tec Medin Mid е отличен избор за градски и извънградски разходки, в хладно време. Моделът предлага уникално съчетание на оригинален дизайн и надеждна, здрава конструкция.",
+        "_id": "ac3c87ed-e1f5-47eb-87d9-3be9b05c45f7"
+    },
+    "464892f5-8c20-4897-bc81-cbef976300a4": {
+        "sneacersName": "Puma",
+        "price": "200",
+        "availablity": "Is Stock",
+        "model": "Puma Chine",
+        "manifacture": "N/A",
+        "imageUrl": "https://www.shopsector.com/uploads/productgalleryfile/images/1200x1200/zimni-obuvki-puma-desierto-v3-puretex-393928-02-2.jpg",
+        "description": "Подгответе се за хладното време с Puma Desierto V3 PureTex! Класически силует и щипка модерни акценти, е рецептата за перфектните зимни обувки.",
+        "_id": "464892f5-8c20-4897-bc81-cbef976300a4"
+    },
+    "0a51b122-0da5-4c7d-9e71-925bf9046b17": {
+        "sneacersName": "Columbia Fairbanks",
+        "price": "229.99",
+        "availablity": "Is Stock",
+        "model": "Columbia 14",
+        "manifacture": "Columbia in China",
+        "imageUrl": "https://www.shopsector.com/uploads/productgalleryfile/images/1200x1200/zimni-obuvki-columbia-fairbanks-omni-heat-1746011288-2.jpg",
+        "description": "Columbia Fairbanks Omni-Heat е универсален модел, подходящ, както за туризъм, така и за ежедневието. Технологиите, които притежава, превръщат всяка разходка в истинско удоволствие.\n\n\n\nТези зимни обувки ще Ви грабнат със следните предимства:\n\n\n\n- покритие, снабдено с влагонепромокаема дишаща мембрана, Omni-Tech. Системата запазва краката сухи и осигурява отлична вентилация, което гарантира комфорт дори и след продължително носене;",
+        "_id": "0a51b122-0da5-4c7d-9e71-925bf9046b17"
+    },
+    "9cce46e9-a17c-449e-86be-de16dacd5ce4": {
+        "sneacersName": "Puma Pacer Future TR",
+        "price": "140.99",
+        "availablity": "Is Stock",
+        "model": "Puma 20",
+        "manifacture": "Puma in Pholipini",
+        "imageUrl": "https://www.shopsector.com/uploads/productgalleryfile/images/1200x1200/maratonki-puma-pacer-future-tr-mid-385866-07-2.jpg",
+        "description": "Puma Pacer Future TR Mid са универсални маратонки, създадени да осигурят комфорт и защита по градски и извънградски терени. С тях няма нужда да намалявате темпото, независимо дали се разхождате в града или извън него.\n\n\n\nГорната част е комбинация от мрежеста материя и подсилващи елементи от еко кожа, така че да получите добра вентилация и стабилност.\n\n\n\nПръстите са предпазени от външни наранявания с TPU борд. В средната част е добавена клетка, която фиксира свода.\n\n\n\nВисоката подплатена яка, възпрепятства навлизането на студен въздух и стабилизира глезена.",
+        "_id": "9cce46e9-a17c-449e-86be-de16dacd5ce4"
+    }
+}

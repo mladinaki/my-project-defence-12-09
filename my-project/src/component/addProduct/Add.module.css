@@ -1,0 +1,63 @@
+.add-content form input {
+  width: 290px;
+  height: 25px;
+  border: 1px solid rgb(156, 156, 156);
+}
+
+.add-content h1 {
+  text-align: center;
+  margin-left: 0px;
+  text-align: start;
+  padding-left: 12px;
+}
+
+.add-content h1 {
+  position: relative;
+  display: grid;
+  /* width: 100%; */
+  /* text-align: center; */
+  /* border: 1px solid black; */
+  margin-left: 183px;
+}
+
+.add-content form {
+  position: relative;
+  display: grid;
+  /* justify-content: center; */
+  width: 57em;
+  justify-content: center;
+  height: auto;
+  margin-left: 10px;
+}
+
+.btn {
+  width: 296px;
+  height: 30px;
+  border: 1px solid rgb(156, 156, 156);
+  background-color: #11bcd0;
+  margin-top: 10px;
+}
+
+.label-login {
+  font-size: 16px;
+  color: rgb(126, 126, 126);
+  padding-bottom: 5px;
+}
+
+.add-content textarea {
+  /* border: 1px solid black; */
+  width: 290px;
+  height: 100px;
+  resize: none;
+}
+.addItem-content {
+  position: relative;
+  justify-content: center;
+  margin-left: 120px;
+}
+
+
+.add-content{
+  position: relative;
+  display: flex;
+}

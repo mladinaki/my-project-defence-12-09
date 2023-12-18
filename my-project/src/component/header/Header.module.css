@@ -1,0 +1,14 @@
+.navLink {
+  display: flex;
+  margin-right: 60px;
+  /* float: left; */
+  color: red;
+  padding: 0px;
+}
+.navLink span {
+  /* border: 1px solid black; */
+  color: red;
+padding-left: 8px;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+}

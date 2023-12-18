@@ -1,0 +1,28 @@
+.content-search {
+}
+
+.templatemo_search-item {
+  float: right;
+  text-decoration: none;
+  position: relative;
+  display: grid;
+  margin: 7px 25px 0;
+  width: 220px;
+  height: 34px;
+  background-color: transparent;
+  /* border: 0px solid; */
+  border-radius: 5px;
+  background: url(../../public/images/templatemo_search_bg.png);
+}
+
+.templatemo_search-item input {
+  height: 35px;
+  width: 85%;
+  background: black;
+  background-color: transparent;
+  border: 0px solid;
+  /* height: 20px; */
+  /* width: 160px; */
+  color: #CCC;
+  
+}

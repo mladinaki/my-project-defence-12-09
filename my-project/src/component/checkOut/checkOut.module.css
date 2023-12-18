@@ -1,0 +1,60 @@
+.form-check form input {
+  border: 1px solid rgb(129, 129, 129);
+  /* width: 250px; */
+  height: 25px;
+  display: inline;
+  width: 90%;
+  /* padding: 5px; */
+  /* float: right; */
+}
+.form-check form label {
+  /* height: 3%; */
+  font-size: 13px;
+  /* padding-bottom: 3px; */
+  display: inline;
+  color: rgb(129, 129, 129);
+}
+
+.form-check form {
+  /* display: flex; */
+  float: left;
+  margin-left: 40px;
+  padding-bottom: 50px;
+
+  /* padding-right: 10px; */
+}
+
+.form-check button{
+border: 1px solid black;
+margin-top: 3px;
+width: 92%;
+float: left;
+height: 30px;
+margin-top: 6px;
+
+background-color: azure;
+}
+
+.product-item-check{
+  margin: 20px;
+}
+
+.price-total-check{
+  font-size: 19px;
+  color: black;
+  display: inline;
+  float: left;
+  margin-top: 20px;
+  margin-right: 0px;
+}
+
+.check-content{
+  display: block;
+  float: left;
+  width: 200px  ;
+  /* padding-left: 20px; */
+  justify-content: center;
+  /* float: right; */
+  /* margin-bottom: 200px; */
+
+}
