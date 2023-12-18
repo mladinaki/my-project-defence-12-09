@@ -40,6 +40,8 @@ const Details = () => {
 
   const onDelProduct = async () => {
     await userService.removeOne(shoseId);
+    confirm("Are you sure you want to delete this product?");
+    
     setDelProduct((state) => state.filter((user) => user.id !== delProduct));
     navigate(Path.Product);
   };
