@@ -55,42 +55,49 @@ const Details = () => {
           <a href="images/product/10_l.jpg">
             <img src={selectShose.imageUrl} alt="image" />
           </a>
-          <Button
-            style={{
-              border: "1px solid rgb(129, 129, 129)",
-              fontSize: 10,
-              height: 26,
-              // width: "94px",
-              background: "red",
-              color: "white",
-              marginRight: 8,
-              marginBottom: 3,
-              display: "inline",
-              marginLeft: "18px",
-            }}
-            onClick={onDelProduct}
-          >
-            Премахни
-          </Button>
+          {
+            (isAuthenticated,
+            isOwner && (
+              <>
+                <Button
+                  style={{
+                    border: "1px solid rgb(129, 129, 129)",
+                    fontSize: 10,
+                    height: 26,
+                    // width: "94px",
+                    background: "red",
+                    color: "white",
+                    marginRight: 8,
+                    marginBottom: 3,
+                    display: "inline",
+                    marginLeft: "18px",
+                  }}
+                  onClick={onDelProduct}
+                >
+                  Премахни
+                </Button>
 
-          <Link
-            to={`/edit/${shoseId}`}
-            style={{
-              display: "inline",
-              fontSize: `12px`,
-              textTransform: "uppercase",
-              padding: 5,
-              textAlign: "center",
-              width: "60px",
-              height: "15px",
-              border: "1px solid rgb(129, 129, 129)",
-              borderRadius: "3px",
-              color: "black",
-              marginLeft: 10,
-            }}
-          >
-            <span>Промени</span>
-          </Link>
+                <Link
+                  to={`/edit/${shoseId}`}
+                  style={{
+                    display: "inline",
+                    fontSize: `12px`,
+                    textTransform: "uppercase",
+                    padding: 5,
+                    textAlign: "center",
+                    width: "60px",
+                    height: "15px",
+                    border: "1px solid rgb(129, 129, 129)",
+                    borderRadius: "3px",
+                    color: "black",
+                    marginLeft: 10,
+                  }}
+                >
+                  <span>Промени</span>
+                </Link>
+              </>
+            ))
+          }
         </div>
         <div className="content_half float_r">
           <h3 className="sneakers-name-details">{selectShose.sneacersName}</h3>

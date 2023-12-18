@@ -37,7 +37,6 @@ a:hover {
   /* margin-left: 50px; */
   padding: 0;
   display: inline;
-  
 }
 .cart-icon {
   margin-top: 25px;
@@ -49,12 +48,11 @@ a:hover {
   margin-left: 22px;
   /* margin-top: 15px; */
   padding: 0 auto;
-  
 }
 
-.bi-person{
+.bi-person {
   /* display: inline-block; */
- position: relative;
+  position: relative;
   font-size: 25px;
   color: black;
 }
@@ -312,8 +310,6 @@ img {
   font-size: 11px;
 }
 
-
-
 .templatemo_main_shop_cart {
   position: relative;
 
@@ -370,19 +366,17 @@ img {
   background: url(../public/images/templatemo_main_bg.png) repeat-y;
 }
 
-.serach-item{
+.serach-item {
   display: absolute;
-  float: left;;
+  float: left;
 }
 
-.search input{
-height: 25px;
-width: 200px;
-margin-bottom: 15px;
-
-
+.search input {
+  height: 25px;
+  width: 200px;
+  margin-bottom: 15px;
+  border: 1px solid #4b4b4b44;
 }
-
 
 #templatemo-main-details {
   position: relative;
@@ -418,10 +412,9 @@ margin-bottom: 15px;
   /* position: relative; */
 }
 #templatemo_main-home img {
-  
   max-width: 98%;
   display: flex;
-  margin-left:11px;
+  margin-left: 11px;
   height: auto;
   padding: 0;
   /* display: inline-block; */

@@ -69,7 +69,7 @@ const NavBar = () => {
       {isAuthenticated && (
             <>
               <div className={styles["user-name-user"]}>
-                Здравей:
+                Здравей!
                 <span style={{ color: "white",paddingLeft:5 }}>{username}</span>
               </div>
             </>

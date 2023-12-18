@@ -2,28 +2,25 @@ import { useEffect, useState } from "react";
 import * as userService from "../../services/componentService";
 import ProductItem from "../Product/ProductItem";
 
+import style from "../Product/ProductItem.module.css";
+
 const Product = ({ _id }) => {
-  const [userProduct, setProduct] = useState([]);
-  console.log(userProduct._id);
+  const [filterData, setFilterData] = useState([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     userService
       .getAll()
-      .then((result) => setProduct(result))
+      .then((result) => setData(result))
       .catch((error) => console.log(error));
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:3030/data/catalog`)
-      .then((res) => res.json())
-      .then((data) => {
-        setData(data);
-        setFilterData(data);
-      });
+    userService
+      .getAll()
+      .then((data) => setFilterData(data))
+      .catch((error) => console.log(error));
   }, []);
-
-  const [filterData, setFilterData] = useState([]);
-  const [data, setData] = useState([]);
 
   const searchHandler = (value) => {
     const res = filterData.filter((f) =>
@@ -46,17 +43,12 @@ const Product = ({ _id }) => {
         </div>
 
         {data.map((product) => {
-          return (
-            <ProductItem
-              key={product._id}
-              searchHandler={searchHandler}
-              {...product}
-            />
-          );
+          return <ProductItem key={product._id} {...product} />;
         })}
+        <div className={style["no-faund"]}>
+          {data.length === 0 && <h3>Няма намерен продукт!</h3>}
+        </div>
       </div>
-
-      {data.length === 0 && <h3>No articles yet</h3>}
     </div>
   );
 };

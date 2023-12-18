@@ -3,13 +3,20 @@
   display: inline-block;
   border: 1px solid rgb(229, 229, 229);
   width: 175px;
-  
 
   padding: 25px;
   margin: 0px 5px 5px 0;
 }
 
-
+.no-faund {
+  float: left;
+  margin-left: 110%;
+  width: 320px;
+  display: flex;
+  font-size: 26px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: inline-block;
+}
 
 .product-item img {
   max-width: 150px;

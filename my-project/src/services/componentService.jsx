@@ -6,6 +6,10 @@ export const getAll = async () => {
   const result = await request.get(baseUrl);
   return result;
 };
+export const filterItem = async () => {
+  const result = await request.post(baseUrl);
+  return result;
+};
 
 export const getOne = async (shoseId) => {
   const response = await request.get(`${baseUrl}/${shoseId}`);
