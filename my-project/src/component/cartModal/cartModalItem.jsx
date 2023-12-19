@@ -55,7 +55,6 @@ export default function CartModalItem({ _id }) {
     dispach(ADD(item));
   };
 
-  const isOwner = userId !== getData._ownerId;
 
   const total = () => {
     let price = 0;
@@ -205,7 +204,7 @@ export default function CartModalItem({ _id }) {
                     </div>
                   </h3>
                 ) : (
-                  <div className={styles["price-cartcontent"]}>
+                  <div className={styles["price-cartcontent"]} key={_id}>
                     <Link
                       to={`/shoping/cart`}
                       onClick={() => onClose()}

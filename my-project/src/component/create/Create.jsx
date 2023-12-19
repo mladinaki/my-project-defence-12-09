@@ -1,4 +1,4 @@
-import style from "../addProduct/Add.module.css";
+import style from "../create/Create.module.css";
 
 import * as userService from "../../services/componentService";
 import { useNavigate } from "react-router-dom";

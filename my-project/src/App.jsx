@@ -4,7 +4,7 @@ import "./App.css";
 import { AuthProvider } from "./contexts/authContexts";
 import Path from "./path/path";
 
-import AddProduct from "./component/addProduct/AddProduct";
+import Create from "./component/create/Create";
 import Contact from "./component/contact/Contact";
 import Details from "./component/details/Details";
 import Footer from "./component/Footer";
@@ -20,14 +20,14 @@ import ShoseEdit from "./component/shose-edit";
 import AuthGard from "./component/gards/authGaard";
 import ShopingCart from "./component/shopcart/ShopingCart";
 import DeleteUser from "./component/DeleteUser";
-import CheckOut from "./component/checkOut/CheckOut"
+import CheckOut from "./component/checkOut/CheckOut";
 
 function App() {
   return (
     <AuthProvider>
       <div id="templatemo_body_wrapper">
         <div id="templatemo_wrapper">
-        <div id="templatemo_main"></div>
+          <div id="templatemo_main"></div>
           <Header />
           <NavBar />
           <Routes>
@@ -44,7 +44,7 @@ function App() {
             <Route element={<AuthGard />}>
               <Route path="/shop" element={<CartModalItem />} />
               <Route path="/shoping/cart" element={<ShopingCart />} />
-              <Route path="/add/sneakers" element={<AddProduct />} />
+              <Route path="/add/sneakers" element={<Create />} />
               <Route path={Path.ShoseEdit} element={<ShoseEdit />} />
               <Route path={Path.Logout} element={<Logout />} />
             </Route>
@@ -56,5 +56,4 @@ function App() {
     </AuthProvider>
   );
 }
-
 export default App;

@@ -2,7 +2,7 @@ import * as userService from "../services/componentService";
 import { useNavigate, useParams } from "react-router-dom";
 import Path from "../path/path";
 
-import style from "./addProduct/Add.module.css";
+import style from "./Create/Create.module.css";
 import useForm from "./hooks/useForm";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
