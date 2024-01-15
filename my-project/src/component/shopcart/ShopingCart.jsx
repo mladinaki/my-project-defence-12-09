@@ -4,11 +4,21 @@ import style from "../shopcart/ShopCart.module.css";
 
 import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import Path from "../../path/path";
 
 import DeleteUser from "../DeleteUser";
 import { useEffect, useState } from "react";
 import { ADD } from "../../redux/actions/action";
+import * as React from "react";
+
+function createData(name, calories, fat, carbs, protein) {
+  return { name, calories, fat, carbs, protein };
+}
+
+const rows = [
+  createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
+  createData("Ice cream sandwich", 237, 9.0, 37, 4.3),
+  createData("Eclair", 262, 16.0, 24, 6.0),
+];
 
 const ShopingCart = ({ _id }) => {
   const { shoseId } = useParams();
@@ -30,11 +40,12 @@ const ShopingCart = ({ _id }) => {
     total();
   }, [total]);
 
-  const onCheckout = async (e) => {
-    dispach(ADD(e));
-  };
+  // const onCheckout = async (e) => {
+  //   dispach(ADD(e));
+  // };
 
   return (
+
     <div className="templatemo_main_shop_cart">
       <div id="content" className="float_r">
         {getData.length === 0 && <h3></h3> ? (
@@ -77,7 +88,7 @@ const ShopingCart = ({ _id }) => {
                   {data.sneacersName}
                 </div>
                 <td align="center" style={{ fontSize: 15 }}>
-                  <p>{data.quantity} бр.</p>
+                  <span>{data.quantity} бр.</span>
                 </td>
 
                 <td align="center" style={{ fontSize: 15 }}>
@@ -89,14 +100,14 @@ const ShopingCart = ({ _id }) => {
                 <td align="center">
                   <DeleteUser key={data._id} {...data} />
                 </td>
+
               </tr>
             );
           })}
-          {getData.length === 0 ? null : (
-            <Link className={style["btn-check"]} to={`/checout/cart`}>
-              Завърши поръчка
-            </Link>
-          )}
+
+          <Link className={style["btn-check"]} to={`/checout/cart`}>
+            Завърши поръчка
+          </Link>
           <tr>
             <td colSpan="3" align="right" height="50px">
               &nbsp;&nbsp;
