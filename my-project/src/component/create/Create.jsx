@@ -6,7 +6,7 @@ import Path from "../../path/path";
 
 const AddProduct = () => {
   const navigate = useNavigate();
-  
+
   const createHendler = async (e) => {
     e.preventDefault();
 
@@ -16,8 +16,9 @@ const AddProduct = () => {
     try {
       await userService.cerate(shoseData);
       navigate(Path.Product);
-    } catch (error) {
-      return error;
+    }
+    catch (error) {
+      console.log(error);
     }
   };
   return (
@@ -28,7 +29,7 @@ const AddProduct = () => {
           <div id="contact_htmlFor">
             <form onSubmit={createHendler}>
               <label htmlFor="author" className={style["label-login"]}>
-                Sneacers Name
+                Име на продуцт
               </label>{" "}
               <input
                 type="text"
@@ -36,10 +37,10 @@ const AddProduct = () => {
                 name="sneacersName"
                 className="required input_field"
               />
-              
+
               <div className="cleaner h10"></div>
-                <label htmlFor="phone" className={style["label-login"]}>
-                Price
+              <label htmlFor="phone" className={style["label-login"]}>
+                Цена
               </label>{" "}
               <input
                 type="text"
@@ -47,18 +48,10 @@ const AddProduct = () => {
                 id="phone"
                 className="input_field"
               />
-                <label htmlFor="phone" className={style["label-login"]}>
-                Quantity
-              </label>{" "}
-              <input
-                type="number"
-                name="quantity"
-                id="phone"
-                className="input_field"
-              />
+
               <div className="cleaner h10"></div>
               <label htmlFor="phone" className={style["label-login"]}>
-                Availablity
+                Наличност
               </label>{" "}
               <input
                 type="text"
@@ -68,7 +61,7 @@ const AddProduct = () => {
               />
               <div className="cleaner h10"></div>
               <label htmlFor="phone" className={style["label-login"]}>
-                Model
+                Модел
               </label>{" "}
               <input
                 type="text"
@@ -78,7 +71,7 @@ const AddProduct = () => {
               />
               <div className="cleaner h10"></div>
               <label htmlFor="phone" className={style["label-login"]}>
-                Manifacture
+                Производител
               </label>{" "}
               <input
                 type="text"
@@ -88,7 +81,7 @@ const AddProduct = () => {
               />
               <div className="cleaner h10"></div>
               <label htmlFor="phone" className={style["label-login"]}>
-                Image
+                Снимка
               </label>{" "}
               <input
                 type="text"
@@ -99,7 +92,7 @@ const AddProduct = () => {
 
               <div className="cleaner h10"></div>
               <label htmlFor="phone" className={style["label-login"]}>
-                Description
+                Описание
               </label>{" "}
               <textarea
                 type="text"
@@ -114,7 +107,7 @@ const AddProduct = () => {
                 value="Send"
                 className={style["btn"]}
               >
-                Submit
+                Създай
               </button>
             </form>
           </div>
