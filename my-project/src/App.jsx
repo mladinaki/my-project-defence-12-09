@@ -21,6 +21,8 @@ import AuthGard from "./component/gards/authGaard";
 import ShopingCart from "./component/shopcart/ShopingCart";
 import DeleteUser from "./component/DeleteUser";
 import CheckOut from "./component/checkOut/CheckOut";
+import Form from "./component/Form";
+
 
 function App() {
   return (
@@ -38,7 +40,7 @@ function App() {
             <Route path="/product/sneakers" element={<Product />} />
             <Route path="/details/:shoseId" element={<Details />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            <Route path="/register" element={<Form />} />
             <Route path="/del/user/:shoseId" element={<DeleteUser />} />
 
             <Route element={<AuthGard />}>
