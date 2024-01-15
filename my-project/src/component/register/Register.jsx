@@ -3,98 +3,128 @@ import style from "../register/Register.module.css";
 import AuthContext from "../../contexts/authContexts";
 import useForm from "../hooks/useForm";
 
+//
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import CssBaseline from '@mui/material/CssBaseline';
+import TextField from '@mui/material/TextField';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Checkbox from '@mui/material/Checkbox';
+
+import Box from '@mui/material/Box';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import Container from '@mui/material/Container';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import validateform from "../validateForm/validateform";
+
+
 const RegisterFormKeys = {
   Username: "username",
   Email: "email",
   Password: "password",
-  RepeatPassword: "confirm-password",
+  ConfirmPassword: 'confirmPassword',
 };
 
-const Register = () => {
+const defaultTheme = createTheme();
+
+const Register = ({ submitForm }) => {
   const { registerSubmitHandler } = useContext(AuthContext);
 
-  const initialValue = useMemo(
-    () => ({
-      [RegisterFormKeys.Username]: "",
-      [RegisterFormKeys.Email]: "",
-      [RegisterFormKeys.Password]: "",
-      [RegisterFormKeys.RepeatPassword]: "",
-    }),
-    []
-  );
-
-  const { values, onChange, onSubmit } = useForm(
+  const { values, onChange, handleSubmit, err } = useForm(
+    submitForm,
+    validateform,
     registerSubmitHandler,
-    initialValue
   );
 
   return (
     <div id="templatemo_main-register" className={style["login-content"]}>
+
       <div id="content" className="float_r">
-        <h2>Register</h2>
         <div className="content_half float_l">
-          <p>Enter your email or password!</p>
+          {/* <p>Въведете своя имейл или парола!</p> */}
           <div id="contact_htmlFor">
-            <form onSubmit={onSubmit}>
-              <div className="cleaner h10"></div>
-              <label className={style["label-login"]} htmlFor="email">
-                Name
-              </label>
-              <input
-                type="text"
-                id="username"
-                name={RegisterFormKeys.Username}
-                onChange={onChange}
-                value={values[RegisterFormKeys.Username]}
-                className="validate-email required input_field"
-              />
-              <div className="cleaner h10"></div>
-              <label className={style["label-login"]} htmlFor="email">
-                Email
-              </label>
-              <input
-                type="text"
-                id="email"
-                name={RegisterFormKeys.Email}
-                onChange={onChange}
-                value={values[RegisterFormKeys.Email]}
-                className="validate-email required input_field"
-              />
-              <div className="cleaner h10"></div>
-              <label htmlFor="phone" className={style["label-login"]}>
-                Password:
-              </label>
-              <input
-                type="password"
-                id="password"
-                className="input_field"
-                name={RegisterFormKeys.Password}
-                onChange={onChange}
-                values={values[RegisterFormKeys.Password]}
-              />
-              <div className="cleaner h10"></div>
-              <div className="cleaner h10"></div>
-              <label htmlFor="phone" className={style["label-login"]}>
-                Repeat Password:
-              </label>
-              <input
-                type="password"
-                id="phone"
-                className="input_field"
-                name={RegisterFormKeys.RepeatPassword}
-                onChange={onChange}
-                values={values[RegisterFormKeys.RepeatPassword]}
-              />
-              <div className="cleaner h10"></div>
-              <button
-                type="submit"
-                className={style["btn"]}
-                value="Register"
-                id="submit"
-              >
-                Register
-              </button>
-            </form>
+
+            <ThemeProvider theme={defaultTheme}>
+              <Container component="main" maxWidth="xs">
+                <CssBaseline />
+
+                <Box
+                  sx={{
+                    marginTop: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    // justifyContent: 'center',
+                  }}
+                >
+                  <Avatar style={{ backgroundColor: "#2F2F2F" }}>
+                    <LockOutlinedIcon />
+                  </Avatar>
+                  <Typography component="h1" variant="h5">
+                    Регистриране
+                  </Typography>
+                  <Box component="form"
+                    onSubmit={handleSubmit}
+                  >
+
+                    <TextField
+                      style={{ marginBottom: 7 }}
+                      placeholder="Username*"
+                      label={err.username && <span style={{ color: 'red', fontSize: '16px' }}>{err.username}</span>}
+                      name='username'
+                      value={values[RegisterFormKeys.Username]}
+                      onChange={onChange}
+
+                    />
+
+                    <TextField
+                      style={{ marginBottom: 7 }}
+                      label={err.email && <span style={{ color: 'red', fontSize: '16px' }}>{err.email}</span>}
+                      placeholder="Email*"
+                      onChange={onChange}
+                      name="email"
+                      value={values[RegisterFormKeys.Email]}
+                    />
+
+                    <TextField
+                      style={{ marginBottom: 7 }}
+                      name='password'
+                      placeholder="Password"
+                      label={err.password && <span style={{ color: 'red', fontSize: '16px' }}>{err.password}</span>}
+                      type="password"
+                      value={values[RegisterFormKeys.Password]}
+                      onChange={onChange}
+                    />
+
+                    <TextField
+                      style={{ marginBottom: 7 }}
+                      name='confirmPassword'
+                      placeholder="confirm Password"
+                      value={values[RegisterFormKeys.ConfirmPassword]}
+                      label={err.confirmPassword && <span style={{ color: 'red', fontSize: '16px' }}>{err.confirmPassword}</span>}
+                      type="password"
+                      onChange={onChange}
+                    />
+
+                    <FormControlLabel
+                      control={<Checkbox value="remember" color="primary" />}
+                      label="Remember me"
+                    />
+
+                    <Button
+                      type="submit"
+                      fullWidth
+                      style={{ backgroundColor: "#10BBCF", color: "#FFFFFF" }}
+                      sx={{ mt: 3, mb: 2 }}
+                    >
+                      Регистриране
+                    </Button>
+                  </Box>
+                </Box>
+              </Container>
+            </ThemeProvider>
           </div>
         </div>
       </div>
