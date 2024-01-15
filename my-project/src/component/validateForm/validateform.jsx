@@ -6,31 +6,31 @@ const validateform = (values) => {
     // const patern_password = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*\W)(?!.* ).{8,16}$/
 
     if (!values.username.trim()) {
-        validataErr.username = 'Name is required';
+        validataErr.username = 'Името е задължително!';
     }
 
     if (!values.email) {
-        validataErr.email = 'Email is Empty';
+        validataErr.email = 'Имела е задължителен !';
 
     } else if (!emailRgx.test(values.email)) {
-        validataErr.email = 'Email address is invalid';
+        validataErr.email = 'Имейл адресът е невалиден !';
     }
 
     if (!values.password) {
-        validataErr.password = 'Password is required';
+        validataErr.password = 'Паролата е задължителна !';
 
     } else if (values.password.length < 5) {
-        validataErr.password = 'Password must be at least 6 characters';
+        validataErr.password = 'Паролата трябва да е поне 6 знака!';
     }
     else if (values.password.length !== 6) {
-        validataErr.password = 'Password is too long';
+        validataErr.password = 'Паролата е твърде дълга !';
     }
 
     if (!values.confirmPassword) {
-        validataErr.confirmPassword = 'Confirm Password is required!';
+        validataErr.confirmPassword = 'Това поле е задължително !';
 
     } else if (values.confirmPassword !== values.password) {
-        validataErr.confirmPassword = 'Password dont match!!!';
+        validataErr.confirmPassword = 'Пролите не съвпадат!!!';
     }
 
     return validataErr

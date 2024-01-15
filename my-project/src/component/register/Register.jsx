@@ -71,8 +71,8 @@ const Register = ({ submitForm }) => {
 
                     <TextField
                       style={{ marginBottom: 7 }}
-                      placeholder="Username*"
-                      label={err.username && <span style={{ color: 'red', fontSize: '16px' }}>{err.username}</span>}
+                      placeholder="Име*"
+                      label={err.username && <span style={{ color: 'red', fontSize: '13px' }}>{err.username}</span>}
                       name='username'
                       value={values[RegisterFormKeys.Username]}
                       onChange={onChange}
@@ -81,8 +81,8 @@ const Register = ({ submitForm }) => {
 
                     <TextField
                       style={{ marginBottom: 7 }}
-                      label={err.email && <span style={{ color: 'red', fontSize: '16px' }}>{err.email}</span>}
-                      placeholder="Email*"
+                      label={err.email && <span style={{ color: 'red', fontSize: '13px' }}>{err.email}</span>}
+                      placeholder="Имеайл адрес*"
                       onChange={onChange}
                       name="email"
                       value={values[RegisterFormKeys.Email]}
@@ -91,8 +91,8 @@ const Register = ({ submitForm }) => {
                     <TextField
                       style={{ marginBottom: 7 }}
                       name='password'
-                      placeholder="Password"
-                      label={err.password && <span style={{ color: 'red', fontSize: '16px' }}>{err.password}</span>}
+                      placeholder="Парола*" 
+                      label={err.password && <span style={{ color: 'red', fontSize: '13px' }}>{err.password}</span>}
                       type="password"
                       value={values[RegisterFormKeys.Password]}
                       onChange={onChange}
@@ -101,9 +101,9 @@ const Register = ({ submitForm }) => {
                     <TextField
                       style={{ marginBottom: 7 }}
                       name='confirmPassword'
-                      placeholder="confirm Password"
+                      placeholder="Потвърди паролата*"
                       value={values[RegisterFormKeys.ConfirmPassword]}
-                      label={err.confirmPassword && <span style={{ color: 'red', fontSize: '16px' }}>{err.confirmPassword}</span>}
+                      label={err.confirmPassword && <span style={{ color: 'red', fontSize: '13px' }}>{err.confirmPassword}</span>}
                       type="password"
                       onChange={onChange}
                     />
