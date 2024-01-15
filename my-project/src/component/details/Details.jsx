@@ -1,6 +1,10 @@
 import style from "../details/Details.module.css";
 import * as userService from "../../services/componentService";
 
+import * as React from "react";
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -10,7 +14,6 @@ import AuthContext from "../../contexts/authContexts";
 import { ADD, DLT } from "../../redux/actions/action";
 
 import Path from "../../path/path";
-import { Button } from "@mui/material";
 
 const Details = () => {
   const { shoseId } = useParams();
@@ -28,14 +31,13 @@ const Details = () => {
   const clickCart = async () => {
     const cart = await userService.getOne(shoseId);
     dispach(ADD(cart));
-    // alert(`Cart was successfully added`);
+
     navigate(Path.Product);
   };
 
-  const handleOpen = () => {
-    setShose(true);
-  };
-
+  // const handleOpen = () => {
+  //   setShose(true);
+  // };
   const onDelProduct = async () => {
     const delItem = confirm("Are you sure you want to delete this product?");
 
@@ -43,7 +45,6 @@ const Details = () => {
       await userService.removeOne(shoseId);
       navigate(Path.Product);
     }
-    // setDelProduct((state) => state.filter((user) => user.id !== delProduct));
   };
 
   const isOwner = userId === selectShose._ownerId;
@@ -55,50 +56,43 @@ const Details = () => {
           <a href="images/product/10_l.jpg">
             <img src={selectShose.imageUrl} alt="image" />
           </a>
-          {
-            (isAuthenticated,
-            isOwner && (
-              <>
-                <Button
-                  style={{
-                    border: "1px solid rgb(129, 129, 129)",
-                    fontSize: 10,
-                    height: 26,
-                    // width: "94px",
-                    background: "red",
-                    color: "white",
-                    marginRight: 8,
-                    marginBottom: 3,
-                    display: "inline",
-                    marginLeft: "18px",
-                  }}
-                  onClick={onDelProduct}
-                >
-                  Премахни
-                </Button>
+          {isAuthenticated && isOwner && (
+            <div>
+              <Button
+                style={{
+                  marginRight: 9,
+                  height: 26,
+                  fontSize: 11,
+                  width: "40%",
+                  fontWeight: "bold",
+                }}
+                variant="outlined"
+                color="error"
+                Error
+                onClick={onDelProduct}
+              >
+                Премахни
+              </Button>
 
-                <Link
-                  to={`/edit/${shoseId}`}
-                  style={{
-                    display: "inline",
-                    fontSize: `12px`,
-                    textTransform: "uppercase",
-                    padding: 5,
-                    textAlign: "center",
-                    width: "60px",
-                    height: "15px",
-                    border: "1px solid rgb(129, 129, 129)",
-                    borderRadius: "3px",
-                    color: "black",
-                    marginLeft: 10,
-                  }}
-                >
+              <Button
+                variant="outlined"
+                color="success"
+                style={{
+                  marginLeft: 5,
+                  width: "40%",
+                  height: 26,
+                  fontSize: 11,
+                  fontWeight: 'bold',
+                }}
+              >
+                <Link to={`/edit/${shoseId}`}>
                   <span>Промени</span>
                 </Link>
-              </>
-            ))
-          }
+              </Button>
+            </div>
+          )}
         </div>
+
         <div className="content_half float_r">
           <h3 className="sneakers-name-details">{selectShose.sneacersName}</h3>
           <table>
@@ -122,34 +116,50 @@ const Details = () => {
             </tr>
           </table>
 
-          <div className="cleaner h20"></div>
-
           {
-            (isAuthenticated,
-            isOwner && (
-              <>
-                <Link
-                  className="addtocart-details"
-                  onClick={() => clickCart()}
-                  handleOpen={handleOpen}
-                >
-                  <span style={{ fontSize: 13, textTransform: "uppercase" }}>
-                    Добави в количката
-                  </span>
-                </Link>
-              </>
+            (isAuthenticated && isOwner && (
+              <Button
+                color="success"
+                variant="outlined"
+                onClick={() => clickCart()}
+                // handleOpen={handleOpen}
+              >
+                <span style={{ fontSize: 11,display:'grid', width:'175px'}}>
+                  Добави в количката
+                </span>
+              </Button>
             ))
           }
+
         </div>
         <div className="cleaner h30"></div>
         <span className={style["text-description"]}>
           <h5>Информация за продукта</h5>
           <p>{selectShose.description}</p>
+
+          <Button
+            color="success"
+            variant="outlined"
+            style={{
+              padding: 5,
+              marginTop: 20,
+              width: "100%",
+              fontSize: 12,
+              fontWeight: 'bold',
+              // display: 'flex'
+            }}
+          >
+            <Link to={`/product/sneakers`}>
+              <span>Към продукти</span>
+            </Link>
+          </Button>
         </span>
 
-        <div className="cleaner h50"></div>
+
       </div>
+
     </div>
+
   );
 };
 
