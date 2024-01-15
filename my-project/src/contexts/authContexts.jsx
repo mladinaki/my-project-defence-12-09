@@ -22,15 +22,15 @@ export const AuthProvider = ({ children }) => {
   const registerSubmitHandler = async (values) => {
     const result = await authService.register(values.email, values.password);
 
-    setAuth(result);
+    // setAuth(result);
     localStorage.setItem("accessToken", result.accessToken);
-    navigate(Path.Home);
+    // navigate(Path.Login);
   };
 
   const logoutSubmitHandler = () => {
     setAuth({});
     localStorage.removeItem("accessToken");
-    window.location.reload();
+    // window.location.reload();
     navigate(Path.Home);
   };
 
@@ -43,7 +43,7 @@ export const AuthProvider = ({ children }) => {
     userId: auth._id,
     isAuthenticated: !!auth.email,
   };
-  return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
+  return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>
 };
 
 export default AuthContext;

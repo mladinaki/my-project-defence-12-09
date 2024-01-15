@@ -1,27 +1,50 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import AuthContext from "../../contexts/authContexts";
 
-export default function useForm(submitHandler, initialValues) {
-  const [values, setFormValues] = useState(initialValues);
+const useForm = (callback, validateform, submitHandler) => {
+  const [values, setFormValues] = useState({
+    username: '',
+    email: '',
+    password: '',
+    confirmPassword: ''
+  });
+
+  const [err, setErr] = useState({})
+  const [isCorrect, setCorect] = useState(false)
+
+  const { registerSubmitHandler, loginSubmitHandler } = useContext(AuthContext)
 
   const onChange = (e) => {
-    setFormValues((state) => ({ ...state, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setFormValues({ ...values, [name]: value })
   };
 
- useEffect(() => {
-  setFormValues(initialValues);
- },[initialValues])
-
-  const onSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (submitHandler) {
-      submitHandler(values);
+      loginSubmitHandler(values)
+      setErr(validateform(values))
+      setCorect(true);
     }
   };
 
+  useEffect(() => {
+    if (Object.keys(err).length === 0 && isCorrect) {
+      callback()
+      registerSubmitHandler(values)
+
+    }
+  }, [err])
+
+
+
   return {
     values,
+    err,
     onChange,
-    onSubmit,
+    handleSubmit,
   };
 }
+
+export default useForm;
