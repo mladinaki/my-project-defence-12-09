@@ -29,7 +29,6 @@ const ShoseEdit = () => {
     e.preventDefault();
 
     const selectEdit = Object.fromEntries(new FormData(e.currentTarget))
-    console.log(selectEdit);
 
     try {
       await userService.edit(shoseId, selectEdit);
