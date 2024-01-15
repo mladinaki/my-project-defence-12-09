@@ -1,43 +1,50 @@
 import * as userService from "../services/componentService";
 import { useNavigate, useParams } from "react-router-dom";
 import Path from "../path/path";
+import Button from '@mui/material/Button';
 
 import style from "./Create/Create.module.css";
-import useForm from "./hooks/useForm";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
 
 const ShoseEdit = () => {
   const { shoseId } = useParams();
+  const navigate = useNavigate();
+
   const [selectEdit, seteEdit] = useState({
     sneacersName: "",
     price: "",
-    quantity: "",
     availablity: "",
     model: "",
     manifacture: "",
     imageUrl: "",
     description: "",
   });
-  const navigate = useNavigate();
 
-  const getData = useSelector((state) => state.cartreducer.carts);
 
   useEffect(() => {
     userService.getOne(shoseId).then((result) => seteEdit(result));
   }, [shoseId]);
 
-  const editHendler = async (values) => {
-    try {
-      await userService.edit(shoseId, values);
+  const editHendler = async (e) => {
+    e.preventDefault();
 
+    const selectEdit = Object.fromEntries(new FormData(e.currentTarget))
+    console.log(selectEdit);
+
+    try {
+      await userService.edit(shoseId, selectEdit);
       navigate(Path.Product);
+      
     } catch (error) {
       return error;
     }
   };
 
-  const { values, onChange, onSubmit } = useForm(editHendler, selectEdit);
+  const onChange = (e) => {
+    seteEdit(state => ({
+      ...state, [e.target.name]: e.target.value
+    }))
+  }
 
   return (
     <div id="templatemo_main_addProduct" className={style["add-content"]}>
@@ -45,7 +52,7 @@ const ShoseEdit = () => {
         <h1>Contact Us</h1>
         <div className="content_half float_l">
           <div id="contact_htmlFor">
-            <form onSubmit={onSubmit}>
+            <form onSubmit={editHendler}>
               <label htmlFor="author" className={style["label-login"]}>
                 Sneacers Name
               </label>{" "}
@@ -53,7 +60,7 @@ const ShoseEdit = () => {
                 type="text"
                 id="author"
                 name="sneacersName"
-                value={values.sneacersName}
+                value={selectEdit.sneacersName}
                 onChange={onChange}
                 className="required input_field"
               />
@@ -64,18 +71,7 @@ const ShoseEdit = () => {
               <input
                 type="text"
                 name="price"
-                value={values.price}
-                onChange={onChange}
-                id="phone"
-                className="input_field"
-              />
-              <label htmlFor="phone" className={style["label-login"]}>
-                Quantity
-              </label>{" "}
-              <input
-                type="text"
-                name="quantity"
-                value={values.quantity}
+                value={selectEdit.price}
                 onChange={onChange}
                 id="phone"
                 className="input_field"
@@ -87,7 +83,7 @@ const ShoseEdit = () => {
               <input
                 type="text"
                 name="availablity"
-                value={values.availablity}
+                value={selectEdit.availablity}
                 onChange={onChange}
                 id="phone"
                 className="input_field"
@@ -99,7 +95,7 @@ const ShoseEdit = () => {
               <input
                 type="text"
                 name="model"
-                value={values.model}
+                value={selectEdit.model}
                 onChange={onChange}
                 id="phone"
                 className="input_field"
@@ -111,7 +107,7 @@ const ShoseEdit = () => {
               <input
                 type="text"
                 name="manifacture"
-                value={values.manifacture}
+                value={selectEdit.manifacture}
                 onChange={onChange}
                 id="phone"
                 className="input_field"
@@ -123,7 +119,7 @@ const ShoseEdit = () => {
               <input
                 type="text"
                 name="imageUrl"
-                value={values.imageUrl}
+                value={selectEdit.imageUrl}
                 onChange={onChange}
                 id="phone"
                 className="input_field"
@@ -135,20 +131,20 @@ const ShoseEdit = () => {
               <textarea
                 type="text"
                 name="description"
-                value={values.description}
+                value={selectEdit.description}
                 onChange={onChange}
                 id="phone"
                 className="input_field"
               />
-              <button
+              <Button
                 type="submit"
-                name="submit"
-                id="submit"
-                value="Send"
+
+                fullWidth
+                style={{ backgroundColor: "#10BBCF", color: "#FFFFFF" }}
                 className={style["btn"]}
               >
                 Edit cart
-              </button>
+              </Button>
             </form>
           </div>
         </div>
