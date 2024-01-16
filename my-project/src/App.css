@@ -311,12 +311,17 @@ img {
 
 .templatemo_main_shop_cart {
   position: relative;
-
-  width: 200%;
   display: grid;
-  margin: 0 auto;
-  padding-left: 30px;
+  padding-left: 11px;
   background: url(../public/images/templatemo_main_bg.png) repeat-y;
+}
+
+.templatemo_main_shop_cart table {
+  border-bottom: 1px solid black;
+  width: 80em;
+  padding: 20px;
+  display: inline-block;
+  position: relative;
 }
 
 #templatemo_main_addProduct {
@@ -437,20 +442,37 @@ img {
 }
 
 .templatemo_main_shop_cart table th {
-  border-left: 1px solid rgb(156, 156, 156);
   padding: 3px;
   width: 20%;
-  box-shadow: 2px 2px 5px -1px rgba(0, 0, 0, 0.38);
-  -webkit-box-shadow: 2px 2px 5px -1px rgba(0, 0, 0, 0.38);
-  -moz-box-shadow: 2px 2px 5px -1px rgba(0, 0, 0, 0.38);
-  background-color: #e6e6e6;
+  color: white;
+  background-color: #2F2F2F;
   margin-left: 50px;
 }
 
+.end-product-check {
+  border: 1px solid black;
+  float: right;
+}
+
+.end-product-check th {
+
+  width: 100px;
+  position: relative;
+  margin-right: 20px;
+}
+
+.end-product-check {
+  border: 1px solid rgb(151, 151, 151);
+  width: 40%;
+}
+
+.total-price table {
+  border: 1px solid black;
+}
+
 .templatemo_main_shop_cart table td {
-  border-bottom: 1px solid rgb(206, 206, 206);
-  padding: 0;
-  margin: 20px 0 0 20px;
+  /* margin: 10px 0 0 10px; */
+  border-bottom: 1px solid rgb(151, 151, 151);
 }
 
 #templatemo_main input {

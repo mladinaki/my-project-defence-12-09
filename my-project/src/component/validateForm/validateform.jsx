@@ -10,7 +10,7 @@ const validateform = (values) => {
     }
 
     if (!values.email) {
-        validataErr.email = 'Имела е задължителен !';
+        validataErr.email = 'Имейла е задължителен !';
 
     } else if (!emailRgx.test(values.email)) {
         validataErr.email = 'Имейл адресът е невалиден !';

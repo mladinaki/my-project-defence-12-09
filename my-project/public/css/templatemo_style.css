@@ -1,4 +1,3 @@
-Credit: http://www.templatemo.com
 
 /* 
 Shoes Template 
@@ -51,7 +50,7 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 .h50 { height: 50px }
 
 .float_l { float: left }
-.float_r { float: right }
+/* .float_r { float: right } */
 
 #templatemo_body_wrapper {
 	width: 100%;
