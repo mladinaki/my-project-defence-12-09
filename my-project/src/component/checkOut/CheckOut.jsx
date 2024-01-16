@@ -3,13 +3,15 @@
 import CheckOutItems from "./CheckItems";
 import style from "../checkOut/checkOut.module.css";
 
-import { useEffect, useState } from "react";
-
-import { useSelector } from "react-redux";
 import { Button } from "@mui/material";
+
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 
 const checkOutItem = () => {
   const [price, setPrice] = useState(0);
+  const { shoseId } = useParams()
 
   const getData = useSelector((state) => state.cartreducer.carts);
 
@@ -18,7 +20,6 @@ const checkOutItem = () => {
     getData.map((data, k) => {
       price = parseInt(data.price) * data.quantity + price;
     });
-
     setPrice(price);
   };
 
@@ -27,7 +28,7 @@ const checkOutItem = () => {
   }, [total]);
 
   return (
-    <div id="templatemo-main-checout">
+    <div id="templatemo-main-checout" key={shoseId}>
       <div id="" className="float_r">
         <div id="templatemo_main"></div>
         <div className={style["form-check"]}>
@@ -56,23 +57,23 @@ const checkOutItem = () => {
           </form>
         </div>
         {getData.map((check) => {
+
           return (
-            <>
-              <CheckOutItems key={check._id} {...check} />
-            </>
+            <CheckOutItems key={check._id} {...check} />
           );
+          
         })}
         <div className={style["price-total-check"]}>
           <span>Всичко {price}лв.</span>
           <Button
-            style={{ border: "1px solid black", marginLeft: 15, fontSize: 12}}
+            style={{ border: "1px solid black", marginLeft: 15, fontSize: 12 }}
           >
             Завърши поръчката
           </Button>
         </div>
       </div>
     </div>
-  );  
+  );
 };
 
 export default checkOutItem;

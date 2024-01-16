@@ -23,7 +23,6 @@ import DeleteUser from "./component/DeleteUser";
 import CheckOut from "./component/checkOut/CheckOut";
 import Form from "./component/Form";
 
-
 function App() {
   return (
     <AuthProvider>

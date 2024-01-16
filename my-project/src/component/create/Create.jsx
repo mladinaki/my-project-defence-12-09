@@ -10,9 +10,7 @@ const AddProduct = () => {
   const createHendler = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData(e.target);
-
-    const shoseData = Object.fromEntries(formData);
+    const shoseData = Object.fromEntries(new FormData(e.currentTarget));
     try {
       await userService.cerate(shoseData);
       navigate(Path.Product);
@@ -38,8 +36,7 @@ const AddProduct = () => {
                 className="required input_field"
               />
 
-              <div className="cleaner h10"></div>
-              <label htmlFor="phone" className={style["label-login"]}>
+              <label htmlFor="price" className={style["label-login"]}>
                 Цена
               </label>{" "}
               <input
@@ -49,8 +46,7 @@ const AddProduct = () => {
                 className="input_field"
               />
 
-              <div className="cleaner h10"></div>
-              <label htmlFor="phone" className={style["label-login"]}>
+              <label htmlFor="availablity" className={style["label-login"]}>
                 Наличност
               </label>{" "}
               <input
@@ -59,8 +55,8 @@ const AddProduct = () => {
                 id="phone"
                 className="input_field"
               />
-              <div className="cleaner h10"></div>
-              <label htmlFor="phone" className={style["label-login"]}>
+
+              <label htmlFor="model" className={style["label-login"]}>
                 Модел
               </label>{" "}
               <input
@@ -69,8 +65,8 @@ const AddProduct = () => {
                 id="phone"
                 className="input_field"
               />
-              <div className="cleaner h10"></div>
-              <label htmlFor="phone" className={style["label-login"]}>
+
+              <label htmlFor="manifacture" className={style["label-login"]}>
                 Производител
               </label>{" "}
               <input
@@ -79,8 +75,8 @@ const AddProduct = () => {
                 id="phone"
                 className="input_field"
               />
-              <div className="cleaner h10"></div>
-              <label htmlFor="phone" className={style["label-login"]}>
+
+              <label htmlFor="imageUrl" className={style["label-login"]}>
                 Снимка
               </label>{" "}
               <input
@@ -90,8 +86,7 @@ const AddProduct = () => {
                 className="input_field"
               />
 
-              <div className="cleaner h10"></div>
-              <label htmlFor="phone" className={style["label-login"]}>
+              <label htmlFor="description" className={style["label-login"]}>
                 Описание
               </label>{" "}
               <textarea
@@ -100,6 +95,7 @@ const AddProduct = () => {
                 id="phone"
                 className="input_field"
               />
+
               <button
                 type="submit"
                 name="submit"

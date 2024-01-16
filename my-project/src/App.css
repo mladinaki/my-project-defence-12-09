@@ -7,13 +7,21 @@ Shoes Template
 body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  display: grid;
   color: #999;
   font-family: Tahoma, Geneva, sans-serif;
   font-size: 12px;
-  line-height: 1.4em;
-  /* max-width: 1000%; */
+  line-height: 1.6em;
   background-repeat: repeat;
   background-image: url(../public/images/templatemo_body.jpg);
+}
+
+/*  */
+
+header {
+  position: absolute;
+  width: 100%;
 }
 
 a,
@@ -23,6 +31,7 @@ a:visited {
   font-weight: normal;
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
@@ -31,13 +40,12 @@ a:hover {
   border: 1px solid black;
   float: right;
   color: rgb(72, 72, 72);
-  /* float: right; */
   font-size: 20px;
   margin-top: 12px;
-  /* margin-left: 50px; */
   padding: 0;
   display: inline;
 }
+
 .cart-icon {
   margin-top: 25px;
   display: inline;
@@ -46,12 +54,10 @@ a:hover {
 
 .bi-cart {
   margin-left: 22px;
-  /* margin-top: 15px; */
   padding: 0 auto;
 }
 
 .bi-person {
-  /* display: inline-block; */
   position: relative;
   font-size: 25px;
   color: black;
@@ -74,6 +80,7 @@ a.addtocart {
   -webkit-box-shadow: 6px 5px 3px -4px rgba(0, 0, 0, 0.47);
   box-shadow: 6px 5px 3px -4px rgba(0, 0, 0, 0.47);
 }
+
 a.addtocart-details {
   position: relative;
   float: left;
@@ -94,11 +101,12 @@ a.addtocart-details {
 }
 
 .cart-header {
-  width: 8em;
-  float: right;
+  display: grid;
+  margin: 4em 3em 0 0;
 }
+
 .cart-header i {
-  font-size: 22px;
+  font-size: 25px;
   color: #182021;
 }
 
@@ -155,7 +163,6 @@ a.addtocart-delete {
 }
 
 .icons-cart-header {
-  /* display: inline; */
   float: left;
   margin-left: 10px;
   font-size: 22px;
@@ -174,9 +181,7 @@ a.cart-buy {
   font-weight: 1000;
   background-color: #10bbcf;
   color: #ffff;
-  /* text-transform: uppercase; */
   border: 1px solid rgba(6, 73, 96, 0.114);
-  /* border-radius: 20px; */
   box-shadow: rgb(135, 135, 135) 2px 2px 2px;
 }
 
@@ -187,14 +192,7 @@ a.cart-buy {
   float: left;
   font-weight: bold;
   font-size: 12px;
-  /* margin: 20px ; */
-  /* text-align: center; */
-  /* margin-bottom: 10px; */
-  /* margin-right: 200px; */
-  /* width: 30px; */
-  /* justify-content: left; */
-  /* justify-content:center; */
-  /* position: relative; */
+
   display: grid;
   color: wheat;
 }
@@ -226,13 +224,17 @@ tr {
 }
 
 .sneakers-name-details {
-  margin-left: 30px;
+  margin-left: 3px;
+  letter-spacing: 1px;
+  font-size: 15px;
+  color: black;
 }
 
 p {
   margin: 0 0 10px 0;
   padding: 0;
 }
+
 img {
   border: none;
 }
@@ -243,15 +245,10 @@ img {
   background: url(../public/images/templatemo_body_top.jpg) repeat-x top;
 }
 
-/* #templatemo_wrapper {
-  width: 980px;
-  margin: 0 auto;
-} */
-
 #templatemo_header {
   width: 960px;
-  height: 70px;
-  padding: 30px 10px;
+  height: 135px;
+  padding: 0px 0px;
   background: url(../public/images/templatemo_header_bg.png) no-repeat bottom;
 }
 
@@ -263,16 +260,17 @@ img {
 
 #content {
   position: relative;
-  display: f;
-  margin: 0 0 0 55px;
 }
 
-#content table {
-  /* border: 5px solid black; */
-  /* width: 120%; */
-  /* margin-right: 50;; */
-  /* display: inline; */
+#content-login {
+  position: relative;
+  display: flex;
+  padding: 0 20px 20px 20px;
+  margin: 0 0 40px -10px;
+  border: 1px solid #cfcfcf;
+  background-color: #F5F5F5;
 }
+
 
 #templatemo_footer {
   width: 960px;
@@ -282,28 +280,27 @@ img {
 }
 
 #site_title {
-  float: left;
-  margin-top: 30px;
+  /* display: flex; */
+  margin-top: 50px;
+  /* padding-bottom: 40px; */
 }
+
 #site_title h1 {
   margin: 0;
   padding: 0;
 }
+
 #site_title h1 a {
-  display: block;
-  width: 300px;
-  height: 40px;
-  padding-top: 30px;
-  font-size: 12px;
-  letter-spacing: 4px;
+
   color: #2f2f2f;
-  text-align: left;
+  /* text-align: left; */
   background: url(/images/templatemo_logo.png) no-repeat top left;
 }
 
 #menu_second_bar {
   padding: 5px 10px;
 }
+
 #top_shopping_cart {
   float: left;
   padding: 5px 0;
@@ -313,9 +310,8 @@ img {
 .templatemo_main_shop_cart {
   position: relative;
 
-  /* border: 5px solid red ; */
-
-  display: flex;
+  width: 200%;
+  display: grid;
   margin: 0 auto;
   padding-left: 30px;
   background: url(../public/images/templatemo_main_bg.png) repeat-y;
@@ -323,8 +319,6 @@ img {
 
 #templatemo_main_addProduct {
   position: relative;
-  /* border: 5px solid red ; */
-
   display: flex;
   margin: 0 auto;
   padding-left: 30px;
@@ -332,28 +326,48 @@ img {
 }
 
 #templatemo_main-login {
-  position: relative;
-  /* border: 5px solid red ; */
-
   display: flex;
-  margin: 0 auto;
-  padding-left: 200px;
   justify-content: center;
   background: url(../public/images/templatemo_main_bg.png) repeat-y;
+}
+
+.succsessForm {
+  border: 1px solid rgb(209, 209, 209);
+  background-color: #f2f2f2;
+  text-align: center;
+  display: grid;
+  width: 32%;
+  color: green;
+  letter-spacing: 2px;
+  font-size: 18px;
+  padding: 100px;
+}
+
+.content_register-form {
+  border: 1px solid #cfcfcf;
+  display: inline-block;
+  justify-content: center;
+  padding: 0px 20px 0px 20px;
+  background-color: #f5f5f5;
+
+}
+
+#templatemo_main-login input {
+  height: 15px;
 }
 
 #templatemo_main-register {
-  position: relative;
-  /* border: 5px solid red ; */
-
   display: flex;
-  padding-left: 200px;
-  justify-content: center;
+  padding-left: 260px;
+  padding-bottom: 20px;
   background: url(../public/images/templatemo_main_bg.png) repeat-y;
 }
 
+#templatemo_main-register input {
+  width: 340px;
+}
+
 .templatemo_main_shop_cart img {
-  /* border: 2px solid red; */
   position: relative;
   display: inline-block;
   width: 110px;
@@ -386,6 +400,7 @@ img {
 
   background: url(../public/images/templatemo_main_bg.png) repeat-y;
 }
+
 #templatemo-main-contact {
   position: relative;
   margin-right: 40px;
@@ -394,6 +409,7 @@ img {
   display: flex;
   background: url(../public/images/templatemo_main_bg.png) repeat-y;
 }
+
 #templatemo-main-checout {
   position: relative;
   margin-right: 40px;
@@ -408,17 +424,14 @@ img {
   display: flex;
   height: auto;
   padding: 0;
-  /* display: inline-block; */
-  /* position: relative; */
 }
+
 #templatemo_main-home img {
   max-width: 98%;
   display: flex;
   margin-left: 11px;
   height: auto;
   padding: 0;
-  /* display: inline-block; */
-  /* position: relative; */
 }
 
 .templatemo_main_shop_cart table th {
@@ -442,6 +455,7 @@ img {
   border: 1px solidr rgb(156, 156, 156);
   margin-right: 20px;
 }
+
 .content-update {
   width: 405%;
   height: 50px;
@@ -449,6 +463,7 @@ img {
   display: grid;
   margin: 0;
 }
+
 .content-update tr {
   position: relative;
   display: inline-block;
@@ -469,29 +484,10 @@ img {
   max-width: 220px;
 }
 
-/* .product_box .product_price {
-  color: #11bdd1;
-  font-size: 14px;
-  font-weight: 700;
-  margin-bottom: 20px;
-} */
-/* 
-.product_box h3 {
-  font-size: 18px;
-  padding-top: 10px;
-}
-.product_box .addtocart {
-  float: left;
-  display: block;
-} */
-/* .product_box .detail {
-  float: right;
-  display: block;
-} */
-
 #templatemo_footer {
   color: #999;
 }
+
 #templatemo_footer a {
   color: #fff;
 }

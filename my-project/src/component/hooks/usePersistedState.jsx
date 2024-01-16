@@ -5,7 +5,7 @@ export const usePersistedState = (key, defaultValue) => {
     const persistentState = localStorage.getItem(key);
 
     if (persistentState) {
-      return JSON.parse(persistentState);
+      return JSON.parse(persistentState)
     }
     return defaultValue;
   });
@@ -16,6 +16,7 @@ export const usePersistedState = (key, defaultValue) => {
 
     if (typeof value === "function") {
       serialisedValue = JSON.stringify(value(state));
+
     } else {
       serialisedValue = JSON.stringify(value);
     }

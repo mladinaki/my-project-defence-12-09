@@ -51,8 +51,8 @@
 }
 
 .price-cartcontent span {
-  font-weight: 600;
-  font-size: 13px;
+  font-weight: 450;
+  font-size: 15px;
   cursor: pointer;
   display: inline;
   /* float: left; */
@@ -68,8 +68,6 @@
   margin-top: 2px;
 }
 
-.count-cart-modal {
-}
 .price-count span {
   color: rgb(121, 121, 121);
   cursor: pointer;
@@ -87,16 +85,15 @@
   float: left;
   color: black;
   margin-left: 427px;
-  width: 20%;
-  border-radius: 6px;
+  width: 30%;
+  border-radius: 3px;
   /* margin-left: 5px; */
   padding: 3px;
   /* font-size: 10px; */
   text-align: center;
   background-color: #10bbcf;
   /* color: #ffff; */
-  border: 2px solid rgba(82, 82, 82, 0.114);
-  box-shadow: rgb(127, 127, 127) 1px 2px 1px;
+  border: 1px solid rgba(82, 82, 82, 0.114);
 }
 
 .total-end {

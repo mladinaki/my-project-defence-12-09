@@ -1,10 +1,11 @@
-
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 
 import Path from "../../path/path";
 import styles from "../Navigate/Navbar.module.css";
 
+import Avatar from "@mui/material/Avatar";
+import Stack from "@mui/material/Stack";
 
 import AuthContext from "../../contexts/authContexts";
 import { useContext } from "react";
@@ -14,6 +15,7 @@ const NavBar = () => {
 
   return (
     <div id="templatemo_menubar">
+
       <div id="top_nav" className="ddsmoothmenu">
         <ul>
           <li>
@@ -67,13 +69,15 @@ const NavBar = () => {
         {/* <br style="clear: left" /> */}
       </div>
       {isAuthenticated && (
-            <>
-              <div className={styles["user-name-user"]}>
-                Здравей!
-                <span style={{ color: "white",paddingLeft:5 }}>{username}</span>
-              </div>
-            </>
-          )}
+        <div>
+          <div className={styles["user-name-user"]}>
+            Здравей!
+            <span style={{ color: "white", fontSize: 13, paddingLeft: 3 }}>{username}</span>
+          </div>
+          <Stack direction="row" spacing={2}>
+          </Stack>
+        </div>
+      )}
     </div>
   );
 };

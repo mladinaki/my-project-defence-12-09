@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import DeleteUser from "../DeleteUser";
 import { useEffect, useState } from "react";
-import { ADD } from "../../redux/actions/action";
 import * as React from "react";
 
 function createData(name, calories, fat, carbs, protein) {
@@ -24,8 +23,6 @@ const ShopingCart = ({ _id }) => {
   const { shoseId } = useParams();
   const [price, setPrice] = useState(0);
 
-  const dispach = useDispatch();
-
   const getData = useSelector((state) => state.cartreducer.carts);
 
   const total = () => {
@@ -39,10 +36,6 @@ const ShopingCart = ({ _id }) => {
   useEffect(() => {
     total();
   }, [total]);
-
-  // const onCheckout = async (e) => {
-  //   dispach(ADD(e));
-  // };
 
   return (
 
@@ -100,7 +93,6 @@ const ShopingCart = ({ _id }) => {
                 <td align="center">
                   <DeleteUser key={data._id} {...data} />
                 </td>
-
               </tr>
             );
           })}

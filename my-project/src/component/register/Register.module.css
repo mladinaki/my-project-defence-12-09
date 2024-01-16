@@ -1,42 +1,8 @@
 .login-content form input {
-  width: 290px;
-  height: 25px;
-  border: 1px solid rgb(156, 156, 156);
+  height: 15px;
+  /* width: 200px; */
+  border-color: red;
+  /* padding: 10px; */
+  border: 1PX solid color( red red green blue);
 }
 
-.login-content h2 {
-  text-align: center;
-  margin-right: 280px;
-}
-
-.login-content p {
-  text-align: center;
-  position: relative;
-  display: flex;
-  width: 400px;
-  margin-left: 125px;
-}
-
-.login-content form {
-  position: relative;
-  display: grid;
-  justify-content: left;
-  width: 57em;
-  height: auto;
-  margin-left: 55px;
-  padding-bottom: 80px;
-
-}
-
-.btn {
-  width: 296px;
-  height: 30px;
-  border: 1px solid rgb(156, 156, 156);
-  background-color: #11bcd0;
-}
-
-.label-login {
-  font-size: 16px;
-  color: rgb(126, 126, 126);
-  padding-bottom: 10px;
-}

@@ -154,10 +154,7 @@ const Details = () => {
             </Link>
           </Button>
         </span>
-
-
       </div>
-
     </div>
 
   );

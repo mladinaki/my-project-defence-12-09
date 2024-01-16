@@ -28,7 +28,6 @@ export const edit = async (shoseId, shoseData) => {
 
 export const removeOne = async (shoseId) => await request.del(`${baseUrl}/${shoseId}`)
 
-
 export const serach = async (serachItem) => {
   const result = await request.post(`${baseUrl}/serach`, {
     serachItem,

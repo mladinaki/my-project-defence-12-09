@@ -1,6 +1,6 @@
 import style from "../login/Login.module.css";
 import useForms from "../hooks/useForm";
-import { useContext, useMemo } from "react";
+import { useContext } from "react";
 
 import * as React from "react";
 import Avatar from "@mui/material/Avatar";
@@ -9,7 +9,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
@@ -18,7 +17,6 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 import AuthContext from "../../contexts/authContexts";
 import validateform from "../validateForm/validateform";
-import { useEffect } from "react";
 
 const loginFormKyes = {
   Username: "username",
@@ -28,11 +26,11 @@ const loginFormKyes = {
 
 const defaultTheme = createTheme();
 
-const Login = ({ submitHandler }) => {
+const Login = ({ submitForm }) => {
   const { loginSubmitHandler } = useContext(AuthContext);
 
   const { values, onChange, handleSubmit, err } = useForms(
-    submitHandler,
+    submitForm,
     validateform,
     loginSubmitHandler,
   );
@@ -40,6 +38,7 @@ const Login = ({ submitHandler }) => {
   return (
     <div id="templatemo_main-login" className={style["login-content"]}>
       <div id="content-login" className="float_r">
+
         <ThemeProvider theme={defaultTheme}>
           <Container component="main" maxWidth="xs">
             <CssBaseline />
@@ -63,36 +62,36 @@ const Login = ({ submitHandler }) => {
                 onSubmit={handleSubmit}
               >
 
-              <TextField
-              style={{ marginBottom: 7 }}
-              fullWidth
-              placeholder="Име*"
-              label={err.username && <span style={{ color: 'red', fontSize: '13px' }}>{err.username}</span>}
-              name='username'
-              value={values[loginFormKyes.Username]}
-              onChange={onChange}
-            />
+                <TextField
+                  style={{ marginBottom: 7 }}
+                  fullWidth
+                  placeholder="Име*"
+                  label={err.username && <span style={{ color: 'red', fontSize: '13px' }}>{err.username}</span>}
+                  name='username'
+                  value={values[loginFormKyes.Username]}
+                  onChange={onChange}
+                />
 
-            <TextField
-              style={{ marginBottom: 7 }}
-              fullWidth
-              label={err.email && <span style={{ color: 'red', fontSize: '13px' }}>{err.email}</span>}
-              placeholder="Имейл*"
-              onChange={onChange}
-              name="email"
-              value={values[loginFormKyes.Email]}
-            />
+                <TextField
+                  style={{ marginBottom: 7 }}
+                  fullWidth
+                  label={err.email && <span style={{ color: 'red', fontSize: '13px' }}>{err.email}</span>}
+                  placeholder="Имейл*"
+                  onChange={onChange}
+                  name="email"
+                  value={values[loginFormKyes.Email]}
+                />
 
-            <TextField
-              style={{ marginBottom: 7 }}
-              fullWidth
-              name='password'
-              placeholder="Парола*"
-              label={err.password && <span style={{ color: 'red', fontSize: '13px' }}>{err.password}</span>}
-              type="password"
-              value={values[loginSubmitHandler.Password]}
-              onChange={onChange}
-            />
+                <TextField
+                  style={{ marginBottom: 7 }}
+                  fullWidth
+                  name='password'
+                  placeholder="Парола*"
+                  label={err.password && <span style={{ color: 'red', fontSize: '13px' }}>{err.password}</span>}
+                  type="password"
+                  value={values[loginSubmitHandler.Password]}
+                  onChange={onChange}
+                />
 
                 <FormControlLabel
                   control={<Checkbox value="remember" color="primary" />}

@@ -33,11 +33,8 @@ const useForm = (callback, validateform, submitHandler) => {
     if (Object.keys(err).length === 0 && isCorrect) {
       callback()
       registerSubmitHandler(values)
-
     }
   }, [err])
-
-
 
   return {
     values,

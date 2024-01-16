@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa";
 
-
 import style from "./ProductItem.module.css";
 
 const productItem = ({ _id, sneacersName, price, imageUrl }) => {
@@ -17,10 +16,11 @@ const productItem = ({ _id, sneacersName, price, imageUrl }) => {
         <img src={imageUrl} alt="Shose 2" />
       </a>
       <p className={style["price-item"]}>От {price} лв.</p>
+
       <div className="buttons">
         <Link to={`/details/${_id}`} className="cart-buy">
-        <FaCartPlus className="icons-cart"></FaCartPlus>
-          <span style={{fontSize:13,letterSpacing:2}}>КУПИ</span>
+          <FaCartPlus className="icons-cart"></FaCartPlus>
+          <span style={{ fontSize: 13, letterSpacing: 2 }}>КУПИ</span>
         </Link>
       </div>
     </div>

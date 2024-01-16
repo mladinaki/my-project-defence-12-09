@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
   const registerSubmitHandler = async (values) => {
     const result = await authService.register(values.email, values.password);
 
-    // setAuth(result);
+    setAuth(result);
     localStorage.setItem("accessToken", result.accessToken);
     // navigate(Path.Login);
   };
@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
   const logoutSubmitHandler = () => {
     setAuth({});
     localStorage.removeItem("accessToken");
-    // window.location.reload();
+    window.location.reload();
     navigate(Path.Home);
   };
 

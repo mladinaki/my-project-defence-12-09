@@ -10,10 +10,11 @@ import Badge from "@mui/material/Badge";
 
 import styles from "../cartModal/cartModal.module.css";
 
-import { Link, Navigate, useParams } from "react-router-dom";
+import { ADD, DLT, REMOVE } from "../../redux/actions/action";
+
+import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useContext, useEffect, useState } from "react";
-import { ADD, DLT, REMOVE } from "../../redux/actions/action";
 import AuthContext from "../../contexts/authContexts";
 
 const style = {
@@ -55,13 +56,11 @@ export default function CartModalItem({ _id }) {
     dispach(ADD(item));
   };
 
-
   const total = () => {
     let price = 0;
     getData.map((data, k) => {
       price = parseInt(data.price) * data.quantity + price;
     });
-
     setPrice(price);
   };
 
@@ -147,11 +146,11 @@ export default function CartModalItem({ _id }) {
                               </div>
                               <div className={styles["name-content"]}>
                                 <th>{data.sneacersName}</th>
-                                <p>Mens sports shoes.</p>
+                                <span>Mens sports shoes.</span>
                               </div>
 
                               <div className={styles["price-cartcontent"]}>
-                                <td> {data.price}лв.</td>
+                                <span> {data.price}лв.</span>
                               </div>
                               <div className={styles["price-count"]}>
                                 <div className="mt-5 d-flex justify-content-between align-items-center">
@@ -182,16 +181,15 @@ export default function CartModalItem({ _id }) {
                       </div>
                     );
                   })}
-                  {/* <span>Всичко: {price}</span> */}
+                  { /*<span>Всичко: {price}</span>*/}
                 </table>
 
-                {getData.length === 0 && <></> ? (
+                {getData.length === 0 && <span></span> ? (
                   <h3
                     style={{
                       textAlign: "center",
                       fontWeight: "540",
                       fontSize: 15,
-
                       display: "inline-block",
                     }}
                   >

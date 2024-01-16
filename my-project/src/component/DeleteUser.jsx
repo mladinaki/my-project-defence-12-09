@@ -29,15 +29,15 @@ const style = {
 };
 
 const DeleteUser = ({ _id, sneacersName, price, imageUrl, quantity }) => {
-  const { shoseId } = useParams();
 
+  const { shoseId } = useParams();
   const [open, setOpen] = useState(false);
 
   const dispach = useDispatch();
 
   const handleOpen = async () => setOpen(true);
-
   const onCancelDel = async () => setOpen(false);
+
   // const handleClose = () => setOpen(false);
 
   useEffect(() => {
@@ -55,7 +55,6 @@ const DeleteUser = ({ _id, sneacersName, price, imageUrl, quantity }) => {
         alt="image 2"
         style={{
           position: "relative",
-          // padding: 2,
           fontSize: 15,
           display: "flex",
           color: "red",
@@ -91,11 +90,13 @@ const DeleteUser = ({ _id, sneacersName, price, imageUrl, quantity }) => {
               {" "}
               Премахване на продуцт!
             </span>
+            
             <p style={{ fontSize: 13, paddingTop: 10 }}>
               Сигурен ли си, че искаш да премахнеш този продукт от количката?{" "}
             </p>
           </Typography>
           <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+
             <table className={styles["tableItem"]}>
               <div className={styles["image-sneaccers"]}>
                 <img src={imageUrl} alt="image 2" />
