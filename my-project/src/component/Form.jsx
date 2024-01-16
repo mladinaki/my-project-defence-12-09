@@ -10,9 +10,9 @@ const Form = () => {
 
     const submitForm = () => {
         setIsSubmited(true);
-        setTimeout(() => {
-            navigate(Path.Login)
-        }, 2000);
+        // setTimeout(() => {
+        //     navigate(Path.Login)
+        // }, 2000);
     }
 
     return (

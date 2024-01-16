@@ -2,7 +2,6 @@ import { useContext, useMemo } from "react";
 import style from "../register/Register.module.css";
 import AuthContext from "../../contexts/authContexts";
 import useForm from "../hooks/useForm";
-
 //
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
@@ -18,7 +17,6 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import validateform from "../validateForm/validateform";
-
 
 const RegisterFormKeys = {
   Username: "username",
@@ -45,6 +43,7 @@ const Register = ({ submitForm }) => {
         <div className="content_half float_l">
           {/* <p>Въведете своя имейл или парола!</p> */}
           <div id="contact_htmlFor">
+          <div className="content_register-form ">
 
             <ThemeProvider theme={defaultTheme}>
               <Container component="main" maxWidth="xs">
@@ -129,6 +128,7 @@ const Register = ({ submitForm }) => {
         </div>
       </div>
       <div className="cleaner"></div>
+    </div>
     </div>
   );
 };
