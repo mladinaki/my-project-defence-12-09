@@ -1,15 +1,13 @@
 .contents-modal {
   color: rgb(116, 116, 123);
-  top: 50%;
   display: flex;
-  margin: 25% auto;
-  width: 450px;
+  margin: 20% auto;
+  width: 40%;
 }
 
 .cartItem-image {
-  border: 1px solid rgb(211, 211, 211);
+  border: 1px solid rgb(228, 228, 228);
   padding: 5px;
-  border-radius: 6px;
 }
 
 .cartItem-image img {
@@ -17,8 +15,9 @@
 }
 
 .name-content {
-  width: 11em;
-  margin-left: 5%;
+  width: 15em;
+  margin-left: 2%;
+  font-size: 13px;
 }
 
 .name-content p {
@@ -35,11 +34,9 @@
   font-size: 14px;
   color: black;
   border: 1px solid rgb(225, 225, 225);
+  background: #f9f9f9;
+  padding: 10px;
   display: flex;
-  background: #f4f4f4;
-  border-radius: 6px;
-
-  padding: 15px;
 }
 
 .price-cartcontent {
@@ -52,48 +49,52 @@
 
 .price-cartcontent span {
   font-weight: 450;
-  font-size: 15px;
+  font-size: 12px;
+  font-weight: bold;
   cursor: pointer;
-  display: inline;
-  /* float: left; */
   color: black;
+  padding: 3px;
   text-decoration: none;
+
+}
+
+.price-cartcontent td span {
+  font-weight: 450;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  color: black;
+  position: relative;
+  height: 21px;
+  padding: 2px;
+  display: flex;
+  text-decoration: none;
+  margin-top: 2px;
 }
 
 .price-count {
   background-color: #ececec;
   border: 1px solid rgb(224, 224, 224);
   height: 25px;
-  margin-right: 7%;
+  margin-right: 3%;
   margin-top: 2px;
 }
 
 .price-count span {
-  color: rgb(121, 121, 121);
+  color: rgb(132, 132, 132);
   cursor: pointer;
   padding: 3px;
-  /* margin-right: 3PX; */
-  font-size: 15px;
-  /* width: 78px; */
+  font-size: 13px;
+  font-weight: bold;
   margin-left: 5px;
   display: inline;
-  /* padding: 35px; */
 }
 
-.btn-cartModal {
+.btn-cartModal span {
   position: relative;
+  font-size: 10px;
+  font-weight: bold;
   float: left;
-  color: black;
-  margin-left: 427px;
-  width: 30%;
-  border-radius: 3px;
-  /* margin-left: 5px; */
-  padding: 3px;
-  /* font-size: 10px; */
-  text-align: center;
-  background-color: #10bbcf;
-  /* color: #ffff; */
-  border: 1px solid rgba(82, 82, 82, 0.114);
 }
 
 .total-end {
@@ -115,4 +116,3 @@
   color: red;
   font-size: 15px;
 }
-

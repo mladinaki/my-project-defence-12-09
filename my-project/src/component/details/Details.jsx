@@ -68,7 +68,6 @@ const Details = () => {
                 }}
                 variant="outlined"
                 color="error"
-                Error
                 onClick={onDelProduct}
               >
                 Премахни

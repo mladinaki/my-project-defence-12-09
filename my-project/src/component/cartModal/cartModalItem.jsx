@@ -27,7 +27,6 @@ const style = {
   border: "1px solid rgb(229, 229, 229)",
   boxShadow: 24,
   p: 2,
-  borderRadius: 4,
 };
 
 export default function CartModalItem({ _id }) {
@@ -98,7 +97,7 @@ export default function CartModalItem({ _id }) {
             <Box sx={style}>
               <i
                 className="bi bi-x-square"
-                style={{ fontSize: 23, float: "right", cursor: "pointer" }}
+                style={{ padding: 5, fontSize: 23, float: "right", cursor: "pointer" }}
                 onClick={onClose}
               ></i>
 
@@ -109,18 +108,6 @@ export default function CartModalItem({ _id }) {
               ></Typography>
 
               <Typography id="transition-modal-description">
-                <h2
-                  style={{
-                    display: "inline",
-                    marginLeft: "102px",
-                    fontSize: 21,
-                    paddingBottom: 10,
-                    color: "#11BCD0",
-                  }}
-                >
-                  <i className="bi bi-cart2" style={{ paddingRight: 12 }}></i>
-                  Количка{" "}
-                </h2>
 
                 <table>
                   {getData.map((data) => {
@@ -130,8 +117,7 @@ export default function CartModalItem({ _id }) {
                           <td
                             style={{
                               display: "flex",
-                              margin: 20,
-                              borderRadius: 20,
+                              padding: 5,
                             }}
                           >
                             <div className={styles["contentModal"]}>
@@ -203,13 +189,15 @@ export default function CartModalItem({ _id }) {
                   </h3>
                 ) : (
                   <div className={styles["price-cartcontent"]} key={_id}>
-                    <Link
-                      to={`/shoping/cart`}
-                      onClick={() => onClose()}
-                      className={styles["btn-cartModal"]}
-                    >
-                      <span>Към количката</span>
-                    </Link>
+                    <Button variant="outlined" color="success">
+                      <Link
+                        to={`/shoping/cart`}
+                        onClick={() => onClose()}
+                        className={styles["btn-cartModal"]}
+                      >
+                        <span>Към количката</span>
+                      </Link>
+                    </Button>
                   </div>
                 )}
               </Typography>
