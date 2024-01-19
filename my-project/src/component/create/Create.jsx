@@ -3,6 +3,7 @@ import style from "../create/Create.module.css";
 import * as userService from "../../services/componentService";
 import { useNavigate } from "react-router-dom";
 import Path from "../../path/path";
+import { Button } from "@mui/material";
 
 const AddProduct = () => {
   const navigate = useNavigate();
@@ -22,94 +23,86 @@ const AddProduct = () => {
   return (
     <div id="templatemo_main_addProduct" className={style["add-content"]}>
       <div className={style["addItem-content"]}>
-        <h1>Contact Us</h1>
+
+        <h3>Добавяне на продукт</h3>
+        
         <div className="content_half float_l">
           <div id="contact_htmlFor">
             <form onSubmit={createHendler}>
-              <label htmlFor="author" className={style["label-login"]}>
-                Име на продуцт
-              </label>{" "}
               <input
                 type="text"
-                id="author"
+                id="sneacersName"
                 name="sneacersName"
-                className="required input_field"
+                placeholder="Име на продукта"
               />
 
-              <label htmlFor="price" className={style["label-login"]}>
-                Цена
-              </label>{" "}
               <input
                 type="text"
                 name="price"
-                id="phone"
-                className="input_field"
+                id="price"
+                placeholder="Цена"
               />
 
-              <label htmlFor="availablity" className={style["label-login"]}>
-                Наличност
-              </label>{" "}
               <input
                 type="text"
                 name="availablity"
-                id="phone"
-                className="input_field"
+                id="availablity"
+                placeholder="Наличност"
               />
 
-              <label htmlFor="model" className={style["label-login"]}>
-                Модел
-              </label>{" "}
               <input
                 type="text"
                 name="model"
-                id="phone"
+                id="model"
                 className="input_field"
+                placeholder="Модел"
               />
 
-              <label htmlFor="manifacture" className={style["label-login"]}>
-                Производител
-              </label>{" "}
               <input
                 type="text"
                 name="manifacture"
-                id="phone"
+                id="manifacture"
                 className="input_field"
+                placeholder="Производител"
               />
 
-              <label htmlFor="imageUrl" className={style["label-login"]}>
-                Снимка
-              </label>{" "}
               <input
                 type="text"
                 name="imageUrl"
-                id="phone"
+                id="imageUrl"
                 className="input_field"
+                placeholder="Снимка"
               />
 
-              <label htmlFor="description" className={style["label-login"]}>
-                Описание
-              </label>{" "}
               <textarea
                 type="text"
                 name="description"
-                id="phone"
+                id="description"
                 className="input_field"
+                placeholder="Описание"
               />
 
-              <button
+              <Button
                 type="submit"
                 name="submit"
                 id="submit"
                 value="Send"
                 className={style["btn"]}
+                style={{
+                  marginLeft: 7,
+                  width: '97%',
+                  height: 40,
+                  borderRadius: 2,
+                  backgroundColor: "#10BBCF",
+                  color: "#FFFFFF"
+                }}
+                sx={{ mt: 2, mb: 3 }}
               >
                 Създай
-              </button>
+              </Button>
             </form>
           </div>
         </div>
-
-        {/* <div className="cleaner h40"></div> */}
       </div>
     </div>
   );

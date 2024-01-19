@@ -33,7 +33,7 @@ const ShoseEdit = () => {
     try {
       await userService.edit(shoseId, selectEdit);
       navigate(Path.Product);
-      
+
     } catch (error) {
       return error;
     }
@@ -52,9 +52,7 @@ const ShoseEdit = () => {
         <div className="content_half float_l">
           <div id="contact_htmlFor">
             <form onSubmit={editHendler}>
-              <label htmlFor="author" className={style["label-login"]}>
-                Sneacers Name
-              </label>{" "}
+
               <input
                 type="text"
                 id="author"
@@ -62,23 +60,22 @@ const ShoseEdit = () => {
                 value={selectEdit.sneacersName}
                 onChange={onChange}
                 className="required input_field"
+                placeholder="Име"
+
               />
-              <div className="cleaner h10"></div>
-              <label htmlFor="phone" className={style["label-login"]}>
-                Price
-              </label>{" "}
+              <div className="cleaner h5"></div>
+
               <input
                 type="text"
                 name="price"
                 value={selectEdit.price}
                 onChange={onChange}
-                id="phone"
+                id="price"
                 className="input_field"
+                placeholder="Цена"
               />
-              <div className="cleaner h10"></div>
-              <label htmlFor="phone" className={style["label-login"]}>
-                Availablity
-              </label>{" "}
+              <div className="cleaner h5"></div>
+
               <input
                 type="text"
                 name="availablity"
@@ -86,11 +83,11 @@ const ShoseEdit = () => {
                 onChange={onChange}
                 id="phone"
                 className="input_field"
+                placeholder="Вналияност"
+
               />
-              <div className="cleaner h10"></div>
-              <label htmlFor="phone" className={style["label-login"]}>
-                Model
-              </label>{" "}
+              <div className="cleaner h5"></div>
+
               <input
                 type="text"
                 name="model"
@@ -98,11 +95,11 @@ const ShoseEdit = () => {
                 onChange={onChange}
                 id="phone"
                 className="input_field"
+                placeholder="Модел"
+
               />
-              <div className="cleaner h10"></div>
-              <label htmlFor="phone" className={style["label-login"]}>
-                Manifacture
-              </label>{" "}
+              <div className="cleaner h5"></div>
+
               <input
                 type="text"
                 name="manifacture"
@@ -110,11 +107,10 @@ const ShoseEdit = () => {
                 onChange={onChange}
                 id="phone"
                 className="input_field"
+                placeholder="Производител"
               />
-              <div className="cleaner h10"></div>
-              <label htmlFor="phone" className={style["label-login"]}>
-                Image
-              </label>{" "}
+              <div className="cleaner h5"></div>
+
               <input
                 type="text"
                 name="imageUrl"
@@ -122,11 +118,10 @@ const ShoseEdit = () => {
                 onChange={onChange}
                 id="phone"
                 className="input_field"
+                placeholder="Снимка"
               />
-              <div className="cleaner h10"></div>
-              <label htmlFor="phone" className={style["label-login"]}>
-                Description
-              </label>{" "}
+              <div className="cleaner h5"></div>
+
               <textarea
                 type="text"
                 name="description"
@@ -134,15 +129,22 @@ const ShoseEdit = () => {
                 onChange={onChange}
                 id="phone"
                 className="input_field"
+                placeholder="Описание"
               />
               <Button
+                style={{
+                  marginLeft: 7,
+                  width: '97%',
+                  height: 40,
+                  borderRadius: 2,
+                  backgroundColor: "#10BBCF",
+                  color: "#FFFFFF"
+                }}
+                sx={{ mt: 2, mb: 3 }}
                 type="submit"
-
-                fullWidth
-                style={{ backgroundColor: "#10BBCF", color: "#FFFFFF" }}
                 className={style["btn"]}
               >
-                Edit cart
+                Обнови
               </Button>
             </form>
           </div>

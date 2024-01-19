@@ -33,40 +33,78 @@ const checkOutItem = () => {
         <div id="templatemo_main"></div>
         <div className={style["form-check"]}>
           <form action="">
-            <h2>Разгледайте</h2>
+            <h2>Разплащане</h2>
             <h5>
               <strong>Данни за плащане</strong>
             </h5>
             <div className="content_half float_l checkout">
-              <label htmlFor="name">Име и фамилия</label>
-              <input type="text" name="name" />
-              <br />
-              <br />
-              <label htmlFor="name">Адрес</label>:
-              <input type="text" name="addres" />
-              <br />
-              <br />
-              <label htmlFor="city">Град</label>:
-              <input type="text" name="city" />
-              <br />
-              <br />
-              <label htmlFor="country">Телефон</label>:
-              <input type="text" name="phone" />
-              <Button type="submit">Submit</Button>
+
+              <input type="text" name="name" placeholder="Имейл адрес" />
+
+              <input type="text" name="name" placeholder="Име и фамилия" />
+
+              <input type="text" name="name" placeholder="Град" />
+
+              <input type="text" name="name" placeholder="Област" />
+              
+              <input type="text" name="name" placeholder="Пощенски код" />
+
+              <input type="text" name="addres" placeholder="Адрес" />
+
+              <input type="text" name="city" placeholder="Град" />
+
+              <input type="text" name="phone" placeholder="Телефон" />
+
+              <Button type="submit" style={{
+                marginLeft: 7,
+                width: '94%',
+                height: 40,
+                borderRadius: 4,
+                backgroundColor: "#10BBCF",
+                color: "#FFFFFF"
+              }}>Поръчай</Button>
             </div>
           </form>
+          <tr>
+            <th>Снимка</th>
+            <th>Име на продукта</th>
+            <th>Количство</th>
+            <th>Обща сума</th>
+          </tr>
         </div>
         {getData.map((check) => {
 
           return (
-            <CheckOutItems key={check._id} {...check} />
+            <div className="cont">
+              <div className="che-output-container">
+                <table>
+
+                  <td>
+                    <tr><img src={check.imageUrl} style={{ width: 50 }} /></tr>
+                  </td>
+
+                  <td>
+                    <tr>{check.sneacersName}</tr>
+                  </td>
+
+                  <td>
+                    <tr>{check.quantity}бр</tr>
+                  </td>
+
+                  <td>
+                    <tr>{price.toFixed(2)}</tr>
+                  </td>
+
+                </table>
+              </div>
+            </div>
           );
-          
         })}
+
         <div className={style["price-total-check"]}>
-          <span>Всичко {price}лв.</span>
+          <span>Всичко {price.toFixed(2)}лв.</span>
           <Button
-            style={{ border: "1px solid black", marginLeft: 15, fontSize: 12 }}
+            style={{ border: "1px solid black", marginLeft: 15, fontSize: 10 }}
           >
             Завърши поръчката
           </Button>

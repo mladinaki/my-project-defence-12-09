@@ -1,18 +1,23 @@
 .form-check form input {
-  border: 1px solid rgb(129, 129, 129);
+  border: 1px solid rgb(199,199,199);
   /* width: 250px; */
   height: 25px;
   display: inline;
+  color: #7B92A6;
+  font-size: 16px;
   width: 90%;
-  /* padding: 5px; */
-  /* float: right; */
+  margin: 7px;
+  padding: 5px;
+  border-radius: 4px;
 }
-.form-check form label {
-  /* height: 3%; */
-  font-size: 13px;
-  /* padding-bottom: 3px; */
-  display: inline;
-  color: rgb(129, 129, 129);
+
+.form-check th {
+  background-color: #2F2F2F;
+  color: white;
+  border: 3px solid rgb(188, 188, 188);
+  width: 140px;
+  margin: 1px;
+  display: inline-block;
 }
 
 .form-check form {
@@ -24,28 +29,21 @@
   /* padding-right: 10px; */
 }
 
-.form-check button{
-border: 1px solid black;
-margin-top: 3px;
-width: 92%;
-float: left;
-height: 30px;
-margin-top: 6px;
 
-background-color: azure;
-}
 
 .product-item-check{
   margin: 20px;
 }
 
 .price-total-check{
-  font-size: 19px;
-  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  color: #000000;
   display: inline;
-  float: left;
-  margin-top: 20px;
-  margin-right: 0px;
+  float: right;
+  padding: 30px;
+  margin-top: 0px;
+  margin-right: 15px;
 }
 
 .check-content{

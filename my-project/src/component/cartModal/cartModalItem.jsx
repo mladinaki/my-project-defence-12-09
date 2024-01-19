@@ -60,7 +60,7 @@ export default function CartModalItem({ _id }) {
     getData.map((data, k) => {
       price = parseInt(data.price) * data.quantity + price;
     });
-    setPrice(price);
+    setPrice(price.toFixed(2));
   };
 
   useEffect(() => {

@@ -3,11 +3,12 @@
 import style from "../shopcart/ShopCart.module.css";
 
 import { Link, useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import DeleteUser from "../DeleteUser";
 import { useEffect, useState } from "react";
 import * as React from "react";
+import { Button } from "@mui/material";
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -41,8 +42,8 @@ const ShopingCart = ({ _id }) => {
 
     <div className="templatemo_main_shop_cart">
       <div id="content" className="float_r">
-      
-        {getData.length === 0 && <h3></h3> ? (
+
+        {getData.length === 0 && <div></div> ? (
           <h2 style={{ textAlign: "center", marginLeft: 100, fontSize: 22 }}>
             Няма добавени артикли!
           </h2>
@@ -50,25 +51,46 @@ const ShopingCart = ({ _id }) => {
           <h3
             style={{
               display: "inline",
-              padding: '5px',
-              marginLeft: 20
-            }}>Моята поръчка</h3>
+              margin: '10px',
+              height: '20px',
+              textTransform: 'uppercase',
+              float: 'left',
+              marginLeft: 20, fontFamily: 'verdana',
+            }}>Пазарска количка</h3>
         )}
         <table>
           <tr>
-            <th>Image</th>
-            <th>Description</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Total</th>
-            <th>Remove</th>
+            <th>Снимка</th>
+            <th>Име на продукта</th>
+            <th>Количество</th>
+            <th>Единична цена</th>
+            <th>Сума</th>
+            <th>Премахни</th>
           </tr>
+          <div id="end-product-check">
+            <th>Общо количество</th>
 
+            <div className={style["total-end"]}>
+              <p>Сума</p>
+              <span>{price.toFixed(2)} лв</span>
+            </div>
+
+            <div className={style["total-end"]}>
+              <p>Обща сума</p>
+              <span>{price.toFixed(2)} лв</span>
+            </div>
+            <Button style={{ width: '210px', marginBottom: '8px', marginLeft: 3 }}
+              variant="outlined"
+              color="success">
+              <Link to={`/checout/cart`}>Към разплащане</Link>
+            </Button>
+          </div>
           {getData.map((data) => {
+
             return (
               <tr key={shoseId}>
                 <td>
-                  <div className={style["cartItem-image"]}>
+                  <div className={style["shoping-image"]}>
                     <img src={data.imageUrl} alt="image 2" />
                   </div>
                 </td>
@@ -78,10 +100,9 @@ const ShopingCart = ({ _id }) => {
                     className="name-sneaccers"
                     style={{
                       marginTop: 47,
-                      fontSize: 15,
+                      fontSize: 12,
+                      fontWeight: 'bold',
                       color: "black",
-                      borderBottom: "1px solid black",
-                      width: 72,
                       textAlign: "center",
                       margin: '5% auto'
                     }}
@@ -106,30 +127,8 @@ const ShopingCart = ({ _id }) => {
                 </td>
               </tr>
             );
+
           })}
-          <div className="end-product-check">
-            <th>Общо количество</th>
-            <td style={{ width: '80%', position: "relative", display: 'flex' }}>
-              <div className={style["total-end"]}>
-                <p>Сума</p>
-                <span>{price} лв</span>
-              </div>
-            </td>
-            <div className={style["total-end"]}>
-              <p>Обща сума</p>
-              <span>{price} лв</span>
-            </div>
-            <tr>
-            
-            <td>
-              <Link className={style["btn-check"]} to={`/checout/cart`}>
-                Продължи към разплащане
-              </Link>
-            </td>
-            </tr>
-          </div>
-          
-          
         </table>
       </div>
     </div>
