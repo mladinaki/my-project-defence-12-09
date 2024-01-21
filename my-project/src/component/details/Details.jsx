@@ -93,7 +93,7 @@ const Details = () => {
                           onClick={() => clickCart()}
                         // handleOpen={handleOpen}
                         >
-                          <span style={{ fontSize: 10, width: 170, float: 'left' }}>
+                          <span style={{ fontSize: 11,fontWeight:"bold", width: 170, float: 'left' }}>
                             Добави в количката
                           </span>
                         </Button>
@@ -126,7 +126,7 @@ const Details = () => {
                         color="success"
                         variant="outlined"
                       >
-                        <Link to={`/product/sneakers`}>
+                        <Link to={`/product/sneakers`} style={{fontSize:"11px",fontWeight:'bold'}}>
                           <span>Към продукти</span>
                         </Link>
                       </Button>

@@ -240,7 +240,6 @@ img {
 }
 
 #templatemo_body_wrapper {
-  border: 1px solid black;
   width: 100%;
   background: url(../public/images/templatemo_body_top.jpg) repeat-x top;
 }
@@ -449,9 +448,20 @@ img {
   margin-left: 98%;
   margin-top: -3.7%;
   width: 30%;
-  height: 240px;
+  height: 230px;
 
 }
+#end-product-check button {
+  border: 2px solid rgb(129, 129, 129);
+  background-color: #8dedf8;
+  color: black;
+ text-decoration: none;
+  font-weight:lighter;
+  text-transform: uppercase;
+  font-size: 13px;
+  
+}
+
 
 #end-product-check span {
   margin-right: 120px;
@@ -590,5 +600,21 @@ img {
   margin-left: 85px;
   max-width: 280px;
   max-height: 280px;
+
+}
+
+.phone-contact span {
+  display: grid;
+  color: rgb(114, 114, 114);
+  position: relative;
+  font-size: 12px;
+  font-weight: bold;
+  margin: 0 auto;
+  text-align: right;
+  margin-right: 30px;
+  text-transform: uppercase;
+  /* margin-top: 98px; */
+  /* margin-right: 10px; */
+  /* float: left; */
 
 }

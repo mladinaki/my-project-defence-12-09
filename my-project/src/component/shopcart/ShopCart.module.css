@@ -77,19 +77,14 @@
   margin: 7px 0 0 8px;
 }
 
-.shoping-image img{
-  /* height: 110px; */
-  /* display: flex; */
-  /* max-height: 10em; */
+.shoping-image img {
   float: left;
   position: block;
 }
 
 .tableItem {
   background: #f4f4f4;
-
   display: flex;
-  /* float: right; */
   border-radius: 6px;
 }
 
@@ -123,36 +118,54 @@
   font-size: 15px;
 }
 
+.button-shoping {
+  width: 144%;
+  display: inline-block;
+  text-align: center;
+  color: black;
+  text-decoration: none;
+  
+}
+
+.button-shoping span{
+  width: 100%;
+  display: inline-block;
+  color: rgb(2, 2, 2);
+  padding: 7px 0 7px 0;
+  border-radius: 3px;
+  background-color: #10BBCF;
+}
+.button-shoping span:hover {
+  background: rgb(255, 255, 255);
+  padding: 7px 0 7px 0;
+  width: 101%;
+  position: relative;
+  display: grid;
+}
+
+
 .total-end {
   display: flex;
-  /* padding-top: 5px; */
-  /* width: 75%; */
   font-size: 14px;
-  /* text-align: center; */
   position: relative;
 }
 
 .total-end span {
-  /* width: 90%; */
-  /* position: absolute; */
   display: flex;
   color: #707070;
   font-weight: bold;
   padding: 20px;
   font-size: 12px;
-
 }
 
 .total-end tr {
   padding: 0px;
   margin: 2px;
-
 }
 
 .total-end p {
   padding: 20px;
   position: relative;
-  /* display: flex; */
   color: black;
   font-weight: bold;
   font-size: 12px;
@@ -164,15 +177,12 @@
   width: 160%;
   display: inline-table;
   letter-spacing: 1px;
-  /* float: right; */
-  color:white;
+  color: white;
   background-color: #f0f0f0;
   text-decoration: none;
   text-align: center;
   font-size: 13px;
   font-weight: 450;
-
-  /* display: inline-block; */
   margin: 1% auto;
 }
 

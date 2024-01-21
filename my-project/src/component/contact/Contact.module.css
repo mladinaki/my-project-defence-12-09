@@ -1,52 +1,47 @@
 .contact-content form input {
-    width: 290px;
-    height: 25px;
-    border: 1px solid rgb(156, 156, 156);
-  }
-  
-  .contact-content h1 {
-    text-align: center;
-    margin-left: 0px;
-    text-align:start;
-    padding-left: 12px;
-  }
-  contact-content{
-    width: 200px;
-    display: inline;
-  }
-  
-  .contact-content p {
-    text-align: center;
-    position: relative;
-    display: flex;
-    width: 400px;
-    margin-left: 265px;
-  }
-  
-  .contact-content form {
-    position: relative;
-    display: grid;
-    /* justify-content: center; */
-    width: 57em;
-    height: auto;
-    margin-left: 15px;
-    
-  }
-  
-  .btn {
-    width: 296px;
-    height: 30px;
-    border: 1px solid rgb(156, 156, 156);
-    background-color: #11bcd0;
-  }
-  
+  width: 290px;
+  height: 25px;
+  border: 1px solid rgb(156, 156, 156);
+}
 
-  .contact-content textarea {
-    /* border: 1px solid black; */
-    width: 290px;
-    height: 100px;
-    resize: none;
-  }
-  
+.contact-content h1 {
+  text-align: center;
+  margin-left: 0px;
+  text-align: start;
+  padding-left: 12px;
+}
 
-  
+contact-content {
+  width: 200px;
+  display: inline;
+}
+
+.contact-content p {
+  text-align: center;
+  position: relative;
+  display: flex;
+  width: 400px;
+  margin-left: 265px;
+}
+
+.contact-content form {
+  position: relative;
+  display: grid;
+  width: 57em;
+  height: auto;
+  margin-left: 15px;
+}
+
+.btn {
+  width: 296px;
+  height: 30px;
+  border: 1px solid rgb(156, 156, 156);
+  background-color: #11bcd0;
+}
+
+
+.contact-content textarea {
+  width: 290px;
+  height: 100px;
+  resize: none;
+}
