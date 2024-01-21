@@ -64,9 +64,9 @@ const ShopingCart = ({ _id }) => {
             border: '1px solid rgb(230, 230, 230)',
             fontFamily:'verdana',
             display: 'inline-block',
-            fontSize: 25
+            fontSize: 24
           }}>
-            Няма добавени артикли!
+            Няма добавени артикули!
           </h2>
         ) : (
           <div>
@@ -102,7 +102,7 @@ const ShopingCart = ({ _id }) => {
                 </div>
                 <button style={{
                   width: '100%',
-                  marginTop: 4,
+                  marginTop: -6,
                   height: 33,
                   backgroundColor: "#10BBCF",
                 }}>
