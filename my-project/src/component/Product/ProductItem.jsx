@@ -13,7 +13,7 @@ const productItem = ({ _id, sneacersName, price, imageUrl }) => {
       <h3>{sneacersName}</h3>
       <p>Mens sports shoes.</p>
       <a href="productdetail.html">
-        <img src={imageUrl} alt="Shose 2" />
+        <img style={{maxWidth:170}} src={imageUrl} alt="Shose 2" />
       </a>
       <p className={style["price-item"]}>От {price} лв.</p>
 
