@@ -47,7 +47,7 @@ const ShopingCart = ({ _id }) => {
 
   const removeItem = (_id) => {
     getData.map((data, k) => {
-      dispach(DLT(data._id))
+      dispach(DLT(data._id));
     })
   }
 
@@ -186,7 +186,7 @@ const ShopingCart = ({ _id }) => {
               }}
                 onClick={removeItem}
                 sx={{ mt: 1, mb: 3 }}
-              ><span>Изчисти количката</span></button>
+              ><span>Изчисти количкатa</span></button>
             </div>
           </div>
         )}
