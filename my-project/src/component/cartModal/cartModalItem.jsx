@@ -7,6 +7,8 @@ import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Badge from "@mui/material/Badge";
+import * as userService from "../../services/componentService";
+
 
 import styles from "../cartModal/cartModal.module.css";
 
@@ -16,6 +18,7 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../contexts/authContexts";
+import { del } from "../../lib/request";
 
 const style = {
   position: "relative",
@@ -36,6 +39,7 @@ export default function CartModalItem({ _id }) {
   const { isAuthenticated, userId } = useContext(AuthContext);
 
   const [price, setPrice] = useState(0);
+
   const { shoseId } = useParams();
 
   // const navigate = useNavigate();
@@ -71,15 +75,22 @@ export default function CartModalItem({ _id }) {
     <div>
       {isAuthenticated && (
         <Button onClick={handleOpen}>
-          <Badge badgeContent={getData.length} color="success">
-            <div className={styles["cart-icon"]}>
-              <i className="bi bi-cart"></i>
-            </div>
+          <div className={styles["cart-icon"]} >
+            <i className="bi bi-cart" style={{ display: 'inline' }}></i>
+          </div>
+          <Badge badgeContent={getData.length} color="error"
+            style={{
+              padding: 2,
+              marginBottom: 23,
+              // display: "flex",
+              // float: 'left'
+            }}>
           </Badge>
         </Button>
       )}
 
       <Modal
+
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={open}
@@ -97,11 +108,12 @@ export default function CartModalItem({ _id }) {
             <Box sx={style}>
               <i
                 className="bi bi-x-square"
-                style={{ padding: 5, fontSize: 23, float: "right", cursor: "pointer" }}
+                style={{ fontSize: 19, float: "right", cursor: "pointer" }}
                 onClick={onClose}
               ></i>
 
               <Typography
+
                 id="transition-modal-title"
                 variant="h6"
                 component="h2"
@@ -112,8 +124,10 @@ export default function CartModalItem({ _id }) {
                 <table>
                   {getData.map((data) => {
                     return (
+
                       <div key={data._id} className="content-cart">
                         <div className="content-item">
+
                           <td
                             style={{
                               display: "flex",
@@ -164,6 +178,7 @@ export default function CartModalItem({ _id }) {
                             </div>
                           </td>
                         </div>
+
                       </div>
                     );
                   })}
@@ -179,6 +194,13 @@ export default function CartModalItem({ _id }) {
                       display: "inline-block",
                     }}
                   >
+                    <i className="bi bi-cart-dash"
+                      style={{
+                        fontSize: 20,
+                        textAlign: 'center',
+                        display: "inline",
+                        float: 'left',
+                      }}></i>
                     Количката е празна.
                     <div
                       className="shop-text"
@@ -189,15 +211,7 @@ export default function CartModalItem({ _id }) {
                   </h3>
                 ) : (
                   <div className={styles["price-cartcontent"]} key={_id}>
-                    <Button variant="outlined" color="success">
-                      <Link
-                        to={`/shoping/cart`}
-                        onClick={() => onClose()}
-                        className={styles["btn-cartModal"]}
-                      >
-                        <span>Към количката</span>
-                      </Link>
-                    </Button>
+
                   </div>
                 )}
               </Typography>
@@ -205,6 +219,8 @@ export default function CartModalItem({ _id }) {
           </Fade>
         </div>
       </Modal>
+
+
     </div>
   );
 }

@@ -43,7 +43,7 @@ const Register = ({ submitForm }) => {
         <div className="content_half float_l">
           {/* <p>Въведете своя имейл или парола!</p> */}
           <div id="contact_htmlFor">
-          <div className="content_register-form ">
+          <div className="content_register-form">
 
             <ThemeProvider theme={defaultTheme}>
               <Container component="main" maxWidth="xs">

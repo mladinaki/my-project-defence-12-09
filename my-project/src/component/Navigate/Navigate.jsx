@@ -1,8 +1,9 @@
+import styles from "../Navigate/Navbar.module.css";
+
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 
 import Path from "../../path/path";
-import styles from "../Navigate/Navbar.module.css";
 
 import Avatar from "@mui/material/Avatar";
 import Stack from "@mui/material/Stack";

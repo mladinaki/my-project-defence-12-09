@@ -57,28 +57,12 @@ const ShopingCart = ({ _id }) => {
       <div id="content" className="float_r">
 
         {getData.length === 0 && <div></div> ? (
-          <h2 style={{
-            marginLeft: '42%',
-            padding: '5%',
-            height: 50,
-            border: '1px solid rgb(230, 230, 230)',
-            fontFamily:'verdana',
-            display: 'inline-block',
-            fontSize: 24
-          }}>
-            Няма добавени артикули!
-          </h2>
+          <div className={style["content-message"]}>
+            <h2> Няма добавени артикули!</h2>
+          </div>
         ) : (
-          <div>
-            <h3
-              style={{
-                display: "inline",
-                margin: '10px',
-                height: '20px',
-                textTransform: 'uppercase',
-                float: 'left',
-                marginLeft: 20, fontFamily: 'verdana',
-              }}>Пазарска количка</h3>
+          <div className={style["content-cartTitle"]}>
+            <h3>Пазарска количка</h3>
             <table>
               <tr>
                 <th>Снимка</th>
@@ -88,7 +72,7 @@ const ShopingCart = ({ _id }) => {
                 <th>Сума</th>
                 <th>Премахни</th>
               </tr>
-              <div id="end-product-check">
+              <div id={style['end-product-check']}>
                 <th>Общо количество</th>
 
                 <div className={style["total-end"]}>
@@ -102,7 +86,7 @@ const ShopingCart = ({ _id }) => {
                 </div>
                 <button style={{
                   width: '100%',
-                  marginTop: -6,
+                  marginTop: 12,
                   height: 33,
                   backgroundColor: "#10BBCF",
                 }}>

@@ -6,13 +6,9 @@ import Modal from "@mui/material/Modal";
 import styles from "./shopcart/ShopCart.module.css";
 
 import { DLT } from "../redux/actions/action";
-
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { useEffect } from "react";
 import { useState } from "react";
-
-import * as userService from "../services/componentService";
 
 const style = {
   position: "absolute",
@@ -33,20 +29,16 @@ const DeleteUser = ({ _id, sneacersName, price, imageUrl, quantity }) => {
   const { shoseId } = useParams();
   const [open, setOpen] = useState(false);
 
+  const getData = useSelector((state) => state.cartreducer.carts);
   const dispach = useDispatch();
 
   const handleOpen = async () => setOpen(true);
   const onCancelDel = async () => setOpen(false);
 
-  // const handleClose = () => setOpen(false);
-
-  useEffect(() => {
-    userService.getOne(shoseId).then((result) => setOpen(result));
-  }, [shoseId]);
-
   const onRemove = (_id) => {
     dispach(DLT(_id));
   };
+
 
   return (
     <div>
@@ -90,7 +82,7 @@ const DeleteUser = ({ _id, sneacersName, price, imageUrl, quantity }) => {
               {" "}
               Премахване на продуцт!
             </span>
-            
+
             <p style={{ fontSize: 13, paddingTop: 10 }}>
               Сигурен ли си, че искаш да премахнеш този продукт от количката?{" "}
             </p>
@@ -114,6 +106,7 @@ const DeleteUser = ({ _id, sneacersName, price, imageUrl, quantity }) => {
               <span onClick={onCancelDel}>Откажи</span>
             </div>
           </Typography>
+
         </Box>
       </Modal>
     </div>

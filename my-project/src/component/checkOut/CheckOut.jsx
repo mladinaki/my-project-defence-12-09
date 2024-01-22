@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react-hooks/rules-of-hooks */
-import CheckOutItems from "./CheckItems";
 import style from "../checkOut/checkOut.module.css";
 
 import { Button } from "@mui/material";
@@ -46,7 +45,7 @@ const checkOutItem = () => {
               <input type="text" name="name" placeholder="Град" />
 
               <input type="text" name="name" placeholder="Област" />
-              
+
               <input type="text" name="name" placeholder="Пощенски код" />
 
               <input type="text" name="addres" placeholder="Адрес" />
@@ -92,7 +91,7 @@ const checkOutItem = () => {
                   </td>
 
                   <td>
-                    <tr>{price.toFixed(2)}</tr>
+                    <tr>{check.price}</tr>
                   </td>
 
                 </table>

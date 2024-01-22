@@ -22,7 +22,8 @@ const ShoseEdit = () => {
 
 
   useEffect(() => {
-    userService.getOne(shoseId).then((result) => seteEdit(result));
+    userService.getOne(shoseId)
+      .then((result) => seteEdit(result));
   }, [shoseId]);
 
   const editHendler = async (e) => {
@@ -150,7 +151,6 @@ const ShoseEdit = () => {
           </div>
         </div>
 
-        {/* <div className="cleaner h40"></div> */}
       </div>
     </div>
   );
