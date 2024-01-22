@@ -252,6 +252,7 @@ img {
 }
 
 #templatemo_menubar {
+  color: red;
   width: 980px;
   height: 60px;
   background: url(../public/images/templatemo_menubar.png) no-repeat;
@@ -311,10 +312,8 @@ img {
 
 .templatemo_main_shop_cart table {
   position: sticky;
-  /* top: 20px; */
   width: 60em;
   padding: 10px;
-
 }
 
 #templatemo_main_addProduct {
@@ -336,11 +335,12 @@ img {
   background-color: #f2f2f2;
   text-align: center;
   display: grid;
+  margin-left: 10%;
   width: 32%;
   color: green;
   letter-spacing: 2px;
   font-size: 18px;
-  padding: 100px;
+  padding: 50px;
 }
 
 .content_register-form {
@@ -349,7 +349,6 @@ img {
   justify-content: center;
   padding: 0px 20px 0px 20px;
   background-color: #f5f5f5;
-
 }
 
 #templatemo_main-login input {
@@ -357,7 +356,7 @@ img {
 }
 
 #templatemo_main-register {
-  display: flex;
+  background-color: none;
   padding-left: 260px;
   padding-bottom: 20px;
   background: url(../public/images/templatemo_main_bg.png) repeat-y;
@@ -398,11 +397,9 @@ img {
   background: url(../public/images/templatemo_main_bg.png) repeat-y;
 }
 
-
-
 #templatemo-main-contact {
   position: relative;
-  margin-right: 40px;
+  margin-right: 0px;
   width: 101%;
   padding: 0px;
   display: flex;
@@ -441,36 +438,9 @@ img {
   margin-left: 50px;
 }
 
-#end-product-check {
-  border: 5px solid black;
-  position: absolute;
-  display: inline-block;
-  margin-left: 98%;
-  margin-top: -3.7%;
-  width: 30%;
-  height: 213px;
-}
-
-#end-product-check button {
-  border: 2px solid rgb(129, 129, 129);
-  background-color: #8dedf8;
-  color: black;
-  text-decoration: none;
-  font-weight: lighter;
-  text-transform: uppercase;
-  font-size: 13px;
-
-}
-
-
-#end-product-check span {
-  margin-right: 120px;
-}
-
 .end-product-check2 {
   border: 3px solid rgb(255, 0, 0);
   position: sticky;
-  /* top: 20px; */
 }
 
 .che-output-container td {
@@ -602,6 +572,7 @@ img {
   max-height: 280px;
 
 }
+
 
 .phone-contact span {
   display: grid;

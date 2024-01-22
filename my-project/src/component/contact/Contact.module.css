@@ -13,7 +13,7 @@
 
 contact-content {
   width: 200px;
-  display: inline;
+  display: grid;
 }
 
 .contact-content p {
@@ -25,11 +25,20 @@ contact-content {
 }
 
 .contact-content form {
-  position: relative;
+  justify-content: center;
   display: grid;
-  width: 57em;
-  height: auto;
-  margin-left: 15px;
+  margin-left: 45%;
+  padding: 20px;
+}
+
+.content-office{
+  justify-content: center;
+  float: left;
+  display: block;
+  margin-top: 20px;
+  margin-left: 120px;
+  width: 110%;
+  text-align: center;
 }
 
 .btn {

@@ -15,14 +15,14 @@ const SingFormSuccsess = () => {
                     }}
                 />
                 Успешна регистрация!
-                <Button color="success" variant="outlined" style={{marginTop:20}}>
-                    <Link to={'/product/sneakers'} 
+                <Button color="success" variant="outlined" style={{ marginTop: 20 }}>
+                    <Link to={'/product/sneakers'}
                         style={{
                             display: 'inline-block',
                             fontSize: '11px',
                             fontWeight: 'bold',
                             position: 'relative',
-                        padding:2
+                            padding: 2
                             // backgroundColor: '#ffffff',
                             // textTransform: "uppercase"
                         }}>Затвори прозореца</Link>

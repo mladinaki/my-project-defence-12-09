@@ -189,3 +189,45 @@
 btn-check button:hover {
   color: #ffffff;
 }
+
+.content-message h2{
+  margin-left: 47%;
+  margin-top: 40px;
+  /* padding: 3%; */
+  height: 70px  ;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: inline-block;
+  font-size: 26px;
+  color:#617D97;
+}
+.content-cartTitle h3{
+  display: inline;
+  color: #617D97;
+  margin: 10px;
+  text-transform: none;
+  float: left;
+  margin-left: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#end-product-check{
+  border: 5px solid black;
+  position: absolute;
+  display: inline-block;
+  margin-left: 98%;
+  margin-top: -3.7%;
+  width: 30%;
+  height: 213px;
+  background-color: #ebebeb;
+}
+
+#end-product-check button {
+  border: 2px solid rgb(129, 129, 129);
+  background-color: #8dedf8;
+  color: black;
+  text-decoration: none;
+  font-weight: lighter;
+  text-transform: uppercase;
+  font-size: 13px;
+
+}

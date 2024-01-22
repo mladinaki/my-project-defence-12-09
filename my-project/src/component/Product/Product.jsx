@@ -46,7 +46,7 @@ const Product = ({ _id }) => {
           return <ProductItem key={product._id} {...product} />;
         })}
         <div className={style["no-faund"]}>
-          {data.length === 0 && <h3>Няма намерен продукт!</h3>}
+          {data.length === 0 && <span>Няма намерен продукт!</span>}
         </div>
       </div>
     </div>

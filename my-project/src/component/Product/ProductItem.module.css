@@ -9,13 +9,16 @@
 }
 
 .no-faund {
-  float: left;
-  margin-left: 110%;
+  color: #617D97;
+  margin-left: 97%;
   width: 320px;
-  display: flex;
+  justify-content: center;
+  display: grid;
   font-size: 26px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  display: inline-block;
+  display: block;
+  float: left;
+  height: 100px;
 }
 
 .product-item img {

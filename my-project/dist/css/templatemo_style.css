@@ -81,7 +81,7 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 	background: url(images/templatemo_main_bg.png) repeat-y
 }
 
-/* #content { width: 690px } */
+#content { width: 690px }
 #sidebar { width: 220px }
 
 #templatemo_footer {
