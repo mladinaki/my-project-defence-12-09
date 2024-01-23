@@ -3,7 +3,7 @@ import CartModalItem from "./cartModal/cartModalItem";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 
-const Header = () => {
+const Header = ({_id}) => {
   const { shoseId } = useParams();
 
   const [cart, setCart] = useState([]);

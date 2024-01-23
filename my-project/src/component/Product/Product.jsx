@@ -4,9 +4,11 @@ import ProductItem from "../Product/ProductItem";
 
 import style from "../Product/ProductItem.module.css";
 
-const Product = ({ _id }) => {
+const Product = () => {
   const [filterData, setFilterData] = useState([]);
   const [data, setData] = useState([]);
+
+  
 
   useEffect(() => {
     userService

@@ -68,7 +68,7 @@ const ShopingCart = ({ _id }) => {
                 <th>Снимка</th>
                 <th>Име на продукта</th>
                 <th>Количество</th>
-                <th>Единична цена</th>
+                <th>Ед. цена</th>
                 <th>Сума</th>
                 <th>Премахни</th>
               </tr>
@@ -76,25 +76,40 @@ const ShopingCart = ({ _id }) => {
                 <th>Общо количество</th>
 
                 <div className={style["total-end"]}>
-                  <p>Сума</p>
-                  <span>{price.toFixed(2)} </span>
+                  <span>Междинна сума:</span>
+                  <span>{price.toFixed(2)}лв. </span>
                 </div>
 
                 <div className={style["total-end"]}>
-                  <p>Обща сума</p>
-                  <span>{price.toFixed(2)}</span>
+                  <span>Всичко:</span>
+                  <span>{price.toFixed(2)}лв.</span>
                 </div>
                 <button style={{
                   width: '100%',
-                  marginTop: 12,
-                  height: 33,
-                  backgroundColor: "#10BBCF",
+                  marginBottom: 5,
+                  height: 32,
+                  backgroundColor: '#EC3237',
                 }}>
                   <Link to={`/checout/cart`} style={{
                     color: '#2F2F2F',
-                    fontWeight: 'bold',
+                    fontWeight: '550',
+                    letterSpacing: '2px',
+                    fontSize: 11,
+                    color: '#fff'
+
+                  }}>плащане</Link>
+                </button>
+                <button style={{
+                  width: '100%',
+                  height: 33,
+                  backgroundColor: "#10BBCF",
+                }}>
+                  <Link to={'/product/sneakers'} style={{
+                    color: '#2F2F2F',
+                    fontWeight: '570',
+                    letterSpacing: "2px",
                     fontSize: 11
-                  }}>Към разплащане</Link>
+                  }}>Продължи пазарауването</Link>
                 </button>
               </div>
               {getData.map((data, k) => {
@@ -122,21 +137,20 @@ const ShopingCart = ({ _id }) => {
                         {data.sneacersName}
                       </div>
                     </td>
-                    <td align="center" style={{ fontSize: 15 }}>
+                    <td align="center" style={{ fontSize: 14,color:'#7B92A6', fontWeight:'500' }}>
                       <span>{data.quantity} бр.</span>
                     </td>
 
-                    <td align="center" style={{ fontSize: 15 }}>
-                      {data.price}{" "}
+                    <td align="center" style={{ fontSize: 14,color:'#7B92A6', fontWeight:'500' }}>
+                      {data.price}лв.
                     </td>
 
-                    <td align="center" style={{ fontSize: 15 }}>
+                    <td align="center" style={{ fontSize: 14,color:'#7B92A6', fontWeight:'500' }}>
                       {parseInt(data.price) * data.quantity}{" "}
                     </td>
                     <td align="center" key={data.k}  >
                       <DeleteUser key={data._id} {...data} />
                     </td>
-
                   </tr>
                 );
               })}
@@ -144,33 +158,23 @@ const ShopingCart = ({ _id }) => {
             </table>
 
             <div className={style["button-shoping"]}>
-              <button style={{
-                marginLeft: 68,
-                marginTop: 12,
-                width: '17%',
-                height: 34,
-                fontSize: 11,
-              }}
-                sx={{ mt: 1, mb: 3 }}
-              >
-                <Link to={'/product/sneakers'}
-                  style={{
-                    color: "#000",
-                    fontWeight: "bold",
-                  }}><span>Продължи с пазаруването</span></Link></button>
 
-              <button type="submit" name='updateCart' style={{
-                marginBottom: 20,
-                marginLeft: 23,
-                width: '17%',
-                height: 34,
+              <div type="submit" name='updateCart' style={{
+                marginBottom: 22,
+                marginLeft: 20,
+                textAlign: 'center',
+                width: '23%',
+                // float: 'right',
+                height:23,
                 fontSize: 11,
-                fontWeight: "bold",
+                fontWeight: "550",
+                textTransform: 'uppercase',
+                cursor: 'pointer',
+                letterSpacing: 2
 
               }}
                 onClick={removeItem}
-                sx={{ mt: 1, mb: 3 }}
-              ><span>Изчисти количкатa</span></button>
+              ><span>Изчисти количкатa</span></div>
             </div>
           </div>
         )}

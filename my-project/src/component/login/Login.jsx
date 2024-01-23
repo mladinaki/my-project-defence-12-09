@@ -67,7 +67,11 @@ const Login = ({ submitForm }) => {
                   style={{ marginBottom: 7 }}
                   fullWidth
                   placeholder="Име*"
-                  label={err.username && <span style={{ color: 'red', fontSize: '13px' }}>{err.username}</span>}
+                  label={err.username && <span style={{
+                    color: 'red',
+                    fontFamily: "verdana",
+                    fontSize: '13px'
+                  }}>{err.username}</span>}
                   name='username'
                   value={values[loginFormKyes.Username]}
                   onChange={onChange}
@@ -76,7 +80,11 @@ const Login = ({ submitForm }) => {
                 <TextField
                   style={{ marginBottom: 7 }}
                   fullWidth
-                  label={err.email && <span style={{ color: 'red', fontSize: '13px' }}>{err.email}</span>}
+                  label={err.email && <span style={{
+                    color: 'red',
+                    fontFamily: "verdana",
+                    fontSize: '13px'
+                  }}>{err.email}</span>}
                   placeholder="Имейл*"
                   onChange={onChange}
                   name="email"
@@ -88,7 +96,11 @@ const Login = ({ submitForm }) => {
                   fullWidth
                   name='password'
                   placeholder="Парола*"
-                  label={err.password && <span style={{ color: 'red', fontSize: '13px' }}>{err.password}</span>}
+                  label={err.password && <span style={{
+                    color: 'red',
+                    fontFamily: "verdana",
+                    fontSize: '13px'
+                  }}>{err.password}</span>}
                   type="password"
                   value={values[loginSubmitHandler.Password]}
                   onChange={onChange}

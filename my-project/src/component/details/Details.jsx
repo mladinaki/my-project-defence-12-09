@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { CardActionArea } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -16,35 +16,57 @@ import Typography from '@mui/material/Typography';
 
 import AuthContext from "../../contexts/authContexts";
 
-import { ADD, DLT } from "../../redux/actions/action";
+import { ADD, DLT, REMOVE } from "../../redux/actions/action";
 
 import Path from "../../path/path";
+import { dark } from "@mui/material/styles/createPalette";
+import CartModalItem from "../cartModal/cartModalItem";
 
 const Details = () => {
   const { shoseId } = useParams();
   const { isAuthenticated, userId } = useContext(AuthContext);
   const navigate = useNavigate();
 
+  const [price, setPrice] = useState(0);
   const [selectShose, setShose] = useState({});
+
+  const getData = useSelector((state) => state.cartreducer.carts);
+  const dispach = useDispatch();
 
   useEffect(() => {
     userService.getOne(shoseId).then((result) => setShose(result));
   }, [shoseId]);
 
-  const dispach = useDispatch();
 
   const clickCart = async () => {
     const carts = await userService.getOne(shoseId);
     dispach(ADD(carts));
-
-    navigate(Path.Product);
+    // navigate(Path.Product);
   };
 
-  // const handleOpen = () => {
-  //   setShose(true);
-  // };
+  const sendRemove = (iteam) => {
+    dispach(REMOVE(iteam));
+  };
+
+  const sendPrice = (item) => {
+    dispach(ADD(item));
+  };
+
+  const total = () => {
+    let price = 0;
+    getData.map((data, k) => {
+      price = parseInt(data.price) * data.quantity + price;
+    });
+    setPrice(price.toFixed(2));
+  };
+
+  useEffect(() => {
+    total();
+  }, [total]);
+
+
   const onDelProduct = async () => {
-    const delItem = confirm("Are you sure you want to delete this product?");
+    const delItem = confirm("Сигурен ли сте че искате да изтриете този продукт !!!");
 
     if (delItem) {
       await userService.removeOne(shoseId);
@@ -86,20 +108,20 @@ const Details = () => {
                   </table>
                   {
                     (isAuthenticated && isOwner && (
-                      <div>
-                        <Button
-                          variant="outlined"
-                          color="success"
-                          onClick={() => clickCart()}
-                        // handleOpen={handleOpen}
-                        >
-                          <span style={{ fontSize: 11,fontWeight:"bold", width: 170, float: 'left' }}>
-                            Добави в количката
-                          </span>
-                        </Button>
-                        <div style={{ float: 'left', marginTop: 14 }}>
-                          <span style={{ marginRight: 30 }}>MLADINAKI</span>
-                        </div>
+
+                      <div className={style['btnCart']}
+                        onClick={clickCart}>
+                        <i class="bi bi-cart2" style={{
+                          fontSize: 19,
+                          float: 'left',
+                          display: 'block',
+                          marginRight: 5,
+                          marginLeft:34,
+                        }}>
+                        </i>
+                        <span>
+                          Добави в количката
+                        </span>
                       </div>
                     ))
                   }
@@ -122,14 +144,11 @@ const Details = () => {
                     <span className={style["text-description"]}>
                       <p>{selectShose.description}</p>
 
-                      <Button
-                        color="success"
-                        variant="outlined"
-                      >
-                        <Link to={`/product/sneakers`} style={{fontSize:"11px",fontWeight:'bold'}}>
+                      <div className={style['btnProduct']}>
+                        <Link to={`/product/sneakers`}>
                           <span>Към продукти</span>
                         </Link>
-                      </Button>
+                      </div>
                     </span>
                   </div>
                 </Typography>
@@ -138,37 +157,16 @@ const Details = () => {
           </Card>
 
           {isAuthenticated && isOwner && (
-            <div>
-              <Button
-                style={{
-                  marginLeft: 85,
-                  height: 26,
-                  fontSize: 11,
-                  width: "30%",
-                  fontWeight: "bold",
-                }}
-                variant="outlined"
-                color="error"
-                onClick={onDelProduct}
-              >
-                Премахни
-              </Button>
+            <div className={style['btnContent']}>
+              <div className={style['btnDel']} onClick={onDelProduct}>
+                <span>Премахни</span>
+              </div>
 
-              <Button
-                variant="outlined"
-                color="success"
-                style={{
-                  marginLeft: 10,
-                  width: "30%",
-                  height: 26,
-                  fontSize: 11,
-                  fontWeight: 'bold',
-                }}
-              >
+              <div className={style['btnEdit']}>
                 <Link to={`/edit/${shoseId}`}>
                   <span>Промени</span>
                 </Link>
-              </Button>
+              </div>
             </div>
           )}
         </div>

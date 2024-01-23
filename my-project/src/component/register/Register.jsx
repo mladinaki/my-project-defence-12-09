@@ -43,92 +43,107 @@ const Register = ({ submitForm }) => {
         <div className="content_half float_l">
           {/* <p>Въведете своя имейл или парола!</p> */}
           <div id="contact_htmlFor">
-          <div className="content_register-form">
+            <div className="content_register-form">
 
-            <ThemeProvider theme={defaultTheme}>
-              <Container component="main" maxWidth="xs">
-                <CssBaseline />
+              <ThemeProvider theme={defaultTheme}>
+                <Container component="main" maxWidth="xs">
+                  <CssBaseline />
 
-                <Box
-                  sx={{
-                    marginTop: 2,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    alignItems: 'center',
-                    // justifyContent: 'center',
-                  }}
-                >
-                  <Avatar style={{ backgroundColor: "#2F2F2F" }}>
-                    <LockOutlinedIcon />
-                  </Avatar>
-                  <Typography component="h1" variant="h5">
-                    Регистриране
-                  </Typography>
-                  <Box component="form"
-                    onSubmit={handleSubmit}
+                  <Box
+                    sx={{
+                      marginTop: 2,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      // justifyContent: 'center',
+                    }}
                   >
-
-                    <TextField
-                      style={{ marginBottom: 7 }}
-                      placeholder="Име*"
-                      label={err.username && <span style={{ color: 'red', fontSize: '13px' }}>{err.username}</span>}
-                      name='username'
-                      value={values[RegisterFormKeys.Username]}
-                      onChange={onChange}
-
-                    />
-
-                    <TextField
-                      style={{ marginBottom: 7 }}
-                      label={err.email && <span style={{ color: 'red', fontSize: '13px' }}>{err.email}</span>}
-                      placeholder="Имеайл адрес*"
-                      onChange={onChange}
-                      name="email"
-                      value={values[RegisterFormKeys.Email]}
-                    />
-
-                    <TextField
-                      style={{ marginBottom: 7 }}
-                      name='password'
-                      placeholder="Парола*" 
-                      label={err.password && <span style={{ color: 'red', fontSize: '13px' }}>{err.password}</span>}
-                      type="password"
-                      value={values[RegisterFormKeys.Password]}
-                      onChange={onChange}
-                    />
-
-                    <TextField
-                      style={{ marginBottom: 7 }}
-                      name='confirmPassword'
-                      placeholder="Потвърди паролата*"
-                      value={values[RegisterFormKeys.ConfirmPassword]}
-                      label={err.confirmPassword && <span style={{ color: 'red', fontSize: '13px' }}>{err.confirmPassword}</span>}
-                      type="password"
-                      onChange={onChange}
-                    />
-
-                    <FormControlLabel
-                      control={<Checkbox value="remember" color="primary" />}
-                      label="Remember me"
-                    />
-
-                    <Button
-                      type="submit"
-                      fullWidth
-                      style={{ backgroundColor: "#10BBCF", color: "#FFFFFF" }}
-                      sx={{ mt: 3, mb: 2 }}
-                    >
+                    <Avatar style={{ backgroundColor: "#2F2F2F" }}>
+                      <LockOutlinedIcon />
+                    </Avatar>
+                    <Typography component="h1" variant="h5">
                       Регистриране
-                    </Button>
+                    </Typography>
+                    <Box component="form"
+                      onSubmit={handleSubmit}
+                    >
+
+                      <TextField
+                        style={{ marginBottom: 7 }}
+                        placeholder="Име*"
+                        label={err.username && <span style={{
+                          color: 'red',
+                          fontFamily: "verdana",
+                          fontSize: '13px'
+                        }}>{err.username}</span>}
+                        name='username'
+                        value={values[RegisterFormKeys.Username]}
+                        onChange={onChange}
+                      />
+
+                      <TextField
+                        style={{ marginBottom: 7 }}
+                        label={err.email && <span style={{
+                          color: 'red',
+                          fontSize: '13px',
+                          fontFamily: "verdana"
+                        }}>{err.email}</span>}
+                        placeholder="Имеайл адрес*"
+                        onChange={onChange}
+                        name="email"
+                        value={values[RegisterFormKeys.Email]}
+                      />
+
+                      <TextField
+                        style={{ marginBottom: 7 }}
+                        name='password'
+                        placeholder="Парола*"
+                        label={err.password && <span style={{
+                          color: 'red',
+                          fontFamily: "verdana",
+                          fontSize: '13px'
+                        }}>{err.password}</span>}
+                        type="password"
+                        value={values[RegisterFormKeys.Password]}
+                        onChange={onChange}
+                      />
+
+                      <TextField
+                        style={{ marginBottom: 7 }}
+                        name='confirmPassword'
+                        placeholder="Потвърди паролата*"
+                        value={values[RegisterFormKeys.ConfirmPassword]}
+                        label={err.confirmPassword && <span style={{
+                          color: 'red',
+                          fontFamily: "verdana",
+                          fontSize: '13px'
+                        }}>{err.confirmPassword}</span>}
+                        type="password"
+                        onChange={onChange}
+                      />
+
+                      <FormControlLabel
+                        control={<Checkbox value="remember" color="primary" />}
+                        label="Remember me"
+                      />
+
+                      <Button
+                        type="submit"
+                        fullWidth
+                        style={{ backgroundColor: "#10BBCF", color: "#FFFFFF" }}
+                        sx={{ mt: 3, mb: 2 }}
+                      >
+                        Регистриране
+                      </Button>
+                    </Box>
                   </Box>
-                </Box>
-              </Container>
-            </ThemeProvider>
+                </Container>
+              </ThemeProvider>
+            </div>
           </div>
         </div>
+        <div className="cleaner"></div>
       </div>
-      <div className="cleaner"></div>
-    </div>
     </div>
   );
 };

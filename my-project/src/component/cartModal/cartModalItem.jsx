@@ -7,8 +7,6 @@ import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Badge from "@mui/material/Badge";
-import * as userService from "../../services/componentService";
-
 
 import styles from "../cartModal/cartModal.module.css";
 
@@ -18,19 +16,6 @@ import { Link, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../contexts/authContexts";
-import { del } from "../../lib/request";
-
-const style = {
-  position: "relative",
-  top: "65%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 900,
-  bgcolor: "background.paper",
-  border: "1px solid rgb(229, 229, 229)",
-  boxShadow: 24,
-  p: 2,
-};
 
 export default function CartModalItem({ _id }) {
   const [open, setOpen] = useState(false);
@@ -38,14 +23,10 @@ export default function CartModalItem({ _id }) {
   const handleClose = () => setOpen(false);
   const { isAuthenticated, userId } = useContext(AuthContext);
 
-  const [price, setPrice] = useState(0);
-
   const { shoseId } = useParams();
 
-  // const navigate = useNavigate();
-  const dispach = useDispatch();
-
   const getData = useSelector((state) => state.cartreducer.carts);
+  const dispach = useDispatch()
 
   const onClose = () => {
     setOpen(false);
@@ -59,53 +40,33 @@ export default function CartModalItem({ _id }) {
     dispach(ADD(item));
   };
 
-  const total = () => {
-    let price = 0;
-    getData.map((data, k) => {
-      price = parseInt(data.price) * data.quantity + price;
-    });
-    setPrice(price.toFixed(2));
-  };
-
-  useEffect(() => {
-    total();
-  }, [total]);
-
   return (
     <div>
       {isAuthenticated && (
         <Button onClick={handleOpen}>
+
           <div className={styles["cart-icon"]} >
             <i className="bi bi-cart" style={{ display: 'inline' }}></i>
           </div>
+
           <Badge badgeContent={getData.length} color="error"
-            style={{
-              padding: 2,
-              marginBottom: 23,
-              // display: "flex",
-              // float: 'left'
-            }}>
+            style={{ padding: 2, marginBottom: 23 }}>
           </Badge>
         </Button>
       )}
 
       <Modal
-
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={open}
         onClose={handleClose}
         closeAfterTransition
         slots={{ backdrop: Backdrop }}
-        slotProps={{
-          backdrop: {
-            timeout: 1000,
-          },
-        }}
-      >
+        slotProps={{ backdrop: { timeout: 1000 }, }}>
+
         <div className={styles["contents-modal"]}>
           <Fade in={open}>
-            <Box sx={style}>
+            <Box className={styles['contentBox']}>
               <i
                 className="bi bi-x-square"
                 style={{ fontSize: 19, float: "right", cursor: "pointer" }}
@@ -113,21 +74,18 @@ export default function CartModalItem({ _id }) {
               ></i>
 
               <Typography
-
                 id="transition-modal-title"
                 variant="h6"
                 component="h2"
               ></Typography>
 
               <Typography id="transition-modal-description">
-
                 <table>
                   {getData.map((data) => {
                     return (
 
                       <div key={data._id} className="content-cart">
                         <div className="content-item">
-
                           <td
                             style={{
                               display: "flex",
@@ -154,19 +112,21 @@ export default function CartModalItem({ _id }) {
                               </div>
                               <div className={styles["price-count"]}>
                                 <div className="mt-5 d-flex justify-content-between align-items-center">
-                                  <span
-                                    onClick={
-                                      data.quantity <= 1
+                                  <div className={styles["contentBtn"]}>
+                                    <span className={styles["btn-count"]}
+                                      onClick={data.quantity <= 1
                                         ? () => DLT(data._id)
                                         : () => sendRemove(data)
-                                    }
-                                  >
-                                    -
-                                  </span>
-                                  <span>{data.quantity}</span>
-                                  <span onClick={() => sendPrice(data)}>+</span>
+                                      }>-</span>
+
+                                    <span style={{ color: 'rgba(34, 34, 34, 1)', background: '#fff' }}>{data.quantity}</span>
+
+                                    <span className={styles["btn-count"]}
+                                      onClick={() => sendPrice(data)}>+</span>
+                                  </div>
                                 </div>
                               </div>
+
                               <div className={styles["price-cartcontent"]}>
                                 <td>
                                   {" "}

@@ -1,21 +1,115 @@
-.price-details{
-    /* position: relative; */
+.price-details {
     display: inline-block;
-    font-size:13px ;
+    font-size: 13px;
     font-weight: 600;
-    /* float: left; */
     width: 90%;
     padding: 0;
     margin: 0 auto;
-    /* text-align: left; */
 }
 
-.text-description{
-   color: rgb(93, 93, 93);
-   font-family: Verdana, Geneva, Tahoma, sans-serif;
-
+.text-description {
+    color: rgb(93, 93, 93);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.btn-details-del{
+.btnCart {
+    border: 1px solid black;
+    background-color: #10BBCF;
+    margin: 5px 0 5px 5px;
+    width: 79%;
+    text-align: right;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.btnCart span {
+    display: block;
+    letter-spacing: 1px;
+    padding: 8px;
+    text-align: left;
+    color: black;
+    font-size: 11px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btnCart span:hover {
+    background-color: #ffffff;
+}
+
+.btnProduct {
+    text-align: center;
+    background-color: #10BBCF;
+    padding: 8px;
+    border: 1px solid black;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.btnDel {
+    border: 1px solid black;
+    text-align: center;
+    width: 45%;
+    padding: 5px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+    background: #EC3237;
+}
+
+.btnDel span {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btnDel:hover {
+    background: #ffa5a8;
+    color: black;
+}
+
+
+.btnProduct span {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+.btnProduct:hover {
+    background: white;
+}
+
+
+
+.btnEdit {
+    width: 45%;
+    padding: 5px;
+    border: 1px solid black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-left: 10px;
+    background: #02cc42;
+}
+
+.btnEdit span {
+    color: black;
+    display: inline;
+    font-size: 12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+}
+
+.btnEdit:hover {
+    background: #9ffdbd;
+}
+
+.btnContent {
+    display: flex;
+    padding: 10px;
+    /* margin-left: 5%; */
+}
+
+.btn-details-del {
     border: 1px solid rgb(129, 129, 129);
 }
