@@ -42,32 +42,32 @@ const DeleteUser = ({ _id, sneacersName, price, imageUrl, quantity }) => {
 
   return (
     <div>
-      <i
-        onClick={handleOpen}
-        alt="image 2"
-        style={{
-          position: "relative",
-          fontSize: 15,
-          display: "flex",
-          color: "red",
-          fontWeight: "bold",
-          cursor: "pointer",
-        }}
-        className="bi bi-trash"
-      >
-        <span
-          className="del"
+      <div className='btnDeleteItem'>
+
+        <i
+          onClick={handleOpen}
+          alt="image 2"
           style={{
-            fontSize: 12,
-            color: "rgb(133, 133, 133)",
-            marginRight: 15,
-            marginLeft: 10,
-            fontFamily: "sans-serif",
+            position: "relative",
+            fontSize: 14,
+            display: "flex",
+            fontWeight: "bold",
+            cursor: "pointer",
           }}
+          className="bi bi-trash"
         >
-          Изтрий
-        </span>
-      </i>
+          <span
+            className="del"
+            style={{
+              fontSize: 12,
+              marginRight: 15,
+              marginLeft: 10,
+            }}
+          >
+            Изтрий
+          </span>
+        </i>
+      </div>
 
       <Modal
         open={open}
@@ -83,7 +83,7 @@ const DeleteUser = ({ _id, sneacersName, price, imageUrl, quantity }) => {
               Премахване на продуцт!
             </span>
 
-            <p style={{ fontSize: 13, paddingTop: 10 }}>
+            <p style={{ fontSize: 13, paddingTop: 10,fontFamily:'verdana' }}>
               Сигурен ли си, че искаш да премахнеш този продукт от количката?{" "}
             </p>
           </Typography>

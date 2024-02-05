@@ -75,21 +75,12 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 	background: url(images/templatemo_menubar.png) no-repeat;
 }
 
-#templatemo_main {
-	width: 940px;
-	padding: 10px 20px;
-	background: url(images/templatemo_main_bg.png) repeat-y
-}
 
 #content { width: 690px }
 #sidebar { width: 220px }
 
-#templatemo_footer {
-	width: 960px;
-	padding: 30px 10px;
-	text-align: center;
-	background: url(images/templatemo_footer.png) no-repeat top
-}
+
+
 
 #site_title { float: left; margin-top: 30px; }
 #site_title h1 { margin: 0; padding: 0 }
@@ -236,12 +227,8 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 .faqs p { margin-bottom: 20px }
 .faqs h5 { margin-bottom: 5px }
 
-#templatemo_footer {
-	color: #999
-}
-#templatemo_footer a {
-	color: #fff;
-}
+
+
 
 /*============================*/
 /*=== Custom Slider Styles ===*/

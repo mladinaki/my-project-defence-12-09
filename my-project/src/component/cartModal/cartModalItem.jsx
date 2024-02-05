@@ -18,12 +18,15 @@ import { useContext, useEffect, useState } from "react";
 import AuthContext from "../../contexts/authContexts";
 
 export default function CartModalItem({ _id }) {
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const { isAuthenticated, userId } = useContext(AuthContext);
 
   const { shoseId } = useParams();
+  const [price, setPrice] = useState(0);
+
 
   const getData = useSelector((state) => state.cartreducer.carts);
   const dispach = useDispatch()
@@ -39,6 +42,20 @@ export default function CartModalItem({ _id }) {
   const sendPrice = (item) => {
     dispach(ADD(item));
   };
+
+  const total = () => {
+    let price = 0;
+
+    getData.map((data, k) => {
+      price = (data.price) * data.quantity + price;
+    });
+
+    setPrice(price);
+  };
+
+  useEffect(() => {
+    total();
+  }, [total]);
 
   return (
     <div>
@@ -69,81 +86,63 @@ export default function CartModalItem({ _id }) {
             <Box className={styles['contentBox']}>
               <i
                 className="bi bi-x-square"
-                style={{ fontSize: 19, float: "right", cursor: "pointer" }}
+                style={{ fontSize: 20, display: 'inline',marginLeft:'96%', cursor: "pointer" }}
                 onClick={onClose}
               ></i>
 
-              <Typography
-                id="transition-modal-title"
-                variant="h6"
-                component="h2"
-              ></Typography>
 
               <Typography id="transition-modal-description">
-                <table>
-                  {getData.map((data) => {
-                    return (
+                {getData.map((data) => {
+                  return (
+                    <div key={data._id} className="content-cart">
+                      <div className="content-item" style={{ display: "flex", padding: 5, }}>
+                        <div className={styles["contentModal"]}>
+                          <div className={styles["cartItem-image"]}>
+                            <Link to={`/shoping/cart`}>
+                              <img
+                                src={data.imageUrl}
+                                alt="image 3"
+                                onClick={() => onClose(shoseId)}
+                              />
+                            </Link>
+                          </div>
 
-                      <div key={data._id} className="content-cart">
-                        <div className="content-item">
-                          <td
-                            style={{
-                              display: "flex",
-                              padding: 5,
-                            }}
-                          >
-                            <div className={styles["contentModal"]}>
-                              <div className={styles["cartItem-image"]}>
-                                <Link to={`/shoping/cart`}>
-                                  <img
-                                    src={data.imageUrl}
-                                    alt="image 3"
-                                    onClick={() => onClose(shoseId)}
-                                  />
-                                </Link>
-                              </div>
-                              <div className={styles["name-content"]}>
-                                <th>{data.sneacersName}</th>
-                                <span>Mens sports shoes.</span>
-                              </div>
+                          <div className={styles["name-content"]}>
+                            {data.sneacersName}
+                            Mens sports shoes.
+                          </div>
 
-                              <div className={styles["price-cartcontent"]}>
-                                <span> {data.price}лв.</span>
-                              </div>
-                              <div className={styles["price-count"]}>
-                                <div className="mt-5 d-flex justify-content-between align-items-center">
-                                  <div className={styles["contentBtn"]}>
-                                    <span className={styles["btn-count"]}
-                                      onClick={data.quantity <= 1
-                                        ? () => DLT(data._id)
-                                        : () => sendRemove(data)
-                                      }>-</span>
+                          <div className={styles["price-cartcontent"]}>
+                            <span> {data.price}лв.</span>
+                          </div>
 
-                                    <span style={{ color: 'rgba(34, 34, 34, 1)', background: '#fff' }}>{data.quantity}</span>
+                          <div className={styles["price-count"]}>
+                            <div className="mt-5 d-flex justify-content-between align-items-center">
+                              <div className={styles["contentBtn"]}>
 
-                                    <span className={styles["btn-count"]}
-                                      onClick={() => sendPrice(data)}>+</span>
-                                  </div>
-                                </div>
-                              </div>
+                                <span className={styles["btn-count"]}
+                                  onClick={data.quantity <= 1
+                                    ? () => DLT(data._id)
+                                    : () => sendRemove(data)
+                                  }>-</span>
 
-                              <div className={styles["price-cartcontent"]}>
-                                <td>
-                                  {" "}
-                                  <span>
-                                    Общо:{data.price * data.quantity}лв.
-                                  </span>
-                                </td>
+                                <span style={{ color: 'rgba(34, 34, 34, 1)', background: '#fff' }}>{data.quantity}</span>
+
+                                <span className={styles["btn-count"]}
+                                  onClick={() => sendPrice(data)}>+</span>
                               </div>
                             </div>
-                          </td>
-                        </div>
+                          </div>
 
+                          <div className={styles["price-cartcontent"]}>
+                            Общо:{data.price * data.quantity}лв.
+                          </div>
+                        </div>
                       </div>
-                    );
-                  })}
-                  { /*<span>Всичко: {price}</span>*/}
-                </table>
+                    </div>
+                  );
+                })}
+                { /*<span>Всичко: {price}</span>*/}
 
                 {getData.length === 0 && <span></span> ? (
                   <h3
@@ -170,9 +169,7 @@ export default function CartModalItem({ _id }) {
                     </div>
                   </h3>
                 ) : (
-                  <div className={styles["price-cartcontent"]} key={_id}>
-
-                  </div>
+                  ''
                 )}
               </Typography>
             </Box>

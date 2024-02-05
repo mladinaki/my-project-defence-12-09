@@ -10,15 +10,11 @@
 
 .no-faund {
   color: #617D97;
-  margin-left: 97%;
-  width: 320px;
   justify-content: center;
-  display: grid;
+  display: flex;
   font-size: 26px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  display: block;
-  float: left;
-  height: 100px;
+  height: 20px;
 }
 
 .product-item img {

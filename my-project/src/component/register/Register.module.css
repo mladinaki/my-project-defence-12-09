@@ -1,8 +1,6 @@
 .login-content form input {
-  height: 15px;
-  /* width: 200px; */
+  height: 5px;
   border-color: red;
-  /* padding: 10px; */
   border: 1PX solid color( red red green blue);
 }
 

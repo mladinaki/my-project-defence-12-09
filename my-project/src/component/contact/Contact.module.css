@@ -44,6 +44,7 @@ contact-content {
 .btn {
   width: 296px;
   height: 30px;
+  font-size: 20px;
   border: 1px solid rgb(156, 156, 156);
   background-color: #11bcd0;
 }
