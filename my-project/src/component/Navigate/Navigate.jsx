@@ -2,16 +2,14 @@ import styles from "../Navigate/Navbar.module.css";
 
 import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
-
 import Path from "../../path/path";
 
 import Avatar from "@mui/material/Avatar";
-import Stack from "@mui/material/Stack";
 
 import AuthContext from "../../contexts/authContexts";
 import { useContext } from "react";
 
-const NavBar = () => {
+const NavBar = ({ data }) => {
   const { isAuthenticated, username } = useContext(AuthContext);
 
   return (
@@ -26,7 +24,7 @@ const NavBar = () => {
           </li>
 
           <li>
-            <Nav.Link as={Link} to="/product/sneakers">
+            <Nav.Link as={Link} to="/product/catalog">
               Продукти
             </Nav.Link>
           </li>
@@ -73,10 +71,8 @@ const NavBar = () => {
         <div>
           <div className={styles["user-name-user"]}>
             Здравей!
-            <span style={{ color: "white", fontSize: 13, paddingLeft: 3 }}>{username}</span>
+            <span style={{ color: "black", fontSize: 13, paddingLeft: 5 }}>{username}</span>
           </div>
-          <Stack direction="row" spacing={2}>
-          </Stack>
         </div>
       )}
     </div>

@@ -328,22 +328,48 @@ p {
 .templatemo_main {
   /* display: flex; */
   margin: 0 auto;
+  position: relative;
   padding-left: 29px;
   width: 0 auto;
 
   background: url(../public/images/templatemo_main_bg.png) repeat-y;
 }
 
+.containerSearch .search {
+  position: absolute;
+  margin-left: 58.8%;
+  margin-top: -4.4%;
+  background: url(../public/images/templatemo_search_bg.png) repeat-x;
+}
+
 .serach-item {
-  display: absolute;
+  display: flex;
   float: left;
+
 }
 
 .search input {
-  height: 25px;
+  opacity: 0.6;
+  outline: none;
+  border-radius: 5px;
+  height: 30px;
+  padding-left: 13px;
+  color: #6ce7f5;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.5px;
   width: 200px;
   margin-bottom: 15px;
-  border: 1px solid #4b4b4b44;
+  background: none
+}
+
+.search ::placeholder {
+  color: rgb(181, 181, 181);
+}
+
+.search {
+  display: flex;
+  width: 215px;
 }
 
 #templatemo-main-details {
@@ -380,7 +406,6 @@ p {
   font-weight: bold;
   color: #617D97;
   text-transform: uppercase;
-  /* margin-top: 10px; */
   width: 100%;
 }
 
@@ -401,12 +426,10 @@ p {
   float: right;
   margin: 5px;
   text-align: center;
-  /* float: left; */
 }
 
 #templatemo-main-checoutOrder table tr td {
   border: 1px solid rgb(236, 15, 15);
-  /* float: left; */
   display: inline-block;
   width: 100%;
 }
@@ -426,7 +449,8 @@ p {
   height: auto;
   padding: 0;
 }
-#templatemo_main-home  {
+
+#templatemo_main-home {
   float: left;
   display: grid;
   margin-top: -17px;
@@ -504,8 +528,6 @@ p {
   border: 1px solid black;
 }
 
-.templatemo_main_shop_cart table td {}
-
 #templatemo_main input {
   border: 1px solidr rgb(156, 156, 156);
   margin-right: 20px;
@@ -539,8 +561,6 @@ p {
   max-width: 220px;
 }
 
-
-
 #content-details {
   position: relative;
   padding: 20px;
@@ -554,7 +574,6 @@ p {
   max-width: 280px;
   max-height: 280px;
 }
-
 
 .phone-contact span {
   display: flex;
@@ -574,27 +593,22 @@ p {
 }
 
 .btnDeleteItem span {
-  /* color: rgb(14, 84, 127); */
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .btnDeleteItem:hover {
   color: black;
-  /* border: 1PX solid black; */
   color: red;
 }
 
 .tableShop tr {
   width: 109px;
   float: left;
-  /* margin: 4px; */
   display: flex;
-  /* border: 1px solid black; */
 
 }
 
 .tableShop td {
-  /* border: 1px solid black; */
   margin: 0 auto;
 
 }
@@ -604,7 +618,6 @@ p {
   margin: 1px;
   margin-left: 13px;
   width: 98%;
-  /* height: 90px; */
   display: inline;
   border: 1px solid rgb(222, 222, 222);
 

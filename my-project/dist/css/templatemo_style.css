@@ -92,39 +92,11 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 #menu_second_bar { padding: 5px 10px; }
 #top_shopping_cart { float: left; padding: 5px 0; font-size: 11px; }
 
-#templatemo_search { float: right; margin: 10px 30px 0; width: 20px; height: 34px; background: url(images/templatemo_search_bg.png) }
-#templatemo_search form {
-	margin: 0;
-	padding: 0;
-}
 
-#templatemo_search .txt_field {
-	float: left;
-	display: block;
-	height: 22px;
-	line-height: 22px;
-	width: 170px;
-	color: #999;
-	font-size: 12px;
-	padding: 5px;
-	font-variant: normal;
-	border: none;	
-	background: none;
-}
 
-#templatemo_search .sub_btn {
-	float: right;
-	display: block;
-	color: #fff;
- 	height: 33px;
-	width: 40px;
-	font-size: 11px;
-	font-weight: 700;
-	line-height: 26px;
-	cursor: pointer;
-	border: none;
-	background: none;	
-}
+
+
+
 
 .sidebar_box {
 	position: relative;
