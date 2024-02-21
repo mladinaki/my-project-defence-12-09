@@ -231,7 +231,8 @@ btn-check button:hover {
   color: #617D97;
   font-size: 18px;
   height: 0px;
-  padding: 15px;
+  margin-left: 10px;
+  padding-bottom: 25px;
   font-weight: bold;
   text-transform: uppercase;
   /* margin-right: 24px; */
@@ -240,13 +241,26 @@ btn-check button:hover {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.content-cartTitle table{
+  /* border: 1px solid red; */
+  margin-right: 20px;
+  display: inline;
+} 
+
 .content-cartTitle tr th {
-  width: 102px;
+  width: 112.1px;
   float: left;
-  padding: 4px;
+  padding: 3px;
   color: white;
   background-color: #2F2F2F;
-  margin: 1px;
+  margin: 0.5px;
+  font-size: 10px;
+  text-align: center;
+
+}
+
+.content-cartTitle tr td {
+ font-size: 12px;
 
 }
 
@@ -260,9 +274,9 @@ btn-check button:hover {
 
 #end-product-check {
   position: absolute;
-  display: inline;
+  display: block;
   margin-left: 100.5%;
-  margin-top: -5.6%;
+  margin-top: -3.8%;
   width: 36.9%;
   /* padding: 0px; */
   border: 1px solid rgb(203, 203, 203);
@@ -277,6 +291,10 @@ btn-check button:hover {
   height: 10%;
   /* float: left; */
 
+}
+
+#end-product-check button:hover{
+  background: white;
 }
 
 #end-product-check th {
@@ -300,16 +318,17 @@ btn-check button:hover {
   margin-left: 20px;
   text-align: center;
   width: 20%;
-  height: 45px;
+  height: 40px;
   font-size: 10px;
-  font-weight: 550px;
+  /* font-weight: 550px; */
   text-transform: uppercase;
   cursor: pointer;
-  letter-spacing: 2px;
+  letter-spacing: 1px;
 }
 
 .btnClear span {
   padding: 6px;
-  /* height: 20px; */
+  height: 30px;
+  /* margin-right: 90px; */
 
 }

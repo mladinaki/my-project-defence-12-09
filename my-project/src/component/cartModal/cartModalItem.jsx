@@ -63,11 +63,11 @@ export default function CartModalItem({ _id }) {
         <Button onClick={handleOpen}>
 
           <div className={styles["cart-icon"]} >
-            <i className="bi bi-cart" style={{ display: 'inline' }}></i>
+            <i className="bi bi-cart" style={{ display: 'inline', marginBottom: '5px' }}></i>
           </div>
 
           <Badge badgeContent={getData.length} color="error"
-            style={{ padding: 2, marginBottom: 23 }}>
+            style={{ padding: 5, marginBottom: 13 }}>
           </Badge>
         </Button>
       )}
@@ -86,12 +86,13 @@ export default function CartModalItem({ _id }) {
             <Box className={styles['contentBox']}>
               <i
                 className="bi bi-x-square"
-                style={{ fontSize: 20, display: 'inline',marginLeft:'96%', cursor: "pointer" }}
+                style={{ fontSize: 20, display: 'inline', marginLeft: '96%', cursor: "pointer" }}
                 onClick={onClose}
               ></i>
 
 
               <Typography id="transition-modal-description">
+
                 {getData.map((data) => {
                   return (
                     <div key={data._id} className="content-cart">
@@ -126,7 +127,7 @@ export default function CartModalItem({ _id }) {
                                     : () => sendRemove(data)
                                   }>-</span>
 
-                                <span style={{ color: 'rgba(34, 34, 34, 1)', background: '#fff' }}>{data.quantity}</span>
+                                <span style={{ color: 'rgba(34, 34, 34, 1)' }}>{data.quantity}</span>
 
                                 <span className={styles["btn-count"]}
                                   onClick={() => sendPrice(data)}>+</span>

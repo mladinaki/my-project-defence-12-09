@@ -49,7 +49,7 @@ const ShoseEdit = () => {
   return (
     <div id="templatemo_main_addProduct" className={style["add-content"]}>
       <div className={style["addItem-content"]}>
-        <h1>Contact Us</h1>
+        <h3>Промени продукт</h3>
         <div className="content_half float_l">
           <div id="contact_htmlFor">
             <form onSubmit={editHendler}>
@@ -135,11 +135,11 @@ const ShoseEdit = () => {
               <Button
                 style={{
                   marginLeft: 7,
-                  width: '97%',
-                  height: 40,
+                  width: '95%',
+                  height: 35,
                   borderRadius: 2,
                   backgroundColor: "#10BBCF",
-                  color: "#FFFFFF"
+                  color: "#000"
                 }}
                 sx={{ mt: 2, mb: 3 }}
                 type="submit"

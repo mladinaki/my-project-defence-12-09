@@ -74,12 +74,12 @@
 .addItem-content {
   position: relative;
   justify-content: center;
-  margin-left: 120px;
+  /* margin-left: 100px; */
   margin-bottom: 20px;
 }
 
 .addItem-content input::placeholder {
-  font-size: 14px;
+  font-size: 10px;
   color: #617D97;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -87,7 +87,8 @@
 .addItem-content h3 {
   position: relative;
   justify-content: center;
-  margin-left: 200px;
+  margin-left: 365px;
+  font-size: 22px;
   color: black;
 }
 

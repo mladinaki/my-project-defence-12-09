@@ -7,10 +7,10 @@ const Footer = () => {
     <div id="templatemo_footer">
 
       <p>
-        <Nav.Link style={{ color: 'white' }} as={Link} to={Path.Home}>Начало</Nav.Link> |{" "}
-        <Nav.Link style={{ color: 'white' }} as={Link} to={Path.Product}>Продукти</Nav.Link>{" "}
-        | <Nav.Link style={{ color: 'white' }} as={Link} to="/checout/cart">Прегледай</Nav.Link> |{" "}
-        <Nav.Link  style={{color:'white'}} as={Link} to={Path.Contact}>Контакти</Nav.Link>
+        <Nav.Link as={Link} to={Path.Home}><span>Начало</span></Nav.Link> |{" "}
+        <Nav.Link as={Link} to={Path.Product}><span>Продукти</span></Nav.Link>{" "}
+        | <Nav.Link as={Link} to="/checout/cart"><span>Прегледай</span></Nav.Link>  |
+        <Nav.Link as={Link} to={Path.Contact}><span>Контакти</span></Nav.Link>
       </p>
 
       <span>Copyright © 2022{" "}SoftUni defence React-exam. All rights reserved</span>

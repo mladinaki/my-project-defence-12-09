@@ -42,7 +42,7 @@
   width: 100%;
   display: flex;
   /* float: left; */
-  height: 70px;
+  height: 98px;
 }
 
 .price-cartcontent {
@@ -83,47 +83,42 @@
   border: 1px solid rgb(224, 224, 224);
   height: 20px;
   margin-right: 3%;
-  /* display: flex;; */
   margin-top: 2px;
-  /* font-size: 16px; */
-  /* border: 1px solid rgb(0, 0, 0); */
 }
 
 .price-count span {
   color: #000000;
   cursor: pointer;
   padding: 0px 5px 0px 7px;
-  /* font-size: 15px; */
   display: inline;
 }
 
-.btn-count{
-  display: flex;
+span.btn-count {
+  display: inline-block;
   background: '#0FBACE';
-  height: 4px;
-  margin: 25px;
-  white-space: nowrap;
-  font-family: 'Monster';
+  /* border: 1px solid rgb(180, 180, 180); */
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+span.btn-count:hover{
+  background: rgb(255, 255, 255);
+}
+
 
 .contentBtn {
-  display: inline;
-  padding: 20 auto;
-  margin: 20px auto;
-  white-space: nowrap;
-  height: 15px;
-  background: #11BACF;
+  display: flex;
 }
 
-.contentBtn span  {
-  font-size: 14px;
-  display: inline;
-  margin: 2px;
-  text-align: center;
-  font-weight: 500;
+.contentBtn span {
+  margin: -73% auto;
+  font-size: 12px;
+  display: inline-block;
+  margin: -60% auto;
+  height: 20px;
+  width: 27px;
 }
 
-.contentBox{
+.contentBox {
   position: relative;
   top: 65%;
   left: 50%;
@@ -151,4 +146,9 @@
   padding-left: 10px;
   color: red;
   font-size: 15px;
+}
+
+.cart-icon {
+  /* border: 1px solid black; */
+  margin-top: -30px;
 }
