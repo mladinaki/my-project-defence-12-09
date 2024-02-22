@@ -19,9 +19,23 @@ import Typography from '@mui/material/Typography';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
-import { ADD, COMMENT } from "../../redux/actions/action";
+import { ADD } from "../../redux/actions/action";
 
 import Path from "../../path/path";
+import { useReducer } from "react";
+
+
+const reducer = (state, action) => {
+  switch (action?.type) {
+    case 'GET_ALL_GAMES':
+      return [...action.peyload];
+
+    case 'ADD_COMMENT':
+      return [...state, action.peyload];
+    default:
+      return state
+  }
+}
 
 const Details = () => {
   const navigate = useNavigate();
@@ -32,7 +46,9 @@ const Details = () => {
   const [key, setKey] = useState('home');
   const [price, setPrice] = useState(0);
   const [selectShose, setShose] = useState({});
-  const [comments, setComments] = useState([]);
+  // const [comments, setComments] = useState([]);
+
+  const [comments, dispaches] = useReducer(reducer, []);
 
   const { shoseId } = useParams();
 
@@ -45,7 +61,12 @@ const Details = () => {
         .then(setShose);
 
       commentServices.getAll(shoseId)
-        .then(setComments)
+        .then(result => {
+          dispaches({
+            type: 'GET_ALL_GAMES',
+            peyload: result
+          })
+        })
 
     } catch (error) {
       console.log(error);
@@ -91,14 +112,13 @@ const Details = () => {
 
     const newComment = await commentServices.create(
       shoseId,
-      formData.get("username"),
       formData.get("comment")
     );
 
-    // dispach(ADD(newComment))
-    console.log(newComment);
-
-    setComments(state => [...state, newComment])
+    dispaches({
+      type: 'ADD_COMMENT',
+      peyload: newComment
+    })
   }
 
   return (
@@ -209,7 +229,7 @@ const Details = () => {
                             name="comment"
                             id="phone"
                             className="input_field"
-                            placeholder="* Вашият коментар..."
+                            placeholder="* Вашият коментар"
                           />
 
                           <Button
@@ -233,17 +253,13 @@ const Details = () => {
 
                             <div key={_id} className="commentItem">
                               <tr>
-                                <td className="emailComment">Имейл: {email} ...</td>
-                                <td className="emailComment">Име: {username} ...</td>
+                                <td className="emailComment">Имейл: {email} </td>
+                                <td className="emailComment">Име: {username} </td>
                               </tr>
-                              <li>
-                                <p>{text}</p>
-                              </li>
-
+                              <p>{text}</p>
                             </div>
                           ))}
                         </form>
-
                       )}
 
                     </Tab>
