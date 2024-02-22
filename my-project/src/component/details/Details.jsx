@@ -19,31 +19,34 @@ import Typography from '@mui/material/Typography';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
-import { ADD } from "../../redux/actions/action";
+import { ADD, COMMENT } from "../../redux/actions/action";
 
 import Path from "../../path/path";
 
 const Details = () => {
-
-  const { isAuthenticated, userId } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const { shoseId } = useParams();
+  const { isAuthenticated, userId, username, email } = useContext(AuthContext);
+
 
   const [key, setKey] = useState('home');
   const [price, setPrice] = useState(0);
   const [selectShose, setShose] = useState({});
   const [comments, setComments] = useState([]);
 
-  const gespanata = useSelector((state) => state.cartreducer.carts);
+  const { shoseId } = useParams();
+
+  const getData = useSelector((state) => state.cartreducer.carts);
   const dispach = useDispatch();
 
   useEffect(() => {
     try {
       userService.getOne(shoseId)
-        .then((result) => setShose(result));
-      commentServices.getAllComment()
-        .then(result => setComments(result))
+        .then(setShose);
+
+      commentServices.getAll(shoseId)
+        .then(setComments)
+
     } catch (error) {
       console.log(error);
     }
@@ -58,7 +61,7 @@ const Details = () => {
 
   const total = () => {
     let price = 0;
-    gespanata.map((data, k) => {
+    getData.map((data, k) => {
       price = parseInt(data.price) * data.quantity + price;
     });
     setPrice(Number(price.toFixed(2)));
@@ -86,11 +89,16 @@ const Details = () => {
     const formData = new FormData(e.target);
     // const data = Object.values(formData);
 
-    const res = await commentServices.createComments(userId,
-      formData.get("username"), formData.get("comment")
+    const newComment = await commentServices.create(
+      shoseId,
+      formData.get("username"),
+      formData.get("comment")
     );
 
-    setComments(state => [...state, res])
+    // dispach(ADD(newComment))
+    console.log(newComment);
+
+    setComments(state => [...state, newComment])
   }
 
   return (
@@ -193,13 +201,7 @@ const Details = () => {
                       {isAuthenticated && isOwner && (
                         <form onSubmit={addCommentHednler}>
                           <h4>Напиши коментар</h4>
-                          <input
-                            type="text"
-                            id="author"
-                            name="username"
-                            className="required input_field"
-                            placeholder="Вашето име..."
-                          />
+
                           <div className="cleaner h5"></div>
 
                           <textarea
@@ -226,24 +228,24 @@ const Details = () => {
                           >
                             Коментирай
                           </Button>
+                          <h2>Comment</h2>
+                          {comments.map(({ _id, text, }) => (
+
+                            <div key={_id} className="commentItem">
+                              <tr>
+                                <td className="emailComment">Имейл: {email} ...</td>
+                                <td className="emailComment">Име: {username} ...</td>
+                              </tr>
+                              <li>
+                                <p>{text}</p>
+                              </li>
+
+                            </div>
+                          ))}
                         </form>
 
                       )}
-                      <h2>Comment</h2>
-                      {comments.map(({ _id, username, text }) => {
-                        
-                        return (
-                          <div className="commentItem">
-                            <table key={_id} >
-                              <th>Име: {username}...</th>
-                              <tr>
-                                <td>{text}</td>
-                              </tr>
-                            </table>
-                          </div>
-                        )
 
-                      })}
                     </Tab>
                   </Tabs>
                 </div>

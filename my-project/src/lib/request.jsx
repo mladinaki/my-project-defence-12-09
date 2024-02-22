@@ -4,11 +4,12 @@ export const buildRequest = (data) => {
   if (data) {
     options.body = JSON.stringify(data);
     options.headers = {
-      "Content-Type": "application/json",
+      "content-Type": "application/json",
     };
   }
 
   const token = localStorage.getItem("accessToken");
+
   if (token) {
     options.headers = {
       ...options.headers,
