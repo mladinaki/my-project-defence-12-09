@@ -30,25 +30,27 @@
 }
 
 .btnCart {
-    border: 2px solid #007582;
+    border: 1px solid #74e4f0;
     background-color: #10BBCF;
-    color: black;
-    letter-spacing: 0.5px;
+    color: #fff;
+    letter-spacing: 1px;
     cursor: pointer;
-    margin-left: 7PX;
+    margin-left: 5px;
     font-family: Arial, Helvetica, sans-serif;
-    padding: 4px;
+    padding: 5px;
     width: 60%;
     font-size: 11px;
     text-align: center;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: bolder;
+    text-shadow: 1px 3px 2px rgba(128, 0, 0, 0.32)
 }
 
 .btnCart i {
-    font-size: 15px;
-    padding: 3px;
+    font-size: 14px;
+    /* padding: 0px; */
     position: relative;
+    margin-right: 5px;
     display: inline;
 }
 
@@ -60,6 +62,7 @@
 .btnCart:hover {
     border: 1px solid black;
     background: #ffffff;
+    color: black;
 }
 
 
@@ -71,24 +74,22 @@
     text-align: center;
     background-color: #10BBCF;
     padding: 6px;
-    border: 2px solid #007582;
+    border: 1px solid #007582;
     letter-spacing: 1px;
-    margin-bottom: 10px;
-    width: 20.6%;
-   
+    margin-top: -30px;
+    width: 21.6%;
     float: right;
 }
 
 .btnDel {
-    border: 2px solid #007582;
+    border: 1px solid #007582;
     text-align: center;
-    width: 45%;
-    height: 33px;
-    padding: 5px;
+    width: 42%;
+    height: 30px;
+    padding: 5px 0 3px 5px;
     font-size: 11px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
     color: rgb(255, 255, 255);
+    text-transform: uppercase;
     background: #EC3237;
     cursor: pointer;
 }
@@ -116,37 +117,39 @@
     background: white;
 }
 
-.btnEdit {
-    width: 45%;
-    height: 33px;
-    padding: 5px;
-    border: 2px solid #007582;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+.btnEdit :any-link {
+    /* width: 45px; */
+    height: 31px;
+    padding: 8px 38px 8.5px 38px;
+    border: 1px solid #007582;
+    font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    letter-spacing: 1px;
-    font-size: 13px;
+    font-size: 11px;
+    text-transform: uppercase;
     margin-left: 10px;
     background: #02cc42;
+    color: #ffffff;
 }
 
 .btnEdit span {
-    color: #ffffff;
     display: inline;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-transform: uppercase;
     cursor: pointer;
 }
 
-.btnEdit:hover {
-    background: #9ffdbd;
+.btnEdit :any-link:hover {
+    background-color: #9ffdbd;
 }
 
 .btnContent {
     display: flex;
-    width: 33.8%;
+    width: 32.8%;
     height: 50px;
-    margin-left: 5px;
-    padding: 10px;
+    margin-left: 20px;
+    /* padding: 10px; */
+    display: flex;
+    margin-top: 5px;
 }
 
 .btn-details-del {
@@ -156,10 +159,13 @@
 .contentTab {
     padding: 10px;
     margin: 10px;
-    /* height: 100%; */
-    /* display: inline-block; */
-    border: 3px dotted rgb(197, 197, 197);
+    border: 2px dashed rgb(197, 197, 197);
     margin: 15px 0 15px;
+}
+
+.contentTab h4{
+    padding: 20px 0 10px 0;
+    text-align: left;
 }
 
 .contentTab form {
@@ -185,4 +191,16 @@
 
 .contentTab ::placeholder {
     color: #02cc42;
+}
+
+button.btnComment{
+    border: 1px solid rgb(181, 181, 181);
+    width: 50%;
+    color: black;
+    background: red;
+}
+button.btnComment:hover{
+    border: 1px solid rgb(181, 181, 181);
+    width: 50%;
+    color: rgb(0, 195, 255);
 }

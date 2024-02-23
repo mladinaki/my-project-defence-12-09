@@ -2,8 +2,6 @@ import style from "../details/Details.module.css";
 import * as userService from "../../services/componentService";
 import * as commentServices from "../../services/commentServices";
 
-import * as React from "react";
-
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 import AuthContext from "../../contexts/authContexts";
@@ -23,34 +21,20 @@ import { ADD } from "../../redux/actions/action";
 
 import Path from "../../path/path";
 import { useReducer } from "react";
+import useComment from "../hooks/useComment";
+import reducer from "../Reducer/Reducer";
 
-
-const reducer = (state, action) => {
-  switch (action?.type) {
-    case 'GET_ALL_GAMES':
-      return [...action.peyload];
-
-    case 'ADD_COMMENT':
-      return [...state, action.peyload];
-    default:
-      return state
-  }
-}
 
 const Details = () => {
-  const navigate = useNavigate();
-
   const { isAuthenticated, userId, username, email } = useContext(AuthContext);
 
+  const { shoseId } = useParams();
+  const navigate = useNavigate();
 
   const [key, setKey] = useState('home');
   const [price, setPrice] = useState(0);
   const [selectShose, setShose] = useState({});
-  // const [comments, setComments] = useState([]);
-
   const [comments, dispaches] = useReducer(reducer, []);
-
-  const { shoseId } = useParams();
 
   const getData = useSelector((state) => state.cartreducer.carts);
   const dispach = useDispatch();
@@ -104,15 +88,10 @@ const Details = () => {
 
   const isOwner = userId === selectShose._ownerId;
 
-  const addCommentHednler = async (e) => {
-    e.preventDefault();
-
-    const formData = new FormData(e.target);
-    // const data = Object.values(formData);
-
+  const addCommentHednler = async (values) => {
     const newComment = await commentServices.create(
       shoseId,
-      formData.get("comment")
+      values.comment
     );
 
     dispaches({
@@ -120,6 +99,10 @@ const Details = () => {
       peyload: newComment
     })
   }
+
+  const { values, onChange, onSubmit } = useComment(addCommentHednler, {
+    comment: ''
+  })
 
   return (
     <div id="templatemo-main-details">
@@ -133,31 +116,25 @@ const Details = () => {
                 <h3 className="sneakers-name-details">{selectShose.sneacersName}</h3>
 
                 <div className={style["price-details"]}>
+                  <li>
+                    Цена:
+                    {selectShose.price}лв
+                  </li>
 
-                  <table>
-                    <tbody>
-                      <tr>
-                        <td>Цена:</td>
-                        <td>{selectShose.price}лв</td>
-                      </tr>
+                  <li>
+                    Наличност:
+                    {selectShose.availablity}
+                  </li>
 
-                      <tr>
-                        <td>Наличност:</td>
-                        <td>{selectShose.availablity}</td>
-                      </tr>
+                  <li>
+                    Модел:
+                    {selectShose.model}
+                  </li>
 
-                      <tr>
-                        <td>Модел:</td>
-                        <td>{selectShose.model}</td>
-                      </tr>
-
-                      <tr>
-                        <td>Производител:</td>
-                        <td>{selectShose.manifacture}</td>
-                      </tr>
-
-                    </tbody>
-                  </table>
+                  <li>
+                    Производител:
+                    {selectShose.manifacture}
+                  </li>
                 </div>
 
                 <div className="phone-contact">
@@ -168,7 +145,7 @@ const Details = () => {
 
                     <div className={style['btnCart']} onClick={clickCart}>
                       <i className="bi bi-cart2"></i>
-                      Поръчай
+                      Добави в количката
                     </div>
                   ))
                 }
@@ -177,26 +154,28 @@ const Details = () => {
 
             <CardMedia
               component="img"
-              height="340"
+              height="250"
               style={{ width: 300, padding: 13, marginLeft: 15 }}
               image={selectShose.imageUrl}
               alt="green iguana"
             />
 
-            {isAuthenticated && isOwner && (
+            {
+              isAuthenticated && isOwner && (
 
-              <div className={style['btnContent']}>
-                <div className={style['btnDel']} onClick={onDelProduct}>
-                  Премахни
-                </div>
+                <div className={style['btnContent']}>
+                  <div className={style['btnDel']} onClick={onDelProduct}>
+                    Премахни
+                  </div>
 
-                <div className={style['btnEdit']}>
-                  <Link to={`/edit/${shoseId}`}>
-                    Промени
-                  </Link>
+                  <div className={style['btnEdit']}>
+                    <Link to={`/edit/${shoseId}`}>
+                      Промени
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            )}
+              )
+            }
 
             <CardContent>
               <h4>Информация за продукта</h4>
@@ -207,8 +186,9 @@ const Details = () => {
                     activeKey={key}
                     onSelect={(k) => setKey(k)}
                     className="mb-7"
+
                   >
-                    <Tab eventKey="home" title="Детайли" >
+                    <Tab eventKey="home" title="Детайли">
                       <div className={style["text-description"]}>
                         {selectShose.description}
                       </div>
@@ -218,68 +198,55 @@ const Details = () => {
                     </Tab>
 
                     <Tab eventKey="contact" title="Коментари">
+                      <h4>Напиши коментар</h4>
                       {isAuthenticated && isOwner && (
-                        <form onSubmit={addCommentHednler}>
-                          <h4>Напиши коментар</h4>
-
-                          <div className="cleaner h5"></div>
+                        <form onSubmit={onSubmit} >
 
                           <textarea
                             type="text"
                             name="comment"
-                            id="phone"
+                            value={values.comment}
+                            onChange={onChange}
+
+                            id="comment"
                             className="input_field"
                             placeholder="* Вашият коментар"
                           />
 
-                          <Button
-                            style={{
-                              marginLeft: 2,
-                              width: '50%',
-                              fontSize: '11px',
-                              height: 30,
-                              borderRadius: 2,
-                              backgroundColor: "#000",
-                              color: "#fff",
-                            }}
-                            sx={{ mt: 1, mb: 0 }}
-                            type="submit"
-                            className={style["btn"]}
-                          >
+                          <Button type="submit" className={style["btnComment"]}>
                             Коментирай
                           </Button>
-                          <h2>Comment</h2>
-                          {comments.map(({ _id, text, }) => (
 
-                            <div key={_id} className="commentItem">
-                              <tr>
-                                <td className="emailComment">Имейл: {email} </td>
-                                <td className="emailComment">Име: {username} </td>
-                              </tr>
-                              <p>{text}</p>
+                          {comments.map(({ _id, text, }) => (
+                            <div key={_id} className="comentContent">
+                              <div className="commentItem">
+                                <i className="bi bi-person-circle"></i>
+                                <ul>
+                                  <li className="emailComment">{username} </li>
+                                </ul>
+                                <p>{text}</p>
+                              </div>
                             </div>
                           ))}
                         </form>
                       )}
 
+                      <div className={style['btnProduct']}>
+                        <Link to={`/product/catalog`}>
+                          <span>Към продукти</span>
+                        </Link>
+                      </div>
                     </Tab>
                   </Tabs>
                 </div>
-
-                <div className={style['btnProduct']}>
-                  <Link to={`/product/catalog`}>
-                    <span>Към продукти</span>
-                  </Link>
-                </div>
-
               </Typography>
             </CardContent>
-          </Card>
+          </Card >
 
 
-        </div>
-      </div>
-    </div>
+        </div >
+      </div >
+    </div >
 
   );
 };
