@@ -17,7 +17,7 @@ import Typography from '@mui/material/Typography';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
-import { ADD } from "../../redux/actions/action";
+import { ADD, DLT } from "../../redux/actions/action";
 
 import Path from "../../path/path";
 import { useReducer } from "react";
@@ -25,7 +25,7 @@ import useComment from "../hooks/useComment";
 import reducer from "../Reducer/Reducer";
 
 
-const Details = () => {
+const Details = ({ _id }) => {
   const { isAuthenticated, userId, username, email } = useContext(AuthContext);
 
   const { shoseId } = useParams();
@@ -93,16 +93,18 @@ const Details = () => {
       shoseId,
       values.comment
     );
-
-    dispaches({
-      type: 'ADD_COMMENT',
-      peyload: newComment
-    })
+    dispach(ADD(newComment));
   }
 
   const { values, onChange, onSubmit } = useComment(addCommentHednler, {
     comment: ''
   })
+
+  const delComment = async (_id) => {
+    // const commentDelete = await commentServices.removeComment(_id);
+    confirm(`Сигурен ли сте че искате да истриете ${values.comment}`)
+    dispach(DLT(_id))
+  }
 
   return (
     <div id="templatemo-main-details">
@@ -198,9 +200,9 @@ const Details = () => {
                     </Tab>
 
                     <Tab eventKey="contact" title="Коментари">
-                      <h4>Напиши коментар</h4>
                       {isAuthenticated && isOwner && (
-                        <form onSubmit={onSubmit} >
+                        <form onSubmit={onSubmit} key={shoseId}>
+                          <h4>Напиши коментар</h4>
 
                           <textarea
                             type="text"
@@ -217,13 +219,37 @@ const Details = () => {
                             Коментирай
                           </Button>
 
-                          {comments.map(({ _id, text, }) => (
+                          {getData.map(({ _id, text, }) => (
                             <div key={_id} className="comentContent">
                               <div className="commentItem">
                                 <i className="bi bi-person-circle"></i>
                                 <ul>
                                   <li className="emailComment">{username} </li>
+                                  <Link to={`/comment/${_id}`}>
+                                    <i class="bi bi-pencil"
+                                      style={{
+                                        cursor: 'pointer',
+                                        float: 'right',
+                                        fontSize: '14px',
+                                        marginTop: '-39px',
+                                        padding: 10,
+                                        color: 'black',
+                                      }}></i>
+                                  </Link>
+
                                 </ul>
+                                <i onClick={() => delComment(_id)} class="bi bi-trash" style={{
+                                  cursor: 'pointer',
+                                  float: 'right',
+                                  width: '30px',
+                                  fontSize: '14px',
+                                  marginTop: '-54px',
+                                  color: 'red',
+                                  marginLeft: 375,
+                                  display: 'grid',
+                                  padding: 10,
+                                  border: '1px solid black',
+                                }}></i>
                                 <p>{text}</p>
                               </div>
                             </div>
