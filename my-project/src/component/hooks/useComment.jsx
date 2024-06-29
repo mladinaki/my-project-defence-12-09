@@ -10,6 +10,7 @@ const useComment = (submitHemdler) => {
 
     const onSubmit = (e) => {
         e.preventDefault()
+        setValues({ comment: "" })
 
         if (submitHemdler) {
             submitHemdler(values)
