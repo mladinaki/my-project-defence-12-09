@@ -9,7 +9,11 @@ const useComment = (submitHemdler) => {
     }
 
     const onSubmit = (e) => {
-        e.preventDefault()
+        e.preventDefault();
+        
+        if (values.comment == '') {
+            return
+        }
         setValues({ comment: "" })
 
         if (submitHemdler) {
