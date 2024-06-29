@@ -75,10 +75,14 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 	background: url(images/templatemo_menubar.png) no-repeat;
 }
 
+#templatemo_main {
+	width: 940px;
+	padding: 10px 20px;
+	background: url(images/templatemo_main_bg.png) repeat-y
+}
 
 #content { width: 690px }
 #sidebar { width: 220px }
-
 
 
 

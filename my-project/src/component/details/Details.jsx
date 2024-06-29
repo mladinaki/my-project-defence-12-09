@@ -17,17 +17,15 @@ import Typography from '@mui/material/Typography';
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
-import { ADD, DLT } from "../../redux/actions/action";
+import { ADD } from "../../redux/actions/action";
 
 import Path from "../../path/path";
 import { useReducer } from "react";
 import useComment from "../hooks/useComment";
 import reducer from "../Reducer/Reducer";
 
-
-const Details = ({ _id }) => {
+const Details = () => {
   const { isAuthenticated, userId, username, email } = useContext(AuthContext);
-
   const { shoseId } = useParams();
   const navigate = useNavigate();
 
@@ -76,8 +74,7 @@ const Details = ({ _id }) => {
     total();
   }, [total]);
 
-
-  const onDelProduct = async () => {
+  const onDelProduct = async (shoseId) => {
     const delItem = confirm("Сигурен ли сте че искате да изтриете този продукт !!!");
 
     if (delItem) {
@@ -93,26 +90,33 @@ const Details = ({ _id }) => {
       shoseId,
       values.comment
     );
-    dispach(ADD(newComment));
+
+    dispaches({
+      type: 'ADD_COMMENT',
+      peyload: newComment
+    })
   }
 
   const { values, onChange, onSubmit } = useComment(addCommentHednler, {
     comment: ''
   })
 
-  const delComment = async (_id) => {
-    // const commentDelete = await commentServices.removeComment(_id);
-    confirm(`Сигурен ли сте че искате да истриете ${values.comment}`)
-    dispach(DLT(_id))
+  const delComment = async (shoseId) => {
+    const confirmItem = confirm(`Сигурен ли сте че искате да истриете`);
+
+    if (confirmItem) {
+      const res = await commentServices.removeComment(shoseId);
+      navigate(`/details/${shoseId}`)
+    }
   }
 
   return (
+
     <div id="templatemo-main-details">
       <div id="content-details">
         <div className="content_half float_l">
 
           <Card sx={{ width: 950, marginLeft: -39 }}>
-
             <div className="content-details-name">
               <div className="content_half float_r">
                 <h3 className="sneakers-name-details">{selectShose.sneacersName}</h3>
@@ -136,6 +140,7 @@ const Details = ({ _id }) => {
                   <li>
                     Производител:
                     {selectShose.manifacture}
+                    {selectShose.shoseData}
                   </li>
                 </div>
 
@@ -195,6 +200,7 @@ const Details = ({ _id }) => {
                         {selectShose.description}
                       </div>
                     </Tab>
+
                     <Tab eventKey="profile" title="Таблица с размери">
                       <img src="https://kjcustomm.com/image/cache/catalog/Stylmartin/size-550x550h.jpg" />
                     </Tab>
@@ -219,41 +225,43 @@ const Details = ({ _id }) => {
                             Коментирай
                           </Button>
 
-                          {getData.map(({ _id, text, }) => (
-                            <div key={_id} className="comentContent">
-                              <div className="commentItem">
-                                <i className="bi bi-person-circle"></i>
-                                <ul>
-                                  <li className="emailComment">{username} </li>
-                                  <Link to={`/comment/${_id}`}>
-                                    <i class="bi bi-pencil"
-                                      style={{
-                                        cursor: 'pointer',
-                                        float: 'right',
-                                        fontSize: '14px',
-                                        marginTop: '-39px',
-                                        padding: 10,
-                                        color: 'black',
-                                      }}></i>
-                                  </Link>
+                          {comments.map(({ shoseData, _id }) => {
+                            return (
+                              <div key={_id} {...comments} shoseData={_id} className="comentContent">
+                                <div className="commentItem">
+                                  <i className="bi bi-person-circle"></i>
+                                  <ul>
+                                    <li className="emailComment">{username} </li>
+                                    <Link to={`/comment-edit/${_id}`}>
+                                      <i className="bi bi-pencil"
+                                        style={{
+                                          cursor: 'pointer',
+                                          float: 'right',
+                                          fontSize: '14px',
+                                          marginTop: '-38px',
+                                          margin: 10,
+                                          color: 'black',
 
-                                </ul>
-                                <i onClick={() => delComment(_id)} class="bi bi-trash" style={{
-                                  cursor: 'pointer',
-                                  float: 'right',
-                                  width: '30px',
-                                  fontSize: '14px',
-                                  marginTop: '-54px',
-                                  color: 'red',
-                                  marginLeft: 375,
-                                  display: 'grid',
-                                  padding: 10,
-                                  border: '1px solid black',
-                                }}></i>
-                                <p>{text}</p>
+                                        }}></i>
+                                    </Link>
+                                    <p>{shoseData}</p>
+
+                                  </ul>
+                                  <i onClick={() => delComment(_id)} className="bi bi-trash" style={{
+                                    cursor: 'pointer',
+                                    width: '20px',
+                                    height: '25px',
+                                    fontSize: '14px',
+                                    marginTop: '-56px',
+                                    color: 'red',
+                                    marginLeft: 385,
+                                    display: 'inline-block',
+                                    // padding: 4,
+                                  }}></i>
+                                </div>
                               </div>
-                            </div>
-                          ))}
+                            )
+                          })}
                         </form>
                       )}
 
@@ -267,12 +275,10 @@ const Details = ({ _id }) => {
                 </div>
               </Typography>
             </CardContent>
-          </Card >
-
-
-        </div >
-      </div >
-    </div >
+          </Card>
+        </div>
+      </div>
+    </div>
 
   );
 };

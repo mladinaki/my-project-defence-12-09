@@ -1,24 +1,58 @@
 import { Button } from "@mui/material";
 import style from "../details/Details.module.css";
-
+import { useEffect, useState } from "react";
+import * as commentServices from "../../services/commentServices"
+import { useNavigate, useParams } from "react-router-dom";
 
 const Comment = () => {
+    const { shoseId } = useParams();
+    const navigate = useNavigate();
+
+    const [comm, setComment] = useState({ shoseData: "" })
+
+    useEffect(() => {
+        commentServices.getOne(shoseId)
+            .then((result) => setComment(result));
+    }, [shoseId]);
+
+    const editHendler = async (e) => {
+        e.preventDefault();
+        const comm = Object.fromEntries(new FormData(e.currentTarget))
+        try {
+            const res = await commentServices.edit(shoseId, comm);
+            console.log(res);
+
+            setComment(state => state.map(comment => comment._id === shoseId ? res : comment));
+            navigate(`/product/catalog`);
+
+        } catch (error) {
+            return error;
+        }
+    }
+
+    const onChange = (e) => {
+        setComment(state => ({
+            ...state, [e.target.name]: e.target.value
+        }))
+    }
     return (
         <div id="templatemo_main_addProduct" className={style["add-content"]}>
             <div className={style["addItem-content-comment"]}>
                 <div className="content_half float_l">
                     <div id="contact_htmlFor">
-                        <form style={{ display: 'inline-block', marginLeft: "300PX" }}>
-                        <h3>Промени коментар</h3>
-                        <textarea
+                        <form onSubmit={editHendler} style={{ display: 'inline-block', marginLeft: "300PX" }}>
+                            <h3>Промени коментар</h3>
+                            <textarea
                                 style={{ width: '290px', height: '150px' }}
                                 type="text"
-                                name="description"
+                                name="shoseData"
+                                value={comm.shoseData}
+                                onChange={onChange}
                                 id="phone"
-                                className="input_field"
-                                placeholder="Описание"
-
+                                className="required input_field"
+                            // placeholder="Описание"
                             />
+
                             <Button
                                 style={{
                                     width: '100%',

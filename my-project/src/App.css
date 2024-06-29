@@ -121,13 +121,14 @@ a.addtocart-delete {
 a.cart-buy {
   display: flex;
   width: 100%;
-  padding: 2px;
+  padding: 5px;
   margin-right: 15px;
   justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
   text-decoration: none;
   background-color: #10BBCF;
   color: #020202;
-  border: 1px solid rgb(109, 109, 109);
+  border: 2px solid rgb(109, 109, 109);
 }
 
 a.cart-buy:hover {
@@ -167,7 +168,7 @@ a.detail {
   margin: 12px;
 }
 
-.buttons detail {
+.buttons  {
   width: 100px;
   height: 5px;
   display: inline;
@@ -181,7 +182,7 @@ tr {
 .sneakers-name-details {
   margin-left: 3px;
   letter-spacing: 1px;
-  font-size: 15px;
+  font-size: 25px;
   color: black;
 }
 
@@ -327,12 +328,12 @@ p {
 }
 
 .succsessForm {
-  border: 1px solid rgb(209, 209, 209);
-  background-color: #f2f2f2;
+  /* border: 1px solid rgb(209, 209, 209); */
+  background-color: #fafafa;
   text-align: center;
   display: grid;
-  margin-left: 10%;
-  width: 32%;
+  margin-left: 5%;
+  width: 50%;
   color: green;
   letter-spacing: 2px;
   font-size: 18px;
@@ -411,8 +412,9 @@ p {
 }
 
 #templatemo-main-details {
+  /* float: right;/ */
   position: relative;
-  display: flex;
+  display: grid;
   background: url(../public/images/templatemo_main_bg.png) repeat-y;
 }
 
@@ -548,13 +550,21 @@ p {
 .content-details-name {
   padding: 10px;
   float: right;
+  margin-right: 20px;
+  width: 60%;
+  justify-items: center;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: #f4f4f4;
 }
 
 .content-details-name span {
   color: #65829D;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  /* border: 1px solid red; */
+  /* width: 100%; */
+  /* margin-right: 20px; */
+  /* margin: 10px auto; */
+  /* float: right; */
+  /* display: block; */
 }
 
 
@@ -604,9 +614,10 @@ p {
 }
 
 #content-details {
-  position: relative;
+  /* position: absolute; */
   padding: 20px;
   margin: 0 auto;
+  display: flex;
 }
 
 #content-details img {
@@ -666,4 +677,63 @@ p {
   border: 1px solid rgb(238, 238, 238);
   width: 70px;
   margin: 0 auto;
+}
+
+.commentItem {
+  padding-top: 5px;
+  margin: 6px;
+  font-size: 13px;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-left: 5px;
+  width: 49.5%;
+  display: grid;
+  border: 1px solid rgb(233, 233, 233);
+}
+
+.commentItem li {
+  color: #10bbcf;
+
+  padding: 0 10px 0 10px;
+  border-radius: 10px;
+  border: 1px solid rgb(213, 213, 213);
+  float: left;
+  display: grid;
+  margin: -28px 0 0 20px;
+}
+
+
+
+.commentItem ul li {
+  position: relative;
+  font-size: 12px;
+  text-align: left;
+  display: block;
+  margin-right: 10px;
+}
+
+.commentItem i {
+  font-size: 40px;
+  text-align: left;
+  /* float: left; */
+  display: flex;
+  margin-left: 3px;
+}
+
+.comentContent {
+  margin-top: 5px;
+}
+
+.emailComment {
+  color: black;
+  font-weight: bold;
+  font-size: 9px;
+  font-family: Arial, Helvetica, sans-serif;
+  display: block;
+  height: 20px;
+
+}
+
+
+.commentItem p {
+  padding: 5px;
 }

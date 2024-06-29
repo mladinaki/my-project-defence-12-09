@@ -3,114 +3,146 @@
 import style from "../checkOut/checkOut.module.css";
 
 import { Button } from "@mui/material";
+import * as userService from "../../services/commponentAddres";
 
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const checkOutItem = () => {
+const CheckOut = () => {
+
+  const { shoseId } = useParams();
+
   const [price, setPrice] = useState(0);
-  const { shoseId } = useParams()
-
   const getData = useSelector((state) => state.cartreducer.carts);
+
+  const navigate = useNavigate()
 
   const total = () => {
     let price = 0;
     getData.map((data, k) => {
-      price = parseInt(data.price) * data.quantity + price;
+      price = (data.price) * data.quantity + price;
     });
-    setPrice(price);
+    setPrice(Number(price.toFixed(2)));
   };
 
   useEffect(() => {
     total();
   }, [total]);
 
+  const onHendlerCheck = async (e) => {
+    e.preventDefault();
+
+    const dataForm = Object.fromEntries(new FormData(e.currentTarget))
+
+    const res = await userService.cerateAddress(dataForm);
+    console.log(res);
+    // navigate(`/check/user`)
+  }
+
   return (
     <div id="templatemo-main-checout" key={shoseId}>
       <div id="" className="float_r">
-        <div id="templatemo_main"></div>
         <div className={style["form-check"]}>
-          <form action="">
-            <h2>Разплащане</h2>
-            <h5>
-              <strong>Данни за плащане</strong>
-            </h5>
-            <div className="content_half float_l checkout">
 
-              <input type="text" name="name" placeholder="Имейл адрес" />
-
-              <input type="text" name="name" placeholder="Име и фамилия" />
-
-              <input type="text" name="name" placeholder="Град" />
-
-              <input type="text" name="name" placeholder="Област" />
-
-              <input type="text" name="name" placeholder="Пощенски код" />
-
-              <input type="text" name="addres" placeholder="Адрес" />
-
-              <input type="text" name="city" placeholder="Град" />
-
-              <input type="text" name="phone" placeholder="Телефон" />
-
-              <Button type="submit" style={{
-                marginLeft: 7,
-                width: '94%',
-                height: 40,
-                borderRadius: 4,
-                backgroundColor: "#10BBCF",
-                color: "#FFFFFF"
-              }}>Поръчай</Button>
+          {getData.length === 0 && <div></div> ? (
+            <div className={style["content-messageCheck"]}>
+              <h3>Кошницата е празна!</h3>
             </div>
-          </form>
-          <tr>
-            <th>Снимка</th>
-            <th>Име на продукта</th>
-            <th>Количство</th>
-            <th>Обща сума</th>
-          </tr>
-        </div>
-        {getData.map((check) => {
 
-          return (
-            <div className="cont">
-              <div className="che-output-container">
+          ) : (
+            <div className="checkOutContent">
+              <h2>Поръчка</h2>
+              <form onSubmit={onHendlerCheck}>
+                <div className="content_half float_l checkout">
+
+                  <input type="text" name="email" placeholder="Имейл адрес" />
+
+                  <input type="text" name="firstName" placeholder="Име и фамилия" />
+
+                  <input type="text" name="city" placeholder="Град" />
+
+                  <input type="text" name="area" placeholder="Област" />
+
+                  <input type="text" name="postCode" placeholder="Пощенски код" />
+
+                  <input type="text" name="addres" placeholder="Адрес" />
+
+                  <input type="text" name="city" placeholder="Град" />
+
+                  <input type="text" name="phone" placeholder="Телефон" />
+
+                  <Button
+                    type="submit"
+                    name="submit"
+                    value="send"
+                    style={{
+                      marginLeft: 7,
+                      width: '90.5%',
+                      borderRadius: 4,
+                      backgroundColor: "#10BBCF",
+                      color: "#000",
+                      marginLeft: 5,
+                      fontFamily: 'verdana'
+                    }}>Поръчай</Button>
+                </div>
+              </form>
+
+              <table>
+                <tr>
+                  <th>Снимка</th>
+                  <th>Име</th>
+                  <th>Количство</th>
+                  <th>Ед. цена</th>
+                  <th>Обща сума</th>
+                </tr>
+              </table>
+              {getData.map((check) => {
+
+                return (
+                  <div className="cont" key={check._id}>
+                    <div className="che-output-container">
+
+                      <table>
+                        <tr>
+                          <td><img src={check.imageUrl} style={{ width: 50 }} /></td>
+                        </tr>
+
+                        <tr>
+                          <td>{check.sneacersName}</td>
+                        </tr>
+
+                        <tr>
+                          <td>{check.quantity}бр</td>
+                        </tr>
+
+                        <tr>
+                          <td>{check.price}лв.</td>
+                        </tr>
+
+                        <tr>
+                          <td>{check.price * check.quantity}лв.</td>
+                        </tr>
+                      </table>
+
+                    </div>
+                  </div>
+                );
+              })}
+              <div className={style["price-total-check"]}>
                 <table>
-
-                  <td>
-                    <tr><img src={check.imageUrl} style={{ width: 50 }} /></tr>
-                  </td>
-
-                  <td>
-                    <tr>{check.sneacersName}</tr>
-                  </td>
-
-                  <td>
-                    <tr>{check.quantity}бр</tr>
-                  </td>
-
-                  <td>
-                    <tr>{check.price}</tr>
-                  </td>
-
+                  <tr>
+                    <td >Всичко: {price.toFixed(2)}лв.</td>
+                  </tr>
                 </table>
+
               </div>
             </div>
-          );
-        })}
-
-        <div className={style["price-total-check"]}>
-          <span>Всичко {price.toFixed(2)}лв.</span>
-          <Button
-            style={{ border: "1px solid black", marginLeft: 15, fontSize: 10 }}
-          >
-            Завърши поръчката
-          </Button>
+          )}
         </div>
       </div>
     </div>
   );
 };
 
-export default checkOutItem;
+export default CheckOut;
