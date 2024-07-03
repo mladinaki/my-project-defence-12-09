@@ -4,7 +4,8 @@ import "./App.css";
 import { AuthProvider } from "./contexts/authContexts";
 import Path from "./path/path";
 
-import Create from "./component/create/Create";
+// import Create from "./component/create/Create";
+import SingForms from './component/SingForm'
 import Contact from "./component/contact/Contact";
 import Details from "./component/details/Details";
 import Footer from "./component/Footer";
@@ -22,6 +23,7 @@ import CheckOut from "./component/checkOut/CheckOut";
 import Form from "./component/Form";
 import Check from "./component/checkOut/Check";
 import Comment from "./component/comment/comment";
+import SingForm from "./component/SingForm";
 
 function App() {
   return (
@@ -45,7 +47,7 @@ function App() {
 
             <Route element={<AuthGard />}>
               <Route path="/shoping/cart" element={<ShopingCart />} />
-              <Route path="/add/sneakers" element={<Create />} />
+              <Route path="/add/sneakers" element={<SingForm />} />
               <Route path={'/edit/:shoseId'} element={<ShoseEdit />} />
               <Route path="/comment-edit/:shoseId" element={<Comment />} />
               <Route path={Path.Details} element={<Details />} />
