@@ -168,7 +168,7 @@ a.detail {
   margin: 12px;
 }
 
-.buttons  {
+.buttons {
   width: 100px;
   height: 5px;
   display: inline;
@@ -692,16 +692,13 @@ p {
 
 .commentItem li {
   color: #10bbcf;
-
-  padding: 0 10px 0 10px;
-  border-radius: 10px;
-  border: 1px solid rgb(213, 213, 213);
+  padding: 0 30px 0 30px;
+  border-radius: 3px;
+  border: 1px solid rgb(231, 231, 231);
   float: left;
   display: grid;
   margin: -28px 0 0 20px;
 }
-
-
 
 .commentItem ul li {
   position: relative;
@@ -736,4 +733,12 @@ p {
 
 .commentItem p {
   padding: 5px;
+}
+
+.errMSG {
+  color: red;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13px;
+  text-align: left;
+  padding: 4px;
 }

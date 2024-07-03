@@ -74,12 +74,21 @@
 .addItem-content {
   position: relative;
   justify-content: center;
-  /* margin-left: 100px; */
   margin-bottom: 20px;
 }
 
+
+
+.addItem-content form input{
+  height: 30px;
+}
+
+.add-content form textarea {
+  width: 96%;
+}
+
 .addItem-content input::placeholder {
-  font-size: 10px;
+  font-size: 13px;
   color: #617D97;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -87,7 +96,7 @@
 .addItem-content h3 {
   position: relative;
   justify-content: center;
-  margin-left: 365px;
+  margin-left: 348px;
   font-size: 22px;
   color: black;
 }
