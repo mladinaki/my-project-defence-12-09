@@ -3,11 +3,14 @@ const validatecreate = (values) => {
     let err = {};
 
     const patern = /^$|^[0-9]+(\.[0-9]+)?$/
-    const stringPatern = /^[А-За-з]+$/
-    console.log(patern);
+    const stringPatern = /^[A-Za-z]+$/
+    const paternURL = /^(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/
 
-    if (values.sneacersName.length <= 5) {
-        err.sneacersName = 'Полето е задължително'
+    if (values.sneacersName === '') {
+        err.sneacersName = 'Полето е задължително!'
+    }
+    else if (values.sneacersName.length <= 5) {
+        err.sneacersName = 'Името е твърде кратко!'
     }
 
     if (!patern.test(values.price)) {
@@ -42,7 +45,7 @@ const validatecreate = (values) => {
     }
 
     if (!values.imageUrl) {
-        err.imageUrl = 'Цената е задължителна'
+        err.imageUrl = 'Цената е задължителна!'
     }
 
     if (!stringPatern.test(values.description)) {

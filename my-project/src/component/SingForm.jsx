@@ -6,7 +6,6 @@ const SingForm = () => {
     const [isSubmited, setSubmited] = useState(false)
 
     const submitCreateForm = () => {
-        console.log('hello');
         setSubmited(true)
     }
 

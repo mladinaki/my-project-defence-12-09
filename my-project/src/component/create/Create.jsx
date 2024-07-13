@@ -14,6 +14,7 @@ const Create = ({ submitCreateForm }) => {
 
     try {
       await userService.cerate(values);
+      navigate('/product/catalog')
     }
     catch (error) {
       console.log(error);
@@ -41,6 +42,7 @@ const Create = ({ submitCreateForm }) => {
               name="sneacersName"
               value={values.sneacersName}
               onChange={onChange}
+              placeholder="Име"
               />
               {err.sneacersName && <span className="errMSG">{err.sneacersName}</span>}
 
