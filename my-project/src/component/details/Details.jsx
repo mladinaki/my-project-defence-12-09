@@ -23,30 +23,36 @@ import Path from "../../path/path";
 import { useReducer } from "react";
 import useComment from "../hooks/useComment";
 import reducer from "../Reducer/Reducer";
+import EditModal from "../comment/commentEditModal";
 
 const Details = () => {
   const { isAuthenticated, userId, username, email } = useContext(AuthContext);
   const { shoseId } = useParams();
+
   const navigate = useNavigate();
 
   const [key, setKey] = useState('home');
   const [price, setPrice] = useState(0);
-  const [selectShose, setShose] = useState({});
+
+  const [addTodo, setShow] = useState(false);
+  const [selectDelete, setDelete] = useState(false);
+  const [selectShose, setShose] = useState([]);
   const [comments, dispaches] = useReducer(reducer, []);
 
   const getData = useSelector((state) => state.cartreducer.carts);
   const dispach = useDispatch();
 
+
   useEffect(() => {
     try {
       userService.getOne(shoseId)
-        .then(setShose);
+        .then(res => setShose(res));
 
       commentServices.getAll(shoseId)
         .then(result => {
           dispaches({
-            type: 'GET_ALL_GAMES',
-            peyload: result
+            type: 'GET_ALL_COMMENT',
+            payload: result
           })
         })
 
@@ -54,7 +60,6 @@ const Details = () => {
       console.log(error);
     }
   }, [shoseId]);
-
 
   const clickCart = async () => {
     const carts = await userService.getOne(shoseId);
@@ -90,28 +95,69 @@ const Details = () => {
       shoseId,
       values.comment
     );
+    console.log(newComment);
 
     dispaches({
       type: 'ADD_COMMENT',
-      peyload: newComment
+      payload: newComment
     })
+
   }
 
   const { values, onChange, onSubmit } = useComment(addCommentHednler, {
     comment: ''
   })
 
+
   const delComment = async (shoseId) => {
-    const confirmItem = confirm(`Сигурен ли сте че искате да истриете`);
+    console.log(shoseId);
+    const confirmItem = confirm(`Сигурен ли сте че искате да истриете коментара!`);
 
     if (confirmItem) {
       const res = await commentServices.removeComment(shoseId);
-      navigate(`/details/${shoseId}`)
+      console.log(res);
+
+      // dispaches({
+      //   type: 'RMV_COMMENT',
+      //   payload: shoseId
+      // })
+
+      setDelete(res)
     }
+    // navigate(Path.Product)
+  }
+
+
+  const onCloseEdits = () => {
+    setShow(false);
+  }
+
+  const onHandlerEditsGetOne = async (shoseId) => {
+    console.log(shoseId);
+    const res = await commentServices.getOne(shoseId);
+    console.log(res);
+    setShow(res)
+  }
+
+  const submitedAdd = (e, shoseId) => {
+    updateEdit(e, shoseId)
+  }
+
+  const updateEdit = async (e, shoseId) => {
+    const dataForm = new FormData(e.currentTarget)
+    const data = Object.fromEntries(dataForm);
+
+    const res = await commentServices.edit(shoseId, data);
+    console.log(shoseId);
+
+    dispaches({
+      type: 'EDIT_COMMENT',
+      payload: res
+    })
+    setShow(false)
   }
 
   return (
-
     <div id="templatemo-main-details">
       <div id="content-details">
         <div className="content_half float_l">
@@ -149,7 +195,6 @@ const Details = () => {
                 </div>
                 {
                   (isAuthenticated && isOwner && (
-
                     <div className={style['btnCart']} onClick={clickCart}>
                       <i className="bi bi-cart2"></i>
                       Добави в количката
@@ -169,9 +214,8 @@ const Details = () => {
 
             {
               isAuthenticated && isOwner && (
-
                 <div className={style['btnContent']}>
-                  <div className={style['btnDel']} onClick={onDelProduct}>
+                  <div className={style['btnDel']} onClick={() => onDelProduct(shoseId)}>
                     Премахни
                   </div>
 
@@ -215,37 +259,37 @@ const Details = () => {
                             name="comment"
                             value={values.comment}
                             onChange={onChange}
-
                             id="comment"
                             className="input_field"
-                            placeholder="* Вашият коментар"
+                            placeholder="*Вашият коментар"
                           />
 
                           <Button type="submit" className={style["btnComment"]}>
                             Коментирай
                           </Button>
 
-                          {comments.map(({ shoseData, _id }) => {
+                          {comments.length === 0 && <div style={{ color: '#FF0000', fontSize: '16px', margin: '2% 15%', }}>Все още няма коментар!</div>}
+
+                          {comments.map(({ _id, shoseData }) => {
                             return (
-                              <div key={_id} {...comments} shoseData={_id} className="comentContent">
+                              <div key={_id} {...comments} className="comentContent">
                                 <div className="commentItem">
                                   <i className="bi bi-person-circle"></i>
                                   <ul>
-                                    <li className="emailComment">{username} </li>
-                                    <Link to={`/comment-edit/${_id}`}>
-                                      <i className="bi bi-pencil"
-                                        style={{
-                                          cursor: 'pointer',
-                                          float: 'right',
-                                          fontSize: '14px',
-                                          marginTop: '-38px',
-                                          margin: 10,
-                                          color: 'black',
+                                    <li className="emailComment"> {username} </li>
 
-                                        }}></i>
-                                    </Link>
-                                    <p>{shoseData}</p>
+                                    <p className="text">{shoseData}</p>
 
+                                    {<EditModal
+                                      show={addTodo}
+                                      selectShose={addTodo}
+                                      selectDelete={_id}
+                                      id={_id}
+
+                                      onSubmitHandle={submitedAdd}
+                                      onHandlerEditId={onHandlerEditsGetOne}
+
+                                      onCloseEd={onCloseEdits} />}
                                   </ul>
                                   <i onClick={() => delComment(_id)} className="bi bi-trash" style={{
                                     cursor: 'pointer',
@@ -261,6 +305,7 @@ const Details = () => {
                                 </div>
                               </div>
                             )
+
                           })}
                         </form>
                       )}

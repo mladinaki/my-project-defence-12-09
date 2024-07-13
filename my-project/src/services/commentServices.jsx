@@ -2,13 +2,13 @@ import * as request from "../lib/request";
 
 const baseURL = "http://localhost:3030/data/comments";
 
-export const getAll = async (_id) => {
+export const getAll = async (shoseId) => {
     const query = new URLSearchParams({
-        where: `shoseId="${_id}"`,
-        load: `owner=_ownerId:users`,
+        where: `shoseId="${shoseId}"`,
+        load: `author=_ownerId:users`,
     })
 
-    const result = await request.get(`${baseURL}?${query}`)
+    const result = await request.get(`${baseURL}?${query}`);
     return result
 }
 
@@ -30,6 +30,6 @@ export const edit = async (shoseId, shoseData) => {
     return result
 }
 export const removeComment = async (shoseId) => {
-    const res = await request.del(`${baseURL}/${shoseId}`)
+    const res = await request.del(`${baseURL}/${shoseId}`);
     return res
 }
