@@ -4,7 +4,7 @@ export const buildRequest = (data) => {
   if (data) {
     options.body = JSON.stringify(data);
     options.headers = {
-      "content-Type": "application/json",
+      "Content-Type": "application/json",
     };
   }
 
