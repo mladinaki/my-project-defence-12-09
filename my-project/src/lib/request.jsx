@@ -8,7 +8,7 @@ export const buildRequest = (data) => {
     };
   }
 
-  const token = localStorage.getItem("accessToken");
+  const token = localStorage.getItem("accessToken") || null;
 
   if (token) {
     options.headers = {
