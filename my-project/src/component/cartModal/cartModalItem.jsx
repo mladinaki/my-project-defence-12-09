@@ -63,11 +63,11 @@ export default function CartModalItem({ _id }) {
         <Button onClick={handleOpen}>
 
           <div className={styles["cart-icon"]} >
-            <i className="bi bi-cart" style={{ display: 'inline', marginBottom: '5px' }}></i>
+            <i className="bi bi-cart" style={{ display: 'inline',fontSize:33 }}></i>
           </div>
 
           <Badge badgeContent={getData.length} color="error"
-            style={{ padding: 5, marginBottom: 13 }}>
+            style={{ padding: 5, position:"relative",bottom:20,right:5 }}>
           </Badge>
         </Button>
       )}

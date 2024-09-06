@@ -64,6 +64,7 @@ h6 { font-size: 12px; margin: 0 0 5px; padding: 0; }
 
 #templatemo_header {
 	width: 960px;
+	
 	height: 70px;
 	padding: 30px 10px;
 	background: url(images/templatemo_header_bg.png) no-repeat bottom; 

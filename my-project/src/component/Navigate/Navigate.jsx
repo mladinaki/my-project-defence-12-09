@@ -71,7 +71,7 @@ const NavBar = ({ data }) => {
         <div>
           <div className={styles["user-name-user"]}>
             Здравей!
-            <span style={{ color: "black", fontSize: 13, paddingLeft: 5 }}>{username}</span>
+            <span style={{ color: "black", fontSize: 13, paddingLeft: 5 }}>{username} {" --> "} </span>
           </div>
         </div>
       )}

@@ -101,7 +101,6 @@ const Details = () => {
       type: 'ADD_COMMENT',
       payload: newComment
     })
-
   }
 
   const { values, onChange, onSubmit } = useComment(addCommentHednler, {
